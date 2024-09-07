@@ -1,0 +1,36 @@
+::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+::-webkit-scrollbar-track {
+  background: $black;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $yellow;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: $yellow;
+}
+
+html {
+  scroll-behavior: smooth;
+
+  body {
+    @include displayFlex(null, null, null, column);
+    min-height: 100dvh;
+    font-family: $font-primary;
+    font-size: 1rem;
+    color: $white;
+    background-color: $black;
+
+    @import "./header";
+
+    @import "./navigation";
+
+    @import "./main";
+
+    @import "./footer";
+  }
+}

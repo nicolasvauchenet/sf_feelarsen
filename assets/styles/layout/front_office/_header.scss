@@ -1,0 +1,20 @@
+.app-header {
+  position: sticky;
+  top: 0;
+  padding: 0.5rem 1rem;
+  background-color: $black;
+  @extend .border-bottom;
+
+  @include respondTo(md) {
+    @include displayFlex(space-between, center, 2.5rem);
+  }
+
+  .app-logo {
+    @extend .d-block;
+
+    img {
+      @extend .d-block;
+      height: 5.75rem;
+    }
+  }
+}

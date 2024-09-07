@@ -1,0 +1,11 @@
+.app-footer {
+  padding: 0.5rem 1rem;
+  margin-bottom: 4.5rem;
+  font-size: 0.85rem;
+  color: $black;
+  background-color: $yellow;
+
+  @include respondTo(md) {
+    margin-bottom: 0;
+  }
+}
