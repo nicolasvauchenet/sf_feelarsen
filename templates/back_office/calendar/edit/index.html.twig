@@ -11,7 +11,14 @@
     <section class="app-section actions">
         <a href="{{ path('app_back_office_calendar_home') }}">
             {{ ux_icon('fa6-solid:circle-arrow-left', {'class': 'app-icon medium'}) }}
-            Retour
+            Les Concerts
+        </a>
+
+        <a href="{{ path('app_back_office_calendar_delete', {'id': calendar.id}) }}"
+           class="text-danger"
+           onclick="return window.confirm('⚠ Attention ⚠\nToutes les dates de ce calendrier seront supprimées !\nÊtes-vous sûr ?')">
+            {{ ux_icon('fa6-solid:trash-can', {'class': 'app-icon medium'}) }}
+            Supprimer
         </a>
     </section>
 

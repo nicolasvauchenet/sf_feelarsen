@@ -5,5 +5,12 @@
 
     <p class="legals">
         <a href="#">Mentions légales</a>
+
+        {% if is_granted('ROLE_ADMIN') %}
+            •
+            <a href="{{ path('app_back_office_calendar_home') }}" target="_blank">Administration</a>
+            •
+            <a href="{{ path('app_logout') }}" onclick="return window.confirm('Vous partez ?')">Déconnexion</a>
+        {% endif %}
     </p>
 </footer>

@@ -3,23 +3,37 @@
 namespace App\Form;
 
 use App\Entity\Calendar;
+use App\Entity\Date;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\File;
 
-class CalendarType extends AbstractType
+class DateType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('name', TextType::class, [
+            ->add('calendar', EntityType::class, [
                 'required' => true,
-                'label' => 'Nom du calendrier',
+                'label' => 'Calendrier associé',
+                'class' => Calendar::class,
+                'choice_label' => 'name',
+                'placeholder' => 'Choisissez un Calendrier',
+                'label_attr' => [
+                    'class' => 'form-label',
+                ],
+                'attr' => [
+                    'class' => 'form-control',
+                ],
+            ])
+            ->add('location', TextType::class, [
+                'required' => true,
+                'label' => 'Lieu du concert',
                 'label_attr' => [
                     'class' => 'form-label',
                 ],
@@ -28,21 +42,20 @@ class CalendarType extends AbstractType
                     'class' => 'form-control',
                 ],
             ])
-            ->add('description', TextareaType::class, [
-                'required' => false,
-                'label' => 'Description',
+            ->add('city', TextType::class, [
+                'required' => true,
+                'label' => 'Ville du concert',
                 'label_attr' => [
                     'class' => 'form-label',
                 ],
                 'attr' => [
                     'class' => 'form-control',
-                    'rows' => 7,
                 ],
             ])
             ->add('poster', FileType::class, [
                 'mapped' => false,
                 'required' => false,
-                'label' => 'Poster du calendrier',
+                'label' => 'Affiche du concert',
                 'label_attr' => [
                     'class' => 'form-label',
                 ],
@@ -61,10 +74,9 @@ class CalendarType extends AbstractType
                     ]),
                 ],
             ])
-            ->add('startAt', null, [
-                'widget' => 'single_text',
-                'required' => true,
-                'label' => 'Date de début',
+            ->add('link', TextType::class, [
+                'required' => false,
+                'label' => 'Lien du concert',
                 'label_attr' => [
                     'class' => 'form-label',
                 ],
@@ -72,10 +84,10 @@ class CalendarType extends AbstractType
                     'class' => 'form-control',
                 ],
             ])
-            ->add('endAt', null, [
+            ->add('startAt', null, [
                 'widget' => 'single_text',
-                'required' => false,
-                'label' => 'Date de fin',
+                'required' => true,
+                'label' => 'Date du concert',
                 'label_attr' => [
                     'class' => 'form-label',
                 ],
@@ -85,7 +97,7 @@ class CalendarType extends AbstractType
             ])
             ->add('active', CheckboxType::class, [
                 'required' => false,
-                'label' => 'Calendrier actif',
+                'label' => 'Concert confirmé',
                 'attr' => [
                     'class' => 'form-checkbox',
                 ],
@@ -95,7 +107,7 @@ class CalendarType extends AbstractType
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => Calendar::class,
+            'data_class' => Date::class,
         ]);
     }
 }

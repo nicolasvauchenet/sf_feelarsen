@@ -28,6 +28,9 @@ class Date
     #[ORM\Column]
     private ?\DateTimeImmutable $startAt = null;
 
+    #[ORM\Column]
+    private ?bool $active = null;
+
     #[ORM\ManyToOne(inversedBy: 'dates')]
     #[ORM\JoinColumn(nullable: false)]
     private ?Calendar $calendar = null;
@@ -93,6 +96,18 @@ class Date
     public function setStartAt(\DateTimeImmutable $startAt): static
     {
         $this->startAt = $startAt;
+
+        return $this;
+    }
+
+    public function isActive(): ?bool
+    {
+        return $this->active;
+    }
+
+    public function setActive(bool $active): static
+    {
+        $this->active = $active;
 
         return $this;
     }

@@ -17,6 +17,11 @@
 html {
   scroll-behavior: smooth;
 
+  .turbo-progress-bar {
+    height: 0.5rem;
+    background-color: $success;
+  }
+
   body {
     @include displayFlex(null, null, null, column);
     min-height: 100dvh;

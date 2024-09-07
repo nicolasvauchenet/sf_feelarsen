@@ -21,7 +21,7 @@ final class Version20240907133744 extends AbstractMigration
     {
         // this up() migration is auto-generated, please modify it to your needs
         $this->addSql('CREATE SEQUENCE date_id_seq INCREMENT BY 1 MINVALUE 1 START 1');
-        $this->addSql('CREATE TABLE date (id INT NOT NULL, calendar_id INT NOT NULL, location VARCHAR(255) NOT NULL, city VARCHAR(255) NOT NULL, poster VARCHAR(255) DEFAULT NULL, link VARCHAR(255) DEFAULT NULL, start_at TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL, PRIMARY KEY(id))');
+        $this->addSql('CREATE TABLE date (id INT NOT NULL, calendar_id INT NOT NULL, location VARCHAR(255) NOT NULL, city VARCHAR(255) NOT NULL, poster VARCHAR(255) DEFAULT NULL, link VARCHAR(255) DEFAULT NULL, start_at TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL, active BOOLEAN NOT NULL, PRIMARY KEY(id))');
         $this->addSql('CREATE INDEX IDX_AA9E377AA40A2C8 ON date (calendar_id)');
         $this->addSql('COMMENT ON COLUMN date.start_at IS \'(DC2Type:datetime_immutable)\'');
         $this->addSql('ALTER TABLE date ADD CONSTRAINT FK_AA9E377AA40A2C8 FOREIGN KEY (calendar_id) REFERENCES calendar (id) NOT DEFERRABLE INITIALLY IMMEDIATE');

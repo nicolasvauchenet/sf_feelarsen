@@ -27,6 +27,9 @@ class Calendar
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $description = null;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $poster = null;
+
     #[ORM\Column]
     private ?\DateTimeImmutable $startAt = null;
 
@@ -85,6 +88,18 @@ class Calendar
     public function setDescription(?string $description): static
     {
         $this->description = $description;
+
+        return $this;
+    }
+
+    public function getPoster(): ?string
+    {
+        return $this->poster;
+    }
+
+    public function setPoster(?string $poster): static
+    {
+        $this->poster = $poster;
 
         return $this;
     }

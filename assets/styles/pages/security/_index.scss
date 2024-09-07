@@ -1,0 +1,16 @@
+html {
+  body {
+    &.security {
+      .app-main {
+        .app-section {
+          &.cover {
+            img {
+              height: 40dvh;
+              object-position: center 12%;
+            }
+          }
+        }
+      }
+    }
+  }
+}

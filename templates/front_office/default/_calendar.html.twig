@@ -5,19 +5,31 @@
         {% for date in calendar.dates %}
             <div class="app-card {% if date.startAt < date('now') %}disabled{% endif %}">
                 <div class="card-image">
-                    {% if date.poster %}
-                        <img src="{{ asset('uploads/calendar/' ~ calendar.slug ~ '/' ~ date.poster) }}"
-                             alt="{{ date.location }}"/>
-                    {% else %}
-                        <img src="{{ asset('uploads/calendar/' ~ calendar.slug ~ '/poster.jpg') }}"
-                             alt="{{ date.location }}"/>
+                    {% if date.link %}
+                    <a href="{{ date.link }}" target="_blank">
+                        {% endif %}
+                        {% if date.poster %}
+                            <img src="{{ asset('uploads/calendar/' ~ calendar.slug ~ '/' ~ date.poster) }}"
+                                 alt="{{ date.location }}"/>
+                        {% else %}
+                            <img src="{{ asset('uploads/calendar/' ~ calendar.slug ~ '/poster.jpg') }}"
+                                 alt="{{ date.location }}"/>
+                        {% endif %}
+                        {% if date.link %}
+                    </a>
                     {% endif %}
                 </div>
 
                 <div class="card-body">
-                    <h3 class="card-title">{{ date.startAt | format_datetime(locale=app_locale, pattern="EEEE dd MMMM YYYY") | title }}</h3>
+                    <h3 class="card-title">{{ date.startAt | format_datetime(locale=app_locale, pattern="EEEE dd MMMM") | title }}</h3>
                     <h4>{{ date.location }}</h4>
-                    <h5>{{ date.city }}</h5>
+                    <h5>
+                        {% if date.startAt|date('H') > 0 or date.startAt|date('i') > 0 %}
+                            {{ date.startAt | format_datetime(locale=app.locale, pattern="HH'h'mm") }}
+                            à
+                        {% endif %}
+                        {{ date.city }}
+                    </h5>
                 </div>
             </div>
         {% endfor %}

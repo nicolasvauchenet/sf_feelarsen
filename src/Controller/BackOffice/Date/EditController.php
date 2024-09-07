@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Controller\BackOffice\Calendar;
+namespace App\Controller\BackOffice\Date;
 
-use App\Entity\Calendar;
-use App\Form\CalendarType;
+use App\Entity\Date;
+use App\Form\DateType;
 use App\Service\FileUploaderService;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -13,35 +13,38 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\String\Slugger\SluggerInterface;
 
-class AddController extends AbstractController
+class EditController extends AbstractController
 {
-    #[Route('/administration/nouveau-calendrier', name: 'app_back_office_calendar_add')]
+    #[Route('/administration/concert/modifier/{id}', name: 'app_back_office_date_edit')]
     public function index(Request                $request,
                           EntityManagerInterface $entityManager,
                           FileUploaderService    $fileUploaderService,
-                          SluggerInterface       $slugger): Response
+                          Date                   $date): Response
     {
-        $calendar = new Calendar();
-        $form = $this->createForm(CalendarType::class, $calendar);
+        $form = $this->createForm(DateType::class, $date);
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()) {
             /** @var UploadedFile $posterFile */
             $posterFile = $form->get('poster')->getData();
             if($posterFile) {
-                $posterFileName = $fileUploaderService->upload($posterFile, 'calendar/' . strtolower($slugger->slug($calendar->getName())), 'poster');
-                $calendar->setPoster($posterFileName);
+                if($date->getPoster()) {
+                    $fileUploaderService->remove('calendar/' . $date->getCalendar()->getSlug(), $date->getPoster());
+                }
+                $posterFileName = $fileUploaderService->upload($posterFile, 'calendar/' . $date->getCalendar()->getSlug(), $date->getStartAt()->format('Ymd'));
+                $date->setPoster($posterFileName);
             }
-            $entityManager->persist($calendar);
+            $entityManager->persist($date);
             $entityManager->flush();
 
-            $this->addFlash('success', "Le calendrier {$calendar->getName()} a été créé");
+            $this->addFlash('info', "Le concert du {$date->getStartAt()->format('d/m/Y')} - {$date->getLocation()} à {$date->getCity()} a été modifié");
 
             return $this->redirectToRoute('app_back_office_calendar_home', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->render('back_office/calendar/add/index.html.twig', [
+        return $this->render('back_office/date/edit/index.html.twig', [
             'form' => $form->createView(),
+            'date' => $date,
         ], new Response(null, $form->isSubmitted() && !$form->isValid() ? 422 : 201));
     }
 }

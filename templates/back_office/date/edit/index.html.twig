@@ -1,11 +1,11 @@
 {% extends 'back_office/layout/_index.html.twig' %}
 
-{% block title %}Nouveau Calendrier{% endblock %}
+{% block title %}Modifier un Concert{% endblock %}
 
 {% block main %}
     <section class="app-section cover" data-navigation-target="section">
         <img src="{{ asset('img/admincover.webp') }}" alt="Administration"/>
-        <h1>Nouveau Calendrier</h1>
+        <h1>Modifier un Concert</h1>
     </section>
 
     <section class="app-section actions">
@@ -13,9 +13,16 @@
             {{ ux_icon('fa6-solid:circle-arrow-left', {'class': 'app-icon medium'}) }}
             Les Concerts
         </a>
+
+        <a href="{{ path('app_back_office_date_delete', {'id': date.id}) }}"
+           class="text-danger"
+           onclick="return window.confirm('Êtes-vous sûr ?')">
+            {{ ux_icon('fa6-solid:trash-can', {'class': 'app-icon medium'}) }}
+            Supprimer
+        </a>
     </section>
 
     <section class="app-section form">
-        {% include 'back_office/calendar/_form.html.twig' %}
+        {% include 'back_office/date/_form.html.twig' with {'button_label': 'Modifier'} %}
     </section>
 {% endblock %}

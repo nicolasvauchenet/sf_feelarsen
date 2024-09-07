@@ -5,5 +5,9 @@
     &.four {
       grid-template-columns: repeat(4, 1fr);
     }
+
+    &.third {
+      @include displayGrid(4fr 6fr, 1rem);
+    }
   }
 }

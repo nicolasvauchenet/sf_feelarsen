@@ -1,11 +1,11 @@
 {% extends 'back_office/layout/_index.html.twig' %}
 
-{% block title %}Nouveau Calendrier{% endblock %}
+{% block title %}Nouveau Concert{% endblock %}
 
 {% block main %}
     <section class="app-section cover" data-navigation-target="section">
         <img src="{{ asset('img/admincover.webp') }}" alt="Administration"/>
-        <h1>Nouveau Calendrier</h1>
+        <h1>Nouveau Concert</h1>
     </section>
 
     <section class="app-section actions">
@@ -16,6 +16,6 @@
     </section>
 
     <section class="app-section form">
-        {% include 'back_office/calendar/_form.html.twig' %}
+        {% include 'back_office/date/_form.html.twig' %}
     </section>
 {% endblock %}

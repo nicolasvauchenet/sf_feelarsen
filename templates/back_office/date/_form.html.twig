@@ -1,37 +1,37 @@
 {{ form_start(form, {'attr': {'class': 'app-form'}}) }}
 <fieldset class="form-fieldset">
-    <legend class="form-legend">Informations du Calendrier</legend>
+    <legend class="form-legend">Informations du Concert</legend>
 
     <div class="form-group">
-        {{ form_label(form.name) }}
-        {{ form_widget(form.name) }}
-        {{ form_errors(form.name) }}
+        {{ form_label(form.location) }}
+        {{ form_widget(form.location) }}
+        {{ form_errors(form.location) }}
     </div>
 
     <div class="form-group">
-        {{ form_label(form.description) }}
-        {{ form_widget(form.description) }}
-        {{ form_errors(form.description) }}
+        {{ form_label(form.city) }}
+        {{ form_widget(form.city) }}
+        {{ form_errors(form.city) }}
     </div>
 
     <div class="form-group">
         {{ form_label(form.poster) }}
-        {% if calendar is defined and calendar.poster %}
+        {% if date is defined and date.poster %}
             <div class="app-grid third">
                 <div class="file">
                     {{ form_widget(form.poster) }}
-                    <p>{{ calendar.poster }}</p>
+                    <p>{{ date.poster }}</p>
                     <p>
-                        <a href="{{ path('app_back_office_calendar_poster_delete', {'id': calendar.id}) }}"
+                        <a href="{{ path('app_back_office_date_poster_delete', {'id': date.id}) }}"
                            class="text-danger"
                            onclick="return window.confirm('Êtes-vous sûr ?')">Supprimer
                         </a>
                     </p>
                 </div>
                 <div class="preview">
-                    <a href="{{ asset('uploads/calendar/' ~ calendar.slug ~ '/' ~ calendar.poster) }}" target="_blank">
-                        <img src="{{ asset('uploads/calendar/' ~ calendar.slug ~ '/' ~ calendar.poster) }}"
-                             alt="{{ calendar.name }}"/>
+                    <a href="{{ asset('uploads/calendar/' ~ date.calendar.slug ~ '/' ~ date.poster) }}" target="_blank">
+                        <img src="{{ asset('uploads/calendar/' ~ date.calendar.slug ~ '/' ~ date.poster) }}"
+                             alt="{{ date.location }}"/>
                     </a>
                 </div>
             </div>
@@ -40,10 +40,16 @@
         {% endif %}
         {{ form_errors(form.poster) }}
     </div>
+
+    <div class="form-group">
+        {{ form_label(form.link) }}
+        {{ form_widget(form.link) }}
+        {{ form_errors(form.link) }}
+    </div>
 </fieldset>
 
 <fieldset class="form-fieldset">
-    <legend class="form-legend">Gestion du Calendrier</legend>
+    <legend class="form-legend">Gestion du Concert</legend>
 
     <div class="form-group toggle">
         {{ form_label(form.active, null, {'label_attr': {'class': 'toggle-label'}}) }}
@@ -52,15 +58,15 @@
     </div>
 
     <div class="form-group">
-        {{ form_label(form.startAt) }}
-        {{ form_widget(form.startAt) }}
-        {{ form_errors(form.startAt) }}
+        {{ form_label(form.calendar) }}
+        {{ form_widget(form.calendar) }}
+        {{ form_errors(form.calendar) }}
     </div>
 
     <div class="form-group">
-        {{ form_label(form.endAt) }}
-        {{ form_widget(form.endAt) }}
-        {{ form_errors(form.endAt) }}
+        {{ form_label(form.startAt) }}
+        {{ form_widget(form.startAt) }}
+        {{ form_errors(form.startAt) }}
     </div>
 </fieldset>
 

@@ -24,6 +24,10 @@ doctrine:
         alias: App
     controller_resolver:
       auto_mapping: false
+    filters:
+      active_date_filter:
+        class: App\Doctrine\Filter\ActiveDateFilter
+        enabled: true
 
 when@test:
   doctrine:
