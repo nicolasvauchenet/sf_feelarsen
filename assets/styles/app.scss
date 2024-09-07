@@ -4,6 +4,6 @@
 
 @import "utils/mixins", "utils/extends";
 
-@import "layout/front_office";
+@import "layout/front_office", "layout/grid";
 
-@import "components/icon";
+@import "components/icon", "components/card";

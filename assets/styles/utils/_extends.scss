@@ -11,3 +11,9 @@
 .border-bottom {
   border-bottom: 0.5rem solid $yellow;
 }
+
+/* VISIBILITY STYLES */
+.disabled {
+  opacity: 0.75;
+  pointer-events: none;
+}

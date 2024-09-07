@@ -1,0 +1,9 @@
+.app-grid {
+  @include displayGrid(1fr, 3rem);
+
+  @include respondTo(md) {
+    &.four {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+}

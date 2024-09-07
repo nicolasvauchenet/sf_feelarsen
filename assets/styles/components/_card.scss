@@ -1,0 +1,60 @@
+.app-card {
+  @include displayFlex(space-between, center, null, column);
+  background-color: $yellow;
+  @include radius(medium);
+  @include transition;
+
+  @include respondTo(md) {
+    background-color: $black;
+  }
+
+  &:hover {
+    background-color: rgba($white, 0.15);
+
+    @include respondTo(xs) {
+      .card-body {
+        .card-title,
+        h4 {
+          color: $yellow;
+        }
+
+        h5 {
+          color: $white;
+        }
+      }
+    }
+  }
+
+  .card-image {
+    flex-grow: 1;
+    width: 100%;
+
+    img {
+      border-top-left-radius: 0.5rem;
+      border-top-right-radius: 0.5rem;
+
+      @include respondTo(md) {
+        width: 100%;
+        height: 30dvh;
+        object-fit: cover;
+      }
+    }
+  }
+
+  .card-body {
+    padding: 1rem 0.5rem;
+
+    .card-title {
+      margin-bottom: 0.5rem;
+    }
+
+    @include respondTo(xs) {
+      .card-title,
+      h4,
+      h5 {
+        color: $black;
+        @include transition;
+      }
+    }
+  }
+}
