@@ -1,0 +1,28 @@
+html {
+  body {
+    &.admin {
+      color: $black;
+      background-color: $yellow;
+
+      .app-main {
+        .app-section {
+          &.cover {
+            img {
+              height: 40dvh;
+              object-position: center center;
+            }
+          }
+        }
+      }
+
+      .app-footer {
+        color: $yellow;
+        background-color: $black;
+
+        a {
+          color: inherit;
+        }
+      }
+    }
+  }
+}
