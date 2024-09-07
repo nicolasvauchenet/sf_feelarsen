@@ -5,7 +5,13 @@
 {% block main %}
     {% include 'front_office/default/_cover.html.twig' %}
 
-    {% for in in 0..50 %}
-        <p>Coucou</p>
-    {% endfor %}
+    {% include 'front_office/default/_calendar.html.twig' %}
+
+    {% include 'front_office/default/_biography.html.twig' %}
+
+    {% include 'front_office/default/_discography.html.twig' %}
+
+    {% include 'front_office/default/_videos.html.twig' %}
+
+    {% include 'front_office/default/_contact.html.twig' %}
 {% endblock %}

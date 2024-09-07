@@ -31,7 +31,7 @@ export default class extends Controller {
 
         this.sectionTargets.forEach(section => {
             const sectionTop = section.getBoundingClientRect().top;
-            const offset = 7.5 * parseFloat(getComputedStyle(document.documentElement).fontSize);
+            const offset = 7.25 * parseFloat(getComputedStyle(document.documentElement).fontSize);
 
             if (sectionTop <= offset + 30) {
                 currentSection = section;
@@ -59,7 +59,7 @@ export default class extends Controller {
         const targetElement = document.getElementById(targetId);
 
         if (targetElement) {
-            const offset = 7.5 * parseFloat(getComputedStyle(document.documentElement).fontSize);
+            const offset = 7.25 * parseFloat(getComputedStyle(document.documentElement).fontSize);
             const elementPosition = targetElement.getBoundingClientRect().top;
             const offsetPosition = elementPosition + window.pageYOffset - offset;
 
