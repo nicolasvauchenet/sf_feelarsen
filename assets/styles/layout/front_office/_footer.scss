@@ -1,5 +1,4 @@
 .app-footer {
-  @include displayFlex(space-between, center);
   padding: 0.5rem 1rem;
   margin-bottom: 4.5rem;
   font-size: 0.85rem;
@@ -7,10 +6,21 @@
   background-color: $yellow;
 
   @include respondTo(md) {
+    @include displayFlex(space-between, center);
     margin-bottom: 0;
   }
 
   a {
     color: $black;
+  }
+
+  @include respondTo(xs) {
+    p {
+      text-align: center;
+
+      &.copyrights {
+        margin-bottom: 1rem;
+      }
+    }
   }
 }

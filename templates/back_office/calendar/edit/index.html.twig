@@ -1,0 +1,21 @@
+{% extends 'back_office/layout/_index.html.twig' %}
+
+{% block title %}Modifier un Calendrier{% endblock %}
+
+{% block main %}
+    <section class="app-section cover" data-navigation-target="section">
+        <img src="{{ asset('img/admincover.webp') }}" alt="Administration"/>
+        <h1>Modifier un Calendrier</h1>
+    </section>
+
+    <section class="app-section actions">
+        <a href="{{ path('app_back_office_calendar_home') }}">
+            {{ ux_icon('fa6-solid:circle-arrow-left', {'class': 'app-icon medium'}) }}
+            Retour
+        </a>
+    </section>
+
+    <section class="app-section form">
+        {% include 'back_office/calendar/_form.html.twig' with {'button_label': 'Modifier'} %}
+    </section>
+{% endblock %}

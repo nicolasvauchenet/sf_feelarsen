@@ -1,11 +1,13 @@
 <nav class="app-navigation">
-    <a href="#concerts" data-navigation-target="link">
+    {% if calendar is defined and calendar %}
+        <a href="#concerts" data-navigation-target="link">
         <span class="visible-xs">
             {{ ux_icon('lets-icons:date-fill', {'class': 'app-icon medium'}) }}
             Dates
         </span>
-        <span class="visible-md">Concerts</span>
-    </a>
+            <span class="visible-md">Concerts</span>
+        </a>
+    {% endif %}
 
     <a href="#biographie" data-navigation-target="link">
         <span class="visible-xs">

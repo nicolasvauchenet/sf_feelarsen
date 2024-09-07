@@ -5,7 +5,9 @@
 {% block main %}
     {% include 'front_office/default/_cover.html.twig' %}
 
-    {% include 'front_office/default/_calendar.html.twig' %}
+    {% if calendar %}
+        {% include 'front_office/default/_calendar.html.twig' %}
+    {% endif %}
 
     {% include 'front_office/default/_biography.html.twig' %}
 

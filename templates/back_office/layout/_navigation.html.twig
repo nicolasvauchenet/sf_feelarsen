@@ -1,5 +1,6 @@
 <nav class="app-navigation">
-    <a href="#concerts" data-navigation-target="link">
+    <a href="{{ path('app_back_office_calendar_home') }}"
+       {% if 'app_back_office_calendar_' in app.request.get('_route') %}class="active"{% endif %}>
         <span class="visible-xs">
             {{ ux_icon('lets-icons:date-fill', {'class': 'app-icon medium'}) }}
             Dates

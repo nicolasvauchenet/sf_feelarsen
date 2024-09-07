@@ -1,0 +1,73 @@
+{% extends 'back_office/layout/_index.html.twig' %}
+
+{% block title %}Administration des Calendriers{% endblock %}
+
+{% block main %}
+    <section class="app-section cover" data-navigation-target="section">
+        <img src="{{ asset('img/admincover.webp') }}" alt="Administration"/>
+        <h1>Gestion des Calendriers</h1>
+    </section>
+
+    <section class="app-section actions">
+        <a href="{{ path('app_back_office_calendar_add') }}" class="text-success">
+            {{ ux_icon('fa6-solid:circle-plus', {'class': 'app-icon medium'}) }}
+            Ajouter
+        </a>
+    </section>
+
+    {% for calendar in calendars %}
+        <section class="app-section">
+            <div class="section-title">
+                <h2>{{ calendar.name }}</h2>
+                <div class="actions">
+                    <a href="#" class="text-success">
+                        {{ ux_icon('solar:calendar-add-bold', {'class': 'app-icon'}) }}
+                    </a>
+
+                    <a href="{{ path('app_back_office_calendar_edit', {'id': calendar.id}) }}" class="text-info">
+                        {{ ux_icon('fa6-solid:pen-to-square', {'class': 'app-icon'}) }}
+                    </a>
+
+                    <a href="{{ path('app_back_office_calendar_delete', {'id': calendar.id}) }}"
+                       class="text-danger"
+                       onclick="return window.confirm('⚠ Attention ⚠\nToutes les dates de ce calendrier seront supprimées !\nÊtes-vous sûr ?')">
+                        {{ ux_icon('fa6-solid:trash-can', {'class': 'app-icon'}) }}
+                    </a>
+                </div>
+            </div>
+            <div class="app-grid four">
+                {% for date in calendar.dates %}
+                    <div class="app-card">
+                        <div class="card-image">
+                            {% if date.poster %}
+                                <img src="{{ asset('uploads/calendar/' ~ calendar.slug ~ '/' ~ date.poster) }}"
+                                     alt="{{ date.location }}"/>
+                            {% else %}
+                                <img src="{{ asset('uploads/calendar/' ~ calendar.slug ~ '/poster.jpg') }}"
+                                     alt="{{ date.location }}"/>
+                            {% endif %}
+                        </div>
+
+                        <div class="card-body">
+                            <h3 class="card-title">{{ date.startAt | format_datetime(locale=app_locale, pattern="EEEE dd MMMM YYYY") | title }}</h3>
+                            <h4>{{ date.location }}</h4>
+                            <h5>{{ date.city }}</h5>
+                        </div>
+
+                        <div class="card-footer">
+                            <a href="#" class="text-info">
+                                {{ ux_icon('fa6-solid:pen-to-square', {'class': 'app-icon'}) }}
+                            </a>
+
+                            <a href="#"
+                               class="text-danger"
+                               onclick="return window.confirm('Êtes-vous sûr ?')">
+                                {{ ux_icon('fa6-solid:trash-can', {'class': 'app-icon'}) }}
+                            </a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </section>
+    {% endfor %}
+{% endblock %}

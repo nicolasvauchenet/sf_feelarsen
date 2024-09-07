@@ -57,4 +57,20 @@
       }
     }
   }
+
+  .card-footer {
+    @include displayFlex(center, null, 1rem);
+    padding-bottom: 1rem;
+    margin: 0 1rem;
+    width: calc(100% - 2rem);
+
+    a {
+      @include displayFlex(center, center);
+      flex: 1;
+      padding: 0.25rem;
+      text-align: center;
+      background-color: $yellow;
+      @include radius(small);
+    }
+  }
 }

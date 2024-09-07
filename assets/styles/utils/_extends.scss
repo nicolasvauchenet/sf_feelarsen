@@ -17,3 +17,16 @@
   opacity: 0.75;
   pointer-events: none;
 }
+
+/* COLOR STYLES */
+.text-info {
+  color: $info !important;
+}
+
+.text-success {
+  color: $success !important;
+}
+
+.text-danger {
+  color: $danger !important;
+}

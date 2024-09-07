@@ -1,0 +1,12 @@
+&.form {
+  padding: 1rem;
+
+  @import "../../form";
+
+  .app-form {
+    @include respondTo(md) {
+      margin: 0 auto;
+      width: 50dvw;
+    }
+  }
+}

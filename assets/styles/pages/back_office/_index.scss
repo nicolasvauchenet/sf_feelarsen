@@ -1,15 +1,59 @@
 html {
   body {
     &.admin {
-      color: $black;
-      background-color: $yellow;
-
       .app-main {
         .app-section {
+          margin-bottom: 3rem;
+          color: $white;
+          background-color: $black;
+
+          &.cover,
+          &:last-child {
+            margin-bottom: 0;
+          }
+
           &.cover {
             img {
               height: 40dvh;
               object-position: center center;
+            }
+          }
+
+          &.actions {
+            @include displayFlex(center, null, 2rem);
+            padding: 2rem 1rem 1rem;
+            margin-bottom: 0;
+
+            a {
+              @include displayFlex(center, center, 0.5rem);
+              padding: 0.25rem 1rem;
+              font-weight: bold;
+              text-decoration: none;
+              text-align: center;
+              color: $black;
+              background-color: $yellow;
+              @include radius(small);
+            }
+          }
+
+          .section-title {
+            @include respondTo(md) {
+              @include displayFlex(center, center, 2rem);
+            }
+
+            .actions {
+              @include displayFlex(center, null, 1rem);
+              margin-bottom: 2.25rem;
+
+              a {
+                @include displayFlex(center, center, 0.5rem);
+                padding: 0.25rem 1rem;
+                font-weight: bold;
+                text-decoration: none;
+                text-align: center;
+                background-color: $yellow;
+                @include radius(small);
+              }
             }
           }
         }

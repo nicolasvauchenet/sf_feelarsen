@@ -1,7 +1,9 @@
 <header class="app-header">
-    <a href="{{ path('app_front_office_home') }}" class="app-logo">
+    <a href="{{ path('app_back_office_home') }}" class="app-logo">
         <img src="{{ asset('img/sitelogo.jpg') }}" alt="Féelarsen"/>
     </a>
 
-    {% include 'front_office/layout/_navigation.html.twig' %}
+    {% include 'back_office/layout/_navigation.html.twig' %}
 </header>
+
+{% include '_alert.html.twig' %}
