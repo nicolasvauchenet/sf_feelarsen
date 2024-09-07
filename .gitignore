@@ -1,3 +1,9 @@
+###> sf_feelarsen/local ###
+.idea/
+.DS_Store
+feelarsen.crt
+feelarsen.key
+###< sf_feelarsen/local ###
 
 ###> symfony/framework-bundle ###
 /.env.local
