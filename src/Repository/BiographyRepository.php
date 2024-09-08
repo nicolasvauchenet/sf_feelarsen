@@ -29,6 +29,24 @@ class BiographyRepository extends ServiceEntityRepository
         $this->getEntityManager()->flush();
     }
 
+    public function deleteBiography(Biography $biography): void
+    {
+        $this->getEntityManager()->remove($biography);
+        $this->getEntityManager()->flush();
+
+        $biographies = $this->createQueryBuilder('b')
+            ->orderBy('b.position', 'ASC')
+            ->getQuery()
+            ->getResult();
+
+        foreach($biographies as $index => $remainingBiography) {
+            $remainingBiography->setPosition($index + 1);
+            $this->getEntityManager()->persist($remainingBiography);
+        }
+
+        $this->getEntityManager()->flush();
+    }
+
     public function resetPositions(Biography $updatedBiography): void
     {
         $biographies = $this->createQueryBuilder('b')

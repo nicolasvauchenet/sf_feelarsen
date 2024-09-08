@@ -21,9 +21,7 @@ class DeleteController extends AbstractController
         if($biography->getPhoto()) {
             $fileUploaderService->remove('biography', $biography->getPhoto());
         }
-
-        $entityManager->remove($biography);
-        $biographyRepository->resetPositions($biography);
+        $biographyRepository->deleteBiography($biography);
 
         $this->addFlash('danger', "L'article de biographie n°{$biography->getPosition()} a été supprimé");
 
