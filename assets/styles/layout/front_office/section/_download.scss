@@ -1,0 +1,12 @@
+&.download {
+  .app-card {
+    &.inactive {
+      &::before {
+        content: "Hors ligne";
+        top: 1rem;
+        right: -1.65rem;
+        transform: rotate(45deg);
+      }
+    }
+  }
+}

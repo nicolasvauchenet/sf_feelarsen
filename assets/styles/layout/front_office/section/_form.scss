@@ -5,7 +5,7 @@
 
   .app-form {
     @include respondTo(md) {
-      &:not(:has(.app-grid)) {
+      &:not(:has(.app-grid.two)) {
         margin: 0 auto;
         width: 50dvw;
       }

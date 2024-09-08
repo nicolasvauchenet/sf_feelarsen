@@ -9,8 +9,8 @@
         <div class="app-grid third">
             <div class="downloads">
                 {% for document in documents %}
-                    <a href="{{ asset('uploads/documents/' ~ document.fileName) }}"
-                       class="app-button bg-{{ document.color }}">
+                    <a href="{{ asset('uploads/document/' ~ document.fileName) }}"
+                       class="app-button bg-{{ document.color }}" target="_blank">
                         {{ ux_icon('typcn:download', {'class': 'app-icon medium'}) }}
                         {{ document.documentName }} (PDF)
                     </a>

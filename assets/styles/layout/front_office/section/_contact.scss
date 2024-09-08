@@ -29,7 +29,7 @@
       }
 
       .downloads {
-        @include displayFlex(center, center, 2rem, column)
+        @include displayFlex(center, center, 1rem, column)
       }
 
       .content {
@@ -76,7 +76,7 @@
     }
 
     a {
-      color: inherit;
+      color: $black;
     }
   }
 }

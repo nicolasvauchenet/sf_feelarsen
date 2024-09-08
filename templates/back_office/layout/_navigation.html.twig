@@ -14,7 +14,7 @@
             {{ ux_icon('fa6-solid:users', {'class': 'app-icon medium'}) }}
             Bio
         </span>
-        <span class="visible-md">Biographie</span>
+        <span class="visible-md">Groupe</span>
     </a>
 
     <a href="#">
@@ -22,7 +22,7 @@
             {{ ux_icon('iconamoon:music-album-fill', {'class': 'app-icon medium'}) }}
             Disco
         </span>
-        <span class="visible-md">Discographie</span>
+        <span class="visible-md">Albums</span>
     </a>
 
     <a href="#">
@@ -30,7 +30,16 @@
             {{ ux_icon('solar:album-bold', {'class': 'app-icon medium'}) }}
             Vidéos
         </span>
-        <span class="visible-md">Vidéos/Photos</span>
+        <span class="visible-md">Visuels</span>
+    </a>
+
+    <a href="{{ path('app_back_office_download_home') }}"
+       {% if 'app_back_office_download_' in app.request.get('_route') %}class="active"{% endif %}>
+        <span class="visible-xs">
+            {{ ux_icon('typcn:download', {'class': 'app-icon medium'}) }}
+            Pro
+        </span>
+        <span class="visible-md">Documents</span>
     </a>
 
     <a href="{{ path('app_back_office_settings_edit') }}"

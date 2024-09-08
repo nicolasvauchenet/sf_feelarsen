@@ -1,0 +1,43 @@
+{{ form_start(form, {'attr': {'class': 'app-form'}}) }}
+<fieldset class="form-fieldset">
+    <legend class="form-legend">Informations du Document</legend>
+
+    <div class="form-group">
+        {{ form_label(form.documentName) }}
+        {{ form_widget(form.documentName) }}
+        {{ form_errors(form.documentName) }}
+    </div>
+
+    <div class="form-group toggle">
+        {{ form_label(form.active, null, {'label_attr': {'class': 'toggle-label'}}) }}
+        {{ form_widget(form.active) }}
+        <div class="toggle-switch"></div>
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form.fileName) }}
+        {% if document is defined and document.fileName %}
+            <div class="app-grid third">
+                <div class="file">
+                    {{ form_widget(form.fileName) }}
+                    <p>{{ document.fileName }}</p>
+                </div>
+                <div class="preview">
+                    <a href="{{ asset('uploads/document/' ~ document.fileName) }}" target="_blank">
+                        <img src="{{ asset('uploads/document/document.webp') }}" alt="{{ document.documentName }}"/>
+                    </a>
+                </div>
+            </div>
+        {% else %}
+            {{ form_widget(form.fileName) }}
+        {% endif %}
+        {{ form_errors(form.fileName) }}
+    </div>
+</fieldset>
+
+<div class="form-group">
+    {{ form_widget(form._token) }}
+
+    <button type="submit" class="form-submit">{{ button_label|default('Créer') }}</button>
+</div>
+{{ form_end(form, {'render_rest': false}) }}

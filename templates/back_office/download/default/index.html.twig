@@ -1,0 +1,47 @@
+{% extends 'back_office/layout/_index.html.twig' %}
+
+{% block title %}Administration des Documents{% endblock %}
+
+{% block main %}
+    <section class="app-section cover" data-navigation-target="section">
+        <img src="{{ asset('img/admincover.webp') }}" alt="Administration"/>
+        <h1>Gérer les Documents du Groupe</h1>
+    </section>
+
+    <section class="app-section actions">
+        <a href="{{ path('app_back_office_download_add') }}" class="text-success">
+            {{ ux_icon('fa6-solid:circle-plus', {'class': 'app-icon medium'}) }}
+        </a>
+    </section>
+
+    <section class="app-section download">
+        <div class="app-grid three">
+            {% for document in documents %}
+                <div class="app-card {% if not document.active %}inactive{% endif %}">
+                    <div class="card-image">
+                        <img src="{{ asset('uploads/document/document.webp') }}" alt="{{ document.documentName }}"/>
+                    </div>
+
+                    <div class="card-body">
+                        <h3 class="card-title">
+                            {{ document.documentName }}
+                        </h3>
+                        <h4>{{ document.fileName }}</h4>
+                    </div>
+
+                    <div class="card-footer">
+                        <a href="{{ path('app_back_office_download_edit', {'id': document.id}) }}" class="text-info">
+                            {{ ux_icon('fa6-solid:pen-to-square', {'class': 'app-icon'}) }}
+                        </a>
+
+                        <a href="{{ path('app_back_office_download_delete', {'id': document.id}) }}"
+                           class="text-danger"
+                           onclick="return window.confirm('Êtes-vous sûr ?')">
+                            {{ ux_icon('fa6-solid:trash-can', {'class': 'app-icon'}) }}
+                        </a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+{% endblock %}

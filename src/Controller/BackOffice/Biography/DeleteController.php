@@ -13,8 +13,7 @@ use Symfony\Component\Routing\Attribute\Route;
 class DeleteController extends AbstractController
 {
     #[Route('/administration/biographie/supprimer/{id}', name: 'app_back_office_biography_delete')]
-    public function index(EntityManagerInterface $entityManager,
-                          FileUploaderService    $fileUploaderService,
+    public function index(FileUploaderService    $fileUploaderService,
                           BiographyRepository    $biographyRepository,
                           Biography              $biography): Response
     {
