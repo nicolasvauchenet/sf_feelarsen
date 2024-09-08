@@ -25,7 +25,7 @@ class DeleteController extends AbstractController
         $entityManager->remove($biography);
         $biographyRepository->resetPositions($biography);
 
-        $this->addFlash('danger', "Le contenu n°{$biography->getPosition()} a été supprimé");
+        $this->addFlash('danger', "L'article de biographie n°{$biography->getPosition()} a été supprimé");
 
         return $this->redirectToRoute('app_back_office_biography_home');
     }
@@ -40,7 +40,7 @@ class DeleteController extends AbstractController
         $entityManager->persist($biography);
         $entityManager->flush();
 
-        $this->addFlash('danger', "La photo du contenu n°{$biography->getPosition()} a été supprimée");
+        $this->addFlash('danger', "La photo de l'article de biographie n°{$biography->getPosition()} a été supprimée");
 
         return $this->redirectToRoute('app_back_office_biography_home');
     }

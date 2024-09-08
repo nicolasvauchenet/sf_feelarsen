@@ -42,7 +42,7 @@ class EditController extends AbstractController
             $entityManager->persist($biography);
             $entityManager->flush();
 
-            $this->addFlash('info', "L'article n°{$biography->getPosition()} a été modifié");
+            $this->addFlash('info', "L'article de biographie a été modifié");
 
             return $this->redirectToRoute('app_back_office_biography_home', [], Response::HTTP_SEE_OTHER);
         }
