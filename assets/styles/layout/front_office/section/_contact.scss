@@ -1,0 +1,92 @@
+&#contact {
+  .app-grid {
+    &.three {
+      grid-gap: 1rem;
+
+      .content {
+        padding: 1rem;
+        color: $black;
+        background-color: $yellow;
+        @include radius(medium);
+      }
+    }
+
+    &.third {
+      &:nth-child(odd) {
+        grid-gap: 1rem;
+
+        @include respondTo(md) {
+          grid-template-columns: 6fr 4fr;
+
+          .content {
+            order: 2;
+          }
+
+          .photo {
+            order: 1;
+          }
+        }
+      }
+
+      .downloads {
+        @include displayFlex(center, center, 2rem, column)
+      }
+
+      .content {
+        @include displayFlex(null, center);
+        padding: 1rem;
+        color: $black;
+        background-color: $yellow;
+        @include radius(medium);
+
+        @include respondTo(md) {
+          padding: 1rem 2rem;
+        }
+
+        &.a-center {
+          flex-direction: column;
+          gap: 1rem;
+        }
+
+        p {
+          margin: 0;
+          font-size: 1.25rem;
+          line-height: 2rem;
+        }
+      }
+
+      .photo {
+        img {
+          @extend .d-block;
+          width: 100%;
+          object-fit: cover;
+          max-height: 45dvh;
+          @include radius(medium);
+        }
+      }
+    }
+
+    h3,
+    h4 {
+      color: $black;
+    }
+
+    h5 {
+      margin-bottom: 0.5rem;
+    }
+
+    a {
+      color: inherit;
+    }
+  }
+}
+
+&.contact {
+  .app-grid {
+    &.two {
+      @include respondTo(xs) {
+        grid-gap: 0;
+      }
+    }
+  }
+}

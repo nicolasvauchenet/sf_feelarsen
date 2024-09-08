@@ -1,7 +1,143 @@
 <section class="app-section" id="contact" data-navigation-target="section">
-    <h2>Contactons-nous</h2>
+    <h2>L'Espace Pro</h2>
+    <div class="app-grid third mb-1">
+        <div class="photo">
+            <img src="{{ asset('uploads/settings/' ~ app_settingsService.settings.contactCover) }}"
+                 alt="{{ app_settingsService.settings.siteName }}"/>
+        </div>
 
-    {% for in in 0..50 %}
-        <p>Coucou</p>
-    {% endfor %}
+        <div class="app-grid third">
+            <div class="downloads">
+                <a href="#" class="app-button bg-info">
+                    {{ ux_icon('typcn:download', {'class': 'app-icon medium'}) }}
+                    Fiche Technique (PDF)
+                </a>
+
+                <a href="#" class="app-button bg-warning">
+                    {{ ux_icon('typcn:download', {'class': 'app-icon medium'}) }}
+                    Rider (PDF)
+                </a>
+
+                <a href="#" class="app-button bg-success">
+                    {{ ux_icon('typcn:download', {'class': 'app-icon medium'}) }}
+                    Dossier Médias (PDF)
+                </a>
+            </div>
+
+            <div class="content">
+                <p>
+                    Téléchargez les <strong>dossiers</strong> du groupe avec toutes les infos nécessaires : la
+                    <strong>fiche technique</strong>, le <strong>rider</strong> et le <strong>dossier médias</strong>,
+                    pour une collaboration ou pour préparer programmation d'événements. Vous pouvez aussi nous envoyer
+                    un message en utilisant le <strong>formulaire</strong> ci-dessous, ou contacter directement le
+                    groupe pour toute question ou demande d'informations.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="app-grid three">
+        <div class="content">
+            <h3 class="mb-1">Contact Artistique</h3>
+            <h4>{{ app_settingsService.settings.contactArtistName }}</h4>
+            <h5>
+                <a href="mailto:{{ app_settingsService.settings.contactArtistEmail }}">
+                    {{ app_settingsService.settings.contactArtistEmail }}
+                </a>
+            </h5>
+            <p class="text-center">
+                <a href="tel:{{ app_settingsService.settings.contactArtistPhone }}">
+                    <strong>{{ app_settingsService.settings.contactArtistPhone }}</strong>
+                </a>
+            </p>
+        </div>
+
+        <div class="content">
+            <h3 class="mb-1">Contact Technique</h3>
+            <h4>{{ app_settingsService.settings.contactTechName }}</h4>
+            <h5>
+                <a href="mailto:{{ app_settingsService.settings.contactTechEmail }}">
+                    {{ app_settingsService.settings.contactTechEmail }}
+                </a>
+            </h5>
+            <p class="text-center">
+                <a href="tel:{{ app_settingsService.settings.contactTechPhone }}">
+                    <strong>{{ app_settingsService.settings.contactTechPhone }}</strong>
+                </a>
+            </p>
+        </div>
+
+        <div class="content">
+            <h3 class="mb-1">Contact Booking</h3>
+            <h4>{{ app_settingsService.settings.siteName }}</h4>
+            <h5>
+                <a href="mailto:{{ app_settingsService.settings.contactBookingEmail }}">
+                    {{ app_settingsService.settings.contactBookingEmail }}
+                </a>
+            </h5>
+            <p class="text-center">
+                <a href="tel:{{ app_settingsService.settings.contactBookingPhone }}">
+                    <strong>{{ app_settingsService.settings.contactBookingPhone }}</strong>
+                </a>
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="app-section form contact">
+    <h2>Laissez-nous un message</h2>
+
+    {{ form_start(form, {'attr': {'class': 'app-form'}}) }}
+    <div class="app-grid two">
+        <fieldset class="form-fieldset">
+            <legend class="form-legend">Vos Coordonnées</legend>
+
+            <div class="form-group">
+                {{ form_label(form.senderName) }}
+                {{ form_widget(form.senderName) }}
+                {{ form_errors(form.senderName) }}
+            </div>
+
+            <div class="form-group">
+                {{ form_label(form.senderEmail) }}
+                {{ form_widget(form.senderEmail) }}
+                {{ form_errors(form.senderEmail) }}
+            </div>
+
+            <div class="form-group">
+                {{ form_label(form.senderPhone) }}
+                {{ form_widget(form.senderPhone) }}
+                {{ form_errors(form.senderPhone) }}
+            </div>
+
+            <div class="form-group">
+                {{ form_label(form.senderType) }}
+                {{ form_widget(form.senderType) }}
+                {{ form_errors(form.senderType) }}
+            </div>
+        </fieldset>
+
+        <fieldset class="form-fieldset">
+            <legend class="form-legend">Votre Message</legend>
+
+            <div class="form-group">
+                {{ form_label(form.subject) }}
+                {{ form_widget(form.subject) }}
+                {{ form_errors(form.subject) }}
+            </div>
+
+            <div class="form-group">
+                {{ form_label(form.message) }}
+                {{ form_widget(form.message) }}
+                {{ form_errors(form.message) }}
+            </div>
+
+            <div class="form-group">
+                {{ form_widget(form._token) }}
+
+                <button type="submit" class="form-submit">Envoyer</button>
+            </div>
+        </fieldset>
+    </div>
+    {{ form_end(form, {'render_rest': false}) }}
 </section>

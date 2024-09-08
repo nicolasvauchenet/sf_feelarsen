@@ -5,8 +5,19 @@
 
   .app-form {
     @include respondTo(md) {
-      margin: 0 auto;
-      width: 50dvw;
+      &:not(:has(.app-grid)) {
+        margin: 0 auto;
+        width: 50dvw;
+      }
+
+      .form-fieldset {
+        margin-bottom: 0 !important;
+      }
+
+      .form-submit {
+        color: $yellow !important;
+        background-color: $black !important;
+      }
     }
   }
 }

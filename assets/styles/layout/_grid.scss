@@ -2,6 +2,14 @@
   @include displayGrid(1fr, 3rem);
 
   @include respondTo(md) {
+    &.two {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    &.three {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
     &.four {
       grid-template-columns: repeat(4, 1fr);
     }

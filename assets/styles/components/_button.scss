@@ -1,0 +1,12 @@
+.app-button {
+  @include displayFlex(center, center, 0.25rem, column);
+  box-sizing: border-box;
+  padding: 1rem 1.5rem;
+  width: 100%;
+  font-family: $font-secondary;
+  font-size: 1.25rem;
+  text-decoration: none;
+  color: $black;
+  background-color: $yellow;
+  @include radius(medium);
+}
