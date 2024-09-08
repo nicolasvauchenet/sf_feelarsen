@@ -27,9 +27,7 @@
                         <h3 class="card-title">
                             <a href="#contact" data-navigation-target="link">Bientôt toi ?</a>
                         </h3>
-                        <h4>
-                            <a href="#contact" data-navigation-target="link">Guitare, Chœurs</a>
-                        </h4>
+                        <h4>Guitare, Chœurs</h4>
                     </div>
                 </div>
             {% endfor %}
@@ -39,13 +37,13 @@
 
 <section class="app-section biography">
     <h2>L'histoire de Féelarsen</h2>
-    {% for step in biography %}
+    {% for article in biography %}
         <div class="app-grid third {% if not loop.last %}mb-1{% endif %}">
             <div class="content">
-                <p>{{ step.content | raw }}</p>
+                <p>{{ article.content | raw }}</p>
             </div>
             <div class="photo">
-                <img src="{{ asset('uploads/biography/' ~ step.photo) }}" alt="Féelarsen"/>
+                <img src="{{ asset('uploads/biography/' ~ article.photo) }}" alt="Féelarsen"/>
             </div>
         </div>
     {% endfor %}

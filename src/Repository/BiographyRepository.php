@@ -16,28 +16,47 @@ class BiographyRepository extends ServiceEntityRepository
         parent::__construct($registry, Biography::class);
     }
 
-    //    /**
-    //     * @return Biography[] Returns an array of Biography objects
-    //     */
-    //    public function findByExampleField($value): array
-    //    {
-    //        return $this->createQueryBuilder('b')
-    //            ->andWhere('b.exampleField = :val')
-    //            ->setParameter('val', $value)
-    //            ->orderBy('b.id', 'ASC')
-    //            ->setMaxResults(10)
-    //            ->getQuery()
-    //            ->getResult()
-    //        ;
-    //    }
+    public function addBiography(Biography $biography): void
+    {
+        $maxPosition = $this->createQueryBuilder('b')
+            ->select('MAX(b.position)')
+            ->getQuery()
+            ->getSingleScalarResult();
 
-    //    public function findOneBySomeField($value): ?Biography
-    //    {
-    //        return $this->createQueryBuilder('b')
-    //            ->andWhere('b.exampleField = :val')
-    //            ->setParameter('val', $value)
-    //            ->getQuery()
-    //            ->getOneOrNullResult()
-    //        ;
-    //    }
+        $newPosition = $maxPosition ? $maxPosition + 1 : 1;
+        $biography->setPosition($newPosition);
+        $this->getEntityManager()->persist($biography);
+        $this->getEntityManager()->flush();
+    }
+
+    public function resetPositions(Biography $updatedBiography): void
+    {
+        $biographies = $this->createQueryBuilder('b')
+            ->where('b.id != :id')
+            ->setParameter('id', $updatedBiography->getId())
+            ->orderBy('b.position', 'ASC')
+            ->getQuery()
+            ->getResult();
+
+        $newPosition = $updatedBiography->getPosition();
+        $currentIndex = 1;
+
+        foreach($biographies as $biography) {
+            if($currentIndex == $newPosition) {
+                $updatedBiography->setPosition($currentIndex);
+                $this->getEntityManager()->persist($updatedBiography);
+                $currentIndex++;
+            }
+            $biography->setPosition($currentIndex);
+            $this->getEntityManager()->persist($biography);
+            $currentIndex++;
+        }
+
+        if($newPosition >= $currentIndex) {
+            $updatedBiography->setPosition($currentIndex);
+            $this->getEntityManager()->persist($updatedBiography);
+        }
+
+        $this->getEntityManager()->flush();
+    }
 }

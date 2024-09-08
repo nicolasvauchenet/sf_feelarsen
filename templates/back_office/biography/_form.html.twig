@@ -1,0 +1,52 @@
+{{ form_start(form, {'attr': {'class': 'app-form'}}) }}
+<fieldset class="form-fieldset">
+    <legend class="form-legend">Informations de l'Article</legend>
+
+    <div class="form-group">
+        {{ form_label(form.content) }}
+        {{ form_widget(form.content) }}
+        {{ form_errors(form.content) }}
+    </div>
+
+    {% if biography is defined %}
+        <div class="form-group">
+            {{ form_label(form.position) }}
+            {{ form_widget(form.position) }}
+            {{ form_errors(form.position) }}
+        </div>
+    {% endif %}
+
+    <div class="form-group">
+        {{ form_label(form.photo) }}
+        {% if biography is defined and biography.photo %}
+            <div class="app-grid third">
+                <div class="file">
+                    {{ form_widget(form.photo) }}
+                    <p>{{ biography.photo }}</p>
+                    <p>
+                        <a href="{{ path('app_back_office_biography_photo_delete', {'id': biography.id}) }}"
+                           class="text-danger"
+                           onclick="return window.confirm('Êtes-vous sûr ?')">
+                            Supprimer
+                        </a>
+                    </p>
+                </div>
+                <div class="preview">
+                    <a href="{{ asset('uploads/biography/' ~ biography.photo) }}" target="_blank">
+                        <img src="{{ asset('uploads/biography/' ~ biography.photo) }}" alt="Féelarsen"/>
+                    </a>
+                </div>
+            </div>
+        {% else %}
+            {{ form_widget(form.photo) }}
+        {% endif %}
+        {{ form_errors(form.photo) }}
+    </div>
+</fieldset>
+
+<div class="form-group">
+    {{ form_widget(form._token) }}
+
+    <button type="submit" class="form-submit">{{ button_label|default('Créer') }}</button>
+</div>
+{{ form_end(form, {'render_rest': false}) }}

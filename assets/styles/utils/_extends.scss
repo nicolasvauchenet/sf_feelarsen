@@ -3,6 +3,12 @@
   display: block;
 }
 
+.center {
+  text-align: center;
+  justify-content: center;
+  align-self: center;
+}
+
 /* BORDER STYLES */
 .border-top {
   border-top: 0.5rem solid $yellow;
@@ -34,4 +40,14 @@
 /* MARGIN STYLES */
 .mb-1 {
   margin-bottom: 1rem;
+}
+
+/* ALIGNMENT STYLES */
+.text-center {
+  text-align: center;
+}
+
+.a-center {
+  justify-content: center;
+  align-items: center;
 }
