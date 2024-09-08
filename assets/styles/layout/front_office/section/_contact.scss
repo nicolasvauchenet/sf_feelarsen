@@ -89,4 +89,11 @@
       }
     }
   }
+
+  .app-form {
+    .form-submit {
+      color: $yellow !important;
+      background-color: $black !important;
+    }
+  }
 }

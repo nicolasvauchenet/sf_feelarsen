@@ -8,6 +8,7 @@ use App\Repository\ArtistRepository;
 use App\Repository\BiographyRepository;
 use App\Repository\CalendarRepository;
 use App\Repository\ContactRepository;
+use App\Repository\DownloadRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -21,7 +22,8 @@ class DefaultController extends AbstractController
                           EntityManagerInterface $entityManager,
                           CalendarRepository     $calendarRepository,
                           ArtistRepository       $artistRepository,
-                          BiographyRepository    $biographyRepository): Response
+                          BiographyRepository    $biographyRepository,
+                          DownloadRepository     $downloadRepository): Response
     {
         $contact = new Contact();
         $form = $this->createForm(ContactType::class, $contact);
@@ -41,6 +43,7 @@ class DefaultController extends AbstractController
             'calendar' => $calendarRepository->findOneBy(['active' => true]),
             'artists' => $artistRepository->findAll(),
             'biography' => $biographyRepository->findBy([], ['position' => 'ASC']),
+            'documents' => $downloadRepository->findBy(['active' => true]),
             'form' => $form->createView(),
         ], new Response(null, $form->isSubmitted() && !$form->isValid() ? 422 : 201));
     }

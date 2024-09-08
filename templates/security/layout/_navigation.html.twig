@@ -1,0 +1,43 @@
+<nav class="app-navigation">
+    {% if calendar is defined and calendar %}
+        <a href="{{ path('app_front_office_home') }}#concerts">
+        <span class="visible-xs">
+            {{ ux_icon('lets-icons:date-fill', {'class': 'app-icon medium'}) }}
+            Dates
+        </span>
+            <span class="visible-md">Concerts</span>
+        </a>
+    {% endif %}
+
+    <a href="{{ path('app_front_office_home') }}#biographie">
+        <span class="visible-xs">
+            {{ ux_icon('fa6-solid:users', {'class': 'app-icon medium'}) }}
+            Bio
+        </span>
+        <span class="visible-md">Biographie</span>
+    </a>
+
+    <a href="{{ path('app_front_office_home') }}#discographie">
+        <span class="visible-xs">
+            {{ ux_icon('iconamoon:music-album-fill', {'class': 'app-icon medium'}) }}
+            Disco
+        </span>
+        <span class="visible-md">Discographie</span>
+    </a>
+
+    <a href="{{ path('app_front_office_home') }}#videos">
+        <span class="visible-xs">
+            {{ ux_icon('solar:album-bold', {'class': 'app-icon medium'}) }}
+            Vidéos
+        </span>
+        <span class="visible-md">Vidéos/Photos</span>
+    </a>
+
+    <a href="{{ path('app_front_office_home') }}#contact">
+        <span class="visible-xs">
+            {{ ux_icon('clarity:envelope-solid', {'class': 'app-icon medium'}) }}
+            Contact
+        </span>
+        <span class="visible-md">Contact</span>
+    </a>
+</nav>

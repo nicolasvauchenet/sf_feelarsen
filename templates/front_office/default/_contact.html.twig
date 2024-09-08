@@ -8,20 +8,13 @@
 
         <div class="app-grid third">
             <div class="downloads">
-                <a href="#" class="app-button bg-info">
-                    {{ ux_icon('typcn:download', {'class': 'app-icon medium'}) }}
-                    Fiche Technique (PDF)
-                </a>
-
-                <a href="#" class="app-button bg-warning">
-                    {{ ux_icon('typcn:download', {'class': 'app-icon medium'}) }}
-                    Rider (PDF)
-                </a>
-
-                <a href="#" class="app-button bg-success">
-                    {{ ux_icon('typcn:download', {'class': 'app-icon medium'}) }}
-                    Dossier Médias (PDF)
-                </a>
+                {% for document in documents %}
+                    <a href="{{ asset('uploads/documents/' ~ document.fileName) }}"
+                       class="app-button bg-{{ document.color }}">
+                        {{ ux_icon('typcn:download', {'class': 'app-icon medium'}) }}
+                        {{ document.documentName }} (PDF)
+                    </a>
+                {% endfor %}
             </div>
 
             <div class="content">
