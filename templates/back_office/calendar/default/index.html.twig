@@ -5,13 +5,12 @@
 {% block main %}
     <section class="app-section cover" data-navigation-target="section">
         <img src="{{ asset('img/admincover.webp') }}" alt="Administration"/>
-        <h1>Administration des Concerts</h1>
+        <h1>Gérer les Concerts</h1>
     </section>
 
     <section class="app-section actions">
         <a href="{{ path('app_back_office_calendar_add') }}" class="text-success">
             {{ ux_icon('fa6-solid:circle-plus', {'class': 'app-icon medium'}) }}
-            Nouveau Calendrier
         </a>
     </section>
 

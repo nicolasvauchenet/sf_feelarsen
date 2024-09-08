@@ -12,7 +12,8 @@
     .card-image {
       img {
         @include respondTo(md) {
-          height: 40dvh;
+          height: 50dvh;
+          object-position: center 20%;
         }
       }
     }

@@ -1,8 +1,8 @@
 <section class="app-section" id="biographie" data-navigation-target="section">
     <h2>Le Groupe</h2>
-    <div class="app-grid four">
+    <div class="app-grid four" data-controller="shuffle">
         {% for artist in artists %}
-            <div class="app-card">
+            <div class="app-card" data-shuffle-target="card">
                 <div class="card-image">
                     <img src="{{ asset('uploads/artist/' ~ artist.photo) }}" alt="{{ artist.name }}"/>
                 </div>

@@ -1,0 +1,88 @@
+{% extends 'back_office/layout/_index.html.twig' %}
+
+{% block title %}Administration du Groupe{% endblock %}
+
+{% block main %}
+    <section class="app-section cover" data-navigation-target="section">
+        <img src="{{ asset('img/admincover.webp') }}" alt="Administration"/>
+        <h1>Gérer le Groupe</h1>
+    </section>
+
+    <section id="biographie" class="app-section">
+        <h2>Le Groupe</h2>
+        <div class="app-grid four">
+            {% for artist in artists %}
+                <div class="app-card">
+                    <div class="card-image">
+                        <img src="{{ asset('uploads/artist/' ~ artist.photo) }}" alt="{{ artist.name }}"/>
+                    </div>
+
+                    <div class="card-body">
+                        <h3 class="card-title">{{ artist.name }}</h3>
+                        <h4>{{ artist.instrument }}</h4>
+                    </div>
+
+                    <div class="card-footer">
+                        <a href="#" class="text-info">
+                            {{ ux_icon('fa6-solid:pen-to-square', {'class': 'app-icon'}) }}
+                        </a>
+
+                        <a href="#"
+                           class="text-danger"
+                           onclick="return window.confirm('Êtes-vous sûr ?')">
+                            {{ ux_icon('fa6-solid:trash-can', {'class': 'app-icon'}) }}
+                        </a>
+                    </div>
+                </div>
+            {% endfor %}
+
+            {% for i in 1..(4 - artists | length) %}
+                <div class="app-card inactive">
+                    <div class="card-image">
+                        <a href="#">
+                            <img src="{{ asset('uploads/artist/guitar.webp') }}" alt="Nouvel Artiste"/>
+                        </a>
+                    </div>
+
+                    <div class="card-body">
+                        <h3 class="card-title">
+                            <a href="#" class="text-success">
+                                {{ ux_icon('fa6-solid:circle-plus', {'class': 'app-icon medium'}) }}
+                            </a>
+                        </h3>
+                        <h4>Nouvel Artiste</h4>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <section class="app-section biography">
+        <h2>L'histoire</h2>
+        {% for step in biography %}
+            <div class="app-grid third {% if not loop.last %}mb-1{% endif %}">
+                <div class="content">
+                    <div class="app-card">
+                        <div class="card-body">
+                            <p>{{ step.content | raw }}</p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="#" class="text-info">
+                                {{ ux_icon('fa6-solid:pen-to-square', {'class': 'app-icon'}) }}
+                            </a>
+
+                            <a href="#"
+                               class="text-danger"
+                               onclick="return window.confirm('Êtes-vous sûr ?')">
+                                {{ ux_icon('fa6-solid:trash-can', {'class': 'app-icon'}) }}
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="photo">
+                    <img src="{{ asset('uploads/biography/' ~ step.photo) }}" alt="Féelarsen"/>
+                </div>
+            </div>
+        {% endfor %}
+    </section>
+{% endblock %}

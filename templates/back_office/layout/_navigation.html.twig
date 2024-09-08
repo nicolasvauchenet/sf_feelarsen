@@ -8,7 +8,8 @@
         <span class="visible-md">Concerts</span>
     </a>
 
-    <a href="#biographie" data-navigation-target="link">
+    <a href="{{ path('app_back_office_biography_home') }}"
+       {% if 'app_back_office_biography_' in app.request.get('_route') %}class="active"{% endif %}>
         <span class="visible-xs">
             {{ ux_icon('fa6-solid:users', {'class': 'app-icon medium'}) }}
             Bio
@@ -16,7 +17,7 @@
         <span class="visible-md">Biographie</span>
     </a>
 
-    <a href="#discographie" data-navigation-target="link">
+    <a href="#">
         <span class="visible-xs">
             {{ ux_icon('iconamoon:music-album-fill', {'class': 'app-icon medium'}) }}
             Disco
@@ -24,7 +25,7 @@
         <span class="visible-md">Discographie</span>
     </a>
 
-    <a href="#videos" data-navigation-target="link">
+    <a href="#">
         <span class="visible-xs">
             {{ ux_icon('solar:album-bold', {'class': 'app-icon medium'}) }}
             Vidéos
@@ -32,11 +33,11 @@
         <span class="visible-md">Vidéos/Photos</span>
     </a>
 
-    <a href="#contact" data-navigation-target="link">
+    <a href="#">
         <span class="visible-xs">
-            {{ ux_icon('clarity:envelope-solid', {'class': 'app-icon medium'}) }}
-            Contact
+            {{ ux_icon('mdi:tools', {'class': 'app-icon medium'}) }}
+            Config
         </span>
-        <span class="visible-md">Contact</span>
+        <span class="visible-md">Paramètres</span>
     </a>
 </nav>
