@@ -1,7 +1,50 @@
 <section class="app-section" id="biographie" data-navigation-target="section">
     <h2>Le Groupe</h2>
+    <div class="app-grid four">
+        {% for artist in artists %}
+            <div class="app-card">
+                <div class="card-image">
+                    <img src="{{ asset('uploads/artist/' ~ artist.photo) }}" alt="{{ artist.name }}"/>
+                </div>
 
-    {% for in in 0..50 %}
-        <p>Coucou</p>
+                <div class="card-body">
+                    <h3 class="card-title">{{ artist.name }}</h3>
+                    <h4>{{ artist.instrument }}</h4>
+                </div>
+            </div>
+        {% endfor %}
+
+        {% for i in 1..(4 - artists | length) %}
+            <div class="app-card inactive">
+                <div class="card-image">
+                    <a href="#contact" data-navigation-target="link">
+                        <img src="{{ asset('uploads/artist/guitar.webp') }}" alt="Toi ?"/>
+                    </a>
+                </div>
+
+                <div class="card-body">
+                    <h3 class="card-title">
+                        <a href="#contact" data-navigation-target="link">Bientôt toi ?</a>
+                    </h3>
+                    <h4>
+                        <a href="#contact" data-navigation-target="link">Guitare, Chœurs</a>
+                    </h4>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</section>
+
+<section class="app-section biography">
+    <h2>L'histoire de Féelarsen</h2>
+    {% for step in biography %}
+        <div class="app-grid third {% if not loop.last %}mb-1{% endif %}">
+            <div class="content">
+                <p>{{ step.content | raw }}</p>
+            </div>
+            <div class="photo">
+                <img src="{{ asset('uploads/biography/' ~ step.photo) }}" alt="Féelarsen"/>
+            </div>
+        </div>
     {% endfor %}
 </section>
