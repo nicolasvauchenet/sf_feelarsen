@@ -1,6 +1,7 @@
 <header class="app-header">
     <a href="{{ path('app_back_office_home') }}" class="app-logo">
-        <img src="{{ asset('img/sitelogo.jpg') }}" alt="Féelarsen"/>
+        <img src="{{ asset('uploads/settings/' ~ app_settingsService.settings.siteLogo) }}"
+             alt="{{ app_settingsService.settings.siteName }}"/>
     </a>
 
     {% include 'back_office/layout/_navigation.html.twig' %}

@@ -1,6 +1,6 @@
 {% extends 'front_office/layout/_index.html.twig' %}
 
-{% block title %}La preuve vivante que le rock français n'est pas mort{% endblock %}
+{% block title %}{{ app_settingsService.settings.sitePunchline | raw }}{% endblock %}
 
 {% block main %}
     {% include 'front_office/default/_cover.html.twig' %}

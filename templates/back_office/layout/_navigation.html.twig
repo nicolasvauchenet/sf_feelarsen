@@ -33,7 +33,8 @@
         <span class="visible-md">Vidéos/Photos</span>
     </a>
 
-    <a href="#">
+    <a href="{{ path('app_back_office_settings_edit') }}"
+       {% if 'app_back_office_settings_' in app.request.get('_route') %}class="active"{% endif %}>
         <span class="visible-xs">
             {{ ux_icon('mdi:tools', {'class': 'app-icon medium'}) }}
             Config

@@ -1,10 +1,5 @@
 <section class="app-section cover" data-navigation-target="section">
-    <img src="{{ asset('img/sitecover.jpg') }}" alt="Féelarsen"/>
-    <h1>
-        La preuve vivante
-        <br/>
-        que le rock français
-        <br/>
-        n'est pas mort&nbsp;!
-    </h1>
+    <img src="{{ asset('uploads/settings/' ~ app_settingsService.settings.siteCover) }}"
+         alt="{{ app_settingsService.settings.siteName }}"/>
+    <h1>{{ app_settingsService.settings.sitePunchline | raw }}</h1>
 </section>

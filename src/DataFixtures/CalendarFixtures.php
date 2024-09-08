@@ -26,6 +26,6 @@ class CalendarFixtures extends Fixture implements OrderedFixtureInterface
 
     public function getOrder(): int
     {
-        return 1;
+        return 3;
     }
 }

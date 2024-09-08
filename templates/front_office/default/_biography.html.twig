@@ -14,8 +14,8 @@
             </div>
         {% endfor %}
 
-        {% if artists | length < 4 %}
-            {% for i in 1..(4 - artists | length) %}
+        {% if artists | length < app_settingsService.settings.maxArtists %}
+            {% for i in 1..(app_settingsService.settings.maxArtists - artists | length) %}
                 <div class="app-card inactive">
                     <div class="card-image">
                         <a href="#contact" data-navigation-target="link">
@@ -43,7 +43,8 @@
                 <p>{{ article.content | raw }}</p>
             </div>
             <div class="photo">
-                <img src="{{ asset('uploads/biography/' ~ article.photo) }}" alt="Féelarsen"/>
+                <img src="{{ asset('uploads/biography/' ~ article.photo) }}"
+                     alt="{{ app_settingsService.settings.siteName }}"/>
             </div>
         </div>
     {% endfor %}
