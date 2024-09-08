@@ -14,24 +14,26 @@
             </div>
         {% endfor %}
 
-        {% for i in 1..(4 - artists | length) %}
-            <div class="app-card inactive">
-                <div class="card-image">
-                    <a href="#contact" data-navigation-target="link">
-                        <img src="{{ asset('uploads/artist/guitar.webp') }}" alt="Toi ?"/>
-                    </a>
-                </div>
+        {% if artists | length < 4 %}
+            {% for i in 1..(4 - artists | length) %}
+                <div class="app-card inactive">
+                    <div class="card-image">
+                        <a href="#contact" data-navigation-target="link">
+                            <img src="{{ asset('uploads/artist/guitar.webp') }}" alt="Toi ?"/>
+                        </a>
+                    </div>
 
-                <div class="card-body">
-                    <h3 class="card-title">
-                        <a href="#contact" data-navigation-target="link">Bientôt toi ?</a>
-                    </h3>
-                    <h4>
-                        <a href="#contact" data-navigation-target="link">Guitare, Chœurs</a>
-                    </h4>
+                    <div class="card-body">
+                        <h3 class="card-title">
+                            <a href="#contact" data-navigation-target="link">Bientôt toi ?</a>
+                        </h3>
+                        <h4>
+                            <a href="#contact" data-navigation-target="link">Guitare, Chœurs</a>
+                        </h4>
+                    </div>
                 </div>
-            </div>
-        {% endfor %}
+            {% endfor %}
+        {% endif %}
     </div>
 </section>
 

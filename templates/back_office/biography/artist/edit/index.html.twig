@@ -1,0 +1,28 @@
+{% extends 'back_office/layout/_index.html.twig' %}
+
+{% block title %}Modifier un Artiste{% endblock %}
+
+{% block main %}
+    <section class="app-section cover" data-navigation-target="section">
+        <img src="{{ asset('img/admincover.webp') }}" alt="Administration"/>
+        <h1>Modifier un Artiste</h1>
+    </section>
+
+    <section class="app-section actions">
+        <a href="{{ path('app_back_office_biography_home') }}">
+            {{ ux_icon('fa6-solid:circle-arrow-left', {'class': 'app-icon medium'}) }}
+            Le Groupe
+        </a>
+
+        <a href="{{ path('app_back_office_biography_artist_delete', {'id': artist.id}) }}"
+           class="text-danger"
+           onclick="return window.confirm('Êtes-vous sûr ?')">
+            {{ ux_icon('fa6-solid:trash-can', {'class': 'app-icon medium'}) }}
+            Supprimer
+        </a>
+    </section>
+
+    <section class="app-section form">
+        {% include 'back_office/biography/artist/_form.html.twig' with {'button_label': 'Modifier'} %}
+    </section>
+{% endblock %}

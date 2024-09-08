@@ -1,0 +1,56 @@
+{{ form_start(form, {'attr': {'class': 'app-form'}}) }}
+<fieldset class="form-fieldset">
+    <legend class="form-legend">Informations de l'Artiste</legend>
+
+    <div class="form-group">
+        {{ form_label(form.name) }}
+        {{ form_widget(form.name) }}
+        {{ form_errors(form.name) }}
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form.description) }}
+        {{ form_widget(form.description) }}
+        {{ form_errors(form.description) }}
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form.instrument) }}
+        {{ form_widget(form.instrument) }}
+        {{ form_errors(form.instrument) }}
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form.photo) }}
+        {% if artist is defined and artist.photo %}
+            <div class="app-grid third">
+                <div class="file">
+                    {{ form_widget(form.photo) }}
+                    <p>{{ artist.photo }}</p>
+                    <p>
+                        <a href="{{ path('app_back_office_biography_artist_photo_delete', {'id': artist.id}) }}"
+                           class="text-danger"
+                           onclick="return window.confirm('Êtes-vous sûr ?')">
+                            Supprimer
+                        </a>
+                    </p>
+                </div>
+                <div class="preview">
+                    <a href="{{ asset('uploads/artist/' ~ artist.photo) }}" target="_blank">
+                        <img src="{{ asset('uploads/artist/' ~ artist.photo) }}" alt="{{ artist.name }}"/>
+                    </a>
+                </div>
+            </div>
+        {% else %}
+            {{ form_widget(form.photo) }}
+        {% endif %}
+        {{ form_errors(form.photo) }}
+    </div>
+</fieldset>
+
+<div class="form-group">
+    {{ form_widget(form._token) }}
+
+    <button type="submit" class="form-submit">{{ button_label|default('Créer') }}</button>
+</div>
+{{ form_end(form, {'render_rest': false}) }}

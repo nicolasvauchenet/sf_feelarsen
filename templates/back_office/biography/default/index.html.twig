@@ -23,11 +23,12 @@
                     </div>
 
                     <div class="card-footer">
-                        <a href="#" class="text-info">
+                        <a href="{{ path('app_back_office_biography_artist_edit', {'id': artist.id}) }}"
+                           class="text-info">
                             {{ ux_icon('fa6-solid:pen-to-square', {'class': 'app-icon'}) }}
                         </a>
 
-                        <a href="#"
+                        <a href="{{ path('app_back_office_biography_artist_delete', {'id': artist.id}) }}"
                            class="text-danger"
                            onclick="return window.confirm('Êtes-vous sûr ?')">
                             {{ ux_icon('fa6-solid:trash-can', {'class': 'app-icon'}) }}
@@ -36,24 +37,26 @@
                 </div>
             {% endfor %}
 
-            {% for i in 1..(4 - artists | length) %}
-                <div class="app-card inactive">
-                    <div class="card-image">
-                        <a href="#">
-                            <img src="{{ asset('uploads/artist/guitar.webp') }}" alt="Nouvel Artiste"/>
-                        </a>
-                    </div>
-
-                    <div class="card-body">
-                        <h3 class="card-title">
-                            <a href="#" class="text-success">
-                                {{ ux_icon('fa6-solid:circle-plus', {'class': 'app-icon medium'}) }}
+            {% if artists | length < 4 %}
+                {% for i in 1..(4 - artists | length) %}
+                    <div class="app-card inactive">
+                        <div class="card-image">
+                            <a href="{{ path('app_back_office_biography_artist_add') }}">
+                                <img src="{{ asset('uploads/artist/guitar.webp') }}" alt="Nouvel Artiste"/>
                             </a>
-                        </h3>
-                        <h4>Nouvel Artiste</h4>
+                        </div>
+
+                        <div class="card-body">
+                            <h3 class="card-title">
+                                <a href="{{ path('app_back_office_biography_artist_add') }}" class="text-success">
+                                    {{ ux_icon('fa6-solid:circle-plus', {'class': 'app-icon medium'}) }}
+                                </a>
+                            </h3>
+                            <h4>Nouvel Artiste</h4>
+                        </div>
                     </div>
-                </div>
-            {% endfor %}
+                {% endfor %}
+            {% endif %}
         </div>
     </section>
 
