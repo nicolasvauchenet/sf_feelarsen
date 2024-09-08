@@ -46,6 +46,6 @@ class EditController extends AbstractController
         return $this->render('back_office/biography/artist/edit/index.html.twig', [
             'form' => $form->createView(),
             'artist' => $artist,
-        ], new Response(null, $form->isSubmitted() && !$form->isValid() ? 422 : 201));
+        ], new Response(null, $form->isSubmitted() && !$form->isValid() ? 422 : 200));
     }
 }

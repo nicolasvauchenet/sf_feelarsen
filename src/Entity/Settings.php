@@ -20,6 +20,9 @@ class Settings
     private ?string $sitePunchline = null;
 
     #[ORM\Column(length: 255, nullable: true)]
+    private ?string $siteLogo = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
     private ?string $siteCover = null;
 
     #[ORM\Column(length: 255, nullable: true)]
@@ -55,9 +58,6 @@ class Settings
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $contactBookingPhone = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
-    private ?string $siteLogo = null;
-
     #[ORM\Column]
     private ?int $maxArtists = null;
 
@@ -86,6 +86,18 @@ class Settings
     public function setSitePunchline(?string $sitePunchline): static
     {
         $this->sitePunchline = $sitePunchline;
+
+        return $this;
+    }
+
+    public function getSiteLogo(): ?string
+    {
+        return $this->siteLogo;
+    }
+
+    public function setSiteLogo(?string $siteLogo): static
+    {
+        $this->siteLogo = $siteLogo;
 
         return $this;
     }
@@ -230,18 +242,6 @@ class Settings
     public function setContactBookingPhone(?string $contactBookingPhone): static
     {
         $this->contactBookingPhone = $contactBookingPhone;
-
-        return $this;
-    }
-
-    public function getSiteLogo(): ?string
-    {
-        return $this->siteLogo;
-    }
-
-    public function setSiteLogo(?string $siteLogo): static
-    {
-        $this->siteLogo = $siteLogo;
 
         return $this;
     }

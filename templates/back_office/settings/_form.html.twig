@@ -1,0 +1,183 @@
+{{ form_start(form, {'attr': {'class': 'app-form'}}) }}
+<fieldset class="form-fieldset">
+    <legend class="form-legend">Informations du Site</legend>
+
+    <div class="form-group">
+        {{ form_label(form.siteName) }}
+        {{ form_widget(form.siteName) }}
+        {{ form_errors(form.siteName) }}
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form.sitePunchline) }}
+        {{ form_widget(form.sitePunchline) }}
+        {{ form_errors(form.sitePunchline) }}
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form.siteLogo) }}
+        {% if settings is defined and settings.siteLogo %}
+            <div class="app-grid third">
+                <div class="file">
+                    {{ form_widget(form.siteLogo) }}
+                    <p>{{ settings.siteLogo }}</p>
+                    <p>
+                        <a href="{{ path('app_back_office_settings_image_delete', {'id': settings.id, 'type': 'sitelogo'}) }}"
+                           class="text-danger"
+                           onclick="return window.confirm('Êtes-vous sûr ?')">
+                            Supprimer
+                        </a>
+                    </p>
+                </div>
+                <div class="preview">
+                    <a href="{{ asset('uploads/settings/' ~ settings.siteLogo) }}" target="_blank">
+                        <img src="{{ asset('uploads/settings/' ~ settings.siteLogo) }}"
+                             alt="{{ app_settingsService.settings.siteName }}"/>
+                    </a>
+                </div>
+            </div>
+        {% else %}
+            {{ form_widget(form.siteLogo) }}
+        {% endif %}
+        {{ form_errors(form.siteLogo) }}
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form.siteCover) }}
+        {% if settings is defined and settings.siteCover %}
+            <div class="app-grid third">
+                <div class="file">
+                    {{ form_widget(form.siteCover) }}
+                    <p>{{ settings.siteCover }}</p>
+                    <p>
+                        <a href="{{ path('app_back_office_settings_image_delete', {'id': settings.id, 'type': 'sitecover'}) }}"
+                           class="text-danger"
+                           onclick="return window.confirm('Êtes-vous sûr ?')">
+                            Supprimer
+                        </a>
+                    </p>
+                </div>
+                <div class="preview">
+                    <a href="{{ asset('uploads/settings/' ~ settings.siteCover) }}" target="_blank">
+                        <img src="{{ asset('uploads/settings/' ~ settings.siteCover) }}"
+                             alt="{{ app_settingsService.settings.siteName }}"/>
+                    </a>
+                </div>
+            </div>
+        {% else %}
+            {{ form_widget(form.siteCover) }}
+        {% endif %}
+        {{ form_errors(form.siteCover) }}
+    </div>
+</fieldset>
+
+<fieldset class="form-fieldset">
+    <legend class="form-legend">Autres Informations</legend>
+
+    <div class="form-group">
+        {{ form_label(form.maxArtists) }}
+        {{ form_widget(form.maxArtists) }}
+        {{ form_errors(form.maxArtists) }}
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form.contactCover) }}
+        {% if settings is defined and settings.contactCover %}
+            <div class="app-grid third">
+                <div class="file">
+                    {{ form_widget(form.contactCover) }}
+                    <p>{{ settings.contactCover }}</p>
+                    <p>
+                        <a href="{{ path('app_back_office_settings_image_delete', {'id': settings.id, 'type': 'contactcover'}) }}"
+                           class="text-danger"
+                           onclick="return window.confirm('Êtes-vous sûr ?')">
+                            Supprimer
+                        </a>
+                    </p>
+                </div>
+                <div class="preview">
+                    <a href="{{ asset('uploads/settings/' ~ settings.contactCover) }}" target="_blank">
+                        <img src="{{ asset('uploads/settings/' ~ settings.contactCover) }}"
+                             alt="{{ app_settingsService.settings.siteName }}"/>
+                    </a>
+                </div>
+            </div>
+        {% else %}
+            {{ form_widget(form.contactCover) }}
+        {% endif %}
+        {{ form_errors(form.contactCover) }}
+    </div>
+</fieldset>
+
+<fieldset class="form-fieldset">
+    <legend class="form-legend">Informations du Contact Artistique</legend>
+
+    <div class="form-group">
+        {{ form_label(form.contactArtistName) }}
+        {{ form_widget(form.contactArtistName) }}
+        {{ form_errors(form.contactArtistName) }}
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form.contactArtistEmail) }}
+        {{ form_widget(form.contactArtistEmail) }}
+        {{ form_errors(form.contactArtistEmail) }}
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form.contactArtistPhone) }}
+        {{ form_widget(form.contactArtistPhone) }}
+        {{ form_errors(form.contactArtistPhone) }}
+    </div>
+</fieldset>
+
+<fieldset class="form-fieldset">
+    <legend class="form-legend">Informations du Contact Technique</legend>
+
+    <div class="form-group">
+        {{ form_label(form.contactTechName) }}
+        {{ form_widget(form.contactTechName) }}
+        {{ form_errors(form.contactTechName) }}
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form.contactTechEmail) }}
+        {{ form_widget(form.contactTechEmail) }}
+        {{ form_errors(form.contactTechEmail) }}
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form.contactTechPhone) }}
+        {{ form_widget(form.contactTechPhone) }}
+        {{ form_errors(form.contactTechPhone) }}
+    </div>
+</fieldset>
+
+<fieldset class="form-fieldset">
+    <legend class="form-legend">Informations du Contact Booking</legend>
+
+    <div class="form-group">
+        {{ form_label(form.contactBookingName) }}
+        {{ form_widget(form.contactBookingName) }}
+        {{ form_errors(form.contactBookingName) }}
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form.contactBookingEmail) }}
+        {{ form_widget(form.contactBookingEmail) }}
+        {{ form_errors(form.contactBookingEmail) }}
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form.contactBookingPhone) }}
+        {{ form_widget(form.contactBookingPhone) }}
+        {{ form_errors(form.contactBookingPhone) }}
+    </div>
+</fieldset>
+
+<div class="form-group">
+    {{ form_widget(form._token) }}
+
+    <button type="submit" class="form-submit">{{ button_label|default('Créer') }}</button>
+</div>
+{{ form_end(form, {'render_rest': false}) }}

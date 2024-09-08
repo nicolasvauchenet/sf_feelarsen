@@ -12,7 +12,6 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
-use Symfony\Component\String\Slugger\SluggerInterface;
 
 class EditController extends AbstractController
 {
@@ -20,7 +19,6 @@ class EditController extends AbstractController
     public function index(Request                $request,
                           EntityManagerInterface $entityManager,
                           FileUploaderService    $fileUploaderService,
-                          SluggerInterface       $slugger,
                           BiographyRepository    $biographyRepository,
                           Biography              $biography): Response
     {
@@ -50,6 +48,6 @@ class EditController extends AbstractController
         return $this->render('back_office/biography/edit/index.html.twig', [
             'form' => $form->createView(),
             'biography' => $biography,
-        ], new Response(null, $form->isSubmitted() && !$form->isValid() ? 422 : 201));
+        ], new Response(null, $form->isSubmitted() && !$form->isValid() ? 422 : 200));
     }
 }

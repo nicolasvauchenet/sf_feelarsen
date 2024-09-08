@@ -46,6 +46,6 @@ class EditController extends AbstractController
         return $this->render('back_office/calendar/edit/index.html.twig', [
             'form' => $form->createView(),
             'calendar' => $calendar,
-        ], new Response(null, $form->isSubmitted() && !$form->isValid() ? 422 : 201));
+        ], new Response(null, $form->isSubmitted() && !$form->isValid() ? 422 : 200));
     }
 }
