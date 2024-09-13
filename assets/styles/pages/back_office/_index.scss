@@ -58,7 +58,9 @@ html {
           }
 
           .app-card {
-            background-color: transparent;
+            @include respondTo(md) {
+              background-color: transparent;
+            }
           }
         }
       }
