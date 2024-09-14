@@ -17,7 +17,8 @@
         <span class="visible-md">Groupe</span>
     </a>
 
-    <a href="#">
+    <a href="{{ path('app_back_office_album_home') }}"
+       {% if 'app_back_office_album_' in app.request.get('_route') %}class="active"{% endif %}>
         <span class="visible-xs">
             {{ ux_icon('iconamoon:music-album-fill', {'class': 'app-icon medium'}) }}
             Disco

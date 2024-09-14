@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller\BackOffice\Date;
+namespace App\Controller\BackOffice\Calendar\Date;
 
 use App\Entity\Calendar;
 use App\Entity\Date;

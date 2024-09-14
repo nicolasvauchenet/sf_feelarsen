@@ -1,0 +1,78 @@
+{% extends 'back_office/layout/_index.html.twig' %}
+
+{% block title %}Administration des Albums{% endblock %}
+
+{% block main %}
+    <section class="app-section cover" data-navigation-target="section">
+        <img src="{{ asset('img/admincover.webp') }}" alt="Administration"/>
+        <h1>Gérer la Discographie</h1>
+    </section>
+
+    <section class="app-section actions">
+        <a href="{{ path('app_back_office_album_add') }}" class="text-success">
+            {{ ux_icon('fa6-solid:circle-plus', {'class': 'app-icon medium'}) }}
+        </a>
+    </section>
+
+    {% for album in albums %}
+        <section class="app-section">
+            <div class="section-title">
+                <h2>{{ album.name }} ({{ album.releasedAt | date('Y') }})</h2>
+                <div class="actions">
+                    <a href="#" class="text-success">
+                        {{ ux_icon('solar:calendar-add-bold', {'class': 'app-icon'}) }}
+                    </a>
+
+                    <a href="{{ path('app_back_office_album_edit', {'id': album.id}) }}" class="text-info">
+                        {{ ux_icon('fa6-solid:pen-to-square', {'class': 'app-icon'}) }}
+                    </a>
+
+                    <a href="{{ path('app_back_office_album_delete', {'id': album.id}) }}"
+                       class="text-danger"
+                       onclick="return window.confirm('⚠ Attention ⚠\nTous les morceaux de cet album seront supprimés !\nÊtes-vous sûr ?')">
+                        {{ ux_icon('fa6-solid:trash-can', {'class': 'app-icon'}) }}
+                    </a>
+                </div>
+            </div>
+
+            {% if album.tracks | length > 0 %}
+                <div class="app-grid four">
+                    {% for track in album.tracks %}
+                        <div class="app-card">
+                            <div class="card-image">
+                                {% if album.cover %}
+                                    <img src="{{ asset('uploads/album/' ~ album.slug ~ '/' ~ album.cover) }}"
+                                         alt="{{ track.title }}"/>
+                                {% else %}
+                                    <img src="{{ asset('img/album.webp') }}"
+                                         alt="{{ track.title }}"/>
+                                {% endif %}
+                            </div>
+
+                            <div class="card-body">
+                                <h3 class="card-title">
+                                    {{ track.position }}.&nbsp;{{ track.title }}
+                                </h3>
+                                <h5>{{ track.fileName }}</h5>
+                            </div>
+
+                            <div class="card-footer">
+                                <a href="#" class="text-info">
+                                    {{ ux_icon('fa6-solid:pen-to-square', {'class': 'app-icon'}) }}
+                                </a>
+
+                                <a href="#"
+                                   class="text-danger"
+                                   onclick="return window.confirm('Êtes-vous sûr ?')">
+                                    {{ ux_icon('fa6-solid:trash-can', {'class': 'app-icon'}) }}
+                                </a>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <h3>Aucun morceau</h3>
+            {% endif %}
+        </section>
+    {% endfor %}
+{% endblock %}

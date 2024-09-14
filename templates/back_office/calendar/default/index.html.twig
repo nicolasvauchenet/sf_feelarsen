@@ -34,47 +34,52 @@
                     </a>
                 </div>
             </div>
-            <div class="app-grid four">
-                {% for date in calendar.dates %}
-                    <div class="app-card {% if not date.active %}inactive{% endif %}">
-                        <div class="card-image">
-                            {% if date.poster %}
-                                <img src="{{ asset('uploads/calendar/' ~ calendar.slug ~ '/' ~ date.poster) }}"
-                                     alt="{{ date.location }}"/>
-                            {% else %}
-                                <img src="{{ asset('uploads/calendar/' ~ calendar.slug ~ '/' ~ calendar.poster) }}"
-                                     alt="{{ date.location }}"/>
-                            {% endif %}
-                        </div>
 
-                        <div class="card-body">
-                            <h3 class="card-title">
-                                {{ date.startAt | format_datetime(locale=app_locale, pattern="EEEE dd MMMM") | title }}
-                            </h3>
-                            <h4 class="card-title">{{ date.location }}</h4>
-                            <h5>
-                                {% if date.startAt|date('H') > 0 or date.startAt|date('i') > 0 %}
-                                    {{ date.startAt | format_datetime(locale=app.locale, pattern="HH'h'mm") }}
-                                    à
+            {% if calendar.dates | length > 0 %}
+                <div class="app-grid four">
+                    {% for date in calendar.dates %}
+                        <div class="app-card {% if not date.active %}inactive{% endif %}">
+                            <div class="card-image">
+                                {% if date.poster %}
+                                    <img src="{{ asset('uploads/calendar/' ~ calendar.slug ~ '/' ~ date.poster) }}"
+                                         alt="{{ date.location }}"/>
+                                {% else %}
+                                    <img src="{{ asset('uploads/calendar/' ~ calendar.slug ~ '/' ~ calendar.poster) }}"
+                                         alt="{{ date.location }}"/>
                                 {% endif %}
-                                {{ date.city }}
-                            </h5>
-                        </div>
+                            </div>
 
-                        <div class="card-footer">
-                            <a href="{{ path('app_back_office_date_edit', {'id': date.id}) }}" class="text-info">
-                                {{ ux_icon('fa6-solid:pen-to-square', {'class': 'app-icon'}) }}
-                            </a>
+                            <div class="card-body">
+                                <h3 class="card-title">
+                                    {{ date.startAt | format_datetime(locale=app_locale, pattern="EEEE dd MMMM") | title }}
+                                </h3>
+                                <h4 class="card-title">{{ date.location }}</h4>
+                                <h5>
+                                    {% if date.startAt|date('H') > 0 or date.startAt|date('i') > 0 %}
+                                        {{ date.startAt | format_datetime(locale=app.locale, pattern="HH'h'mm") }}
+                                        à
+                                    {% endif %}
+                                    {{ date.city }}
+                                </h5>
+                            </div>
 
-                            <a href="{{ path('app_back_office_date_delete', {'id': date.id}) }}"
-                               class="text-danger"
-                               onclick="return window.confirm('Êtes-vous sûr ?')">
-                                {{ ux_icon('fa6-solid:trash-can', {'class': 'app-icon'}) }}
-                            </a>
+                            <div class="card-footer">
+                                <a href="{{ path('app_back_office_date_edit', {'id': date.id}) }}" class="text-info">
+                                    {{ ux_icon('fa6-solid:pen-to-square', {'class': 'app-icon'}) }}
+                                </a>
+
+                                <a href="{{ path('app_back_office_date_delete', {'id': date.id}) }}"
+                                   class="text-danger"
+                                   onclick="return window.confirm('Êtes-vous sûr ?')">
+                                    {{ ux_icon('fa6-solid:trash-can', {'class': 'app-icon'}) }}
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                {% endfor %}
-            </div>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <h3>Aucun concert</h3>
+            {% endif %}
         </section>
     {% endfor %}
 {% endblock %}

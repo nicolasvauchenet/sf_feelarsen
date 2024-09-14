@@ -22,6 +22,10 @@ class EditController extends AbstractController
                           SluggerInterface       $slugger,
                           Calendar               $calendar): Response
     {
+        $oldName = $calendar->getName();
+        $oldSlug = $calendar->getSlug();
+        $oldPoster = $calendar->getPoster();
+
         $form = $this->createForm(CalendarType::class, $calendar);
         $form->handleRequest($request);
 
@@ -32,9 +36,16 @@ class EditController extends AbstractController
                 if($calendar->getPoster()) {
                     $fileUploaderService->remove('calendar/' . $calendar->getSlug(), $calendar->getPoster());
                 }
-                $posterFileName = $fileUploaderService->upload($posterFile, 'calendar/' . strtolower($slugger->slug($calendar->getName())), 'poster');
+                $posterFileName = $fileUploaderService->upload($posterFile, 'calendar/' . strtolower($slugger->slug($calendar->getName())), strtolower($slugger->slug($calendar->getName())));
                 $calendar->setPoster($posterFileName);
             }
+
+            if($calendar->getName() !== $oldName) {
+                $fileUploaderService->renameDirectory('calendar/' . $oldSlug, 'calendar/' . strtolower($slugger->slug($calendar->getName())));
+                $newPosterFilename = $fileUploaderService->renameFile(strtolower('calendar/' . $slugger->slug($calendar->getName())), $oldPoster, strtolower($slugger->slug($calendar->getName())));
+                $calendar->setPoster($newPosterFilename);
+            }
+
             $entityManager->persist($calendar);
             $entityManager->flush();
 

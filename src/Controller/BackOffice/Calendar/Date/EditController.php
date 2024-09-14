@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller\BackOffice\Date;
+namespace App\Controller\BackOffice\Calendar\Date;
 
 use App\Entity\Date;
 use App\Form\DateType;
@@ -11,7 +11,6 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
-use Symfony\Component\String\Slugger\SluggerInterface;
 
 class EditController extends AbstractController
 {

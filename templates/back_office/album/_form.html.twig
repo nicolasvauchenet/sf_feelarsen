@@ -1,0 +1,61 @@
+{{ form_start(form, {'attr': {'class': 'app-form'}}) }}
+<fieldset class="form-fieldset">
+    <legend class="form-legend">Informations de l'Album</legend>
+
+    <div class="form-group">
+        {{ form_label(form.name) }}
+        {{ form_widget(form.name) }}
+        {{ form_errors(form.name) }}
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form.cover) }}
+        {% if album is defined and album.cover %}
+            <div class="app-grid third">
+                <div class="file">
+                    {{ form_widget(form.cover) }}
+                    <p>{{ album.cover }}</p>
+                    <p>
+                        <a href="{{ path('app_back_office_album_cover_delete', {'id': album.id}) }}"
+                           class="text-danger"
+                           onclick="return window.confirm('Êtes-vous sûr ?')">
+                            Supprimer
+                        </a>
+                    </p>
+                </div>
+                <div class="preview">
+                    <a href="{{ asset('uploads/album/' ~ album.slug ~ '/' ~ album.cover) }}" target="_blank">
+                        <img src="{{ asset('uploads/album/' ~ album.slug ~ '/' ~ album.cover) }}"
+                             alt="{{ album.name }}"/>
+                    </a>
+                </div>
+            </div>
+        {% else %}
+            {{ form_widget(form.cover) }}
+        {% endif %}
+        {{ form_errors(form.cover) }}
+    </div>
+</fieldset>
+
+<fieldset class="form-fieldset">
+    <legend class="form-legend">Gestion de l'Album</legend>
+
+    {# <div class="form-group toggle">
+        {{ form_label(form.active, null, {'label_attr': {'class': 'toggle-label'}}) }}
+        {{ form_widget(form.active) }}
+        <div class="toggle-switch"></div>
+    </div> #}
+
+    <div class="form-group">
+        {{ form_label(form.releasedAt) }}
+        {{ form_widget(form.releasedAt) }}
+        {{ form_errors(form.releasedAt) }}
+    </div>
+</fieldset>
+
+<div class="form-group">
+    {{ form_widget(form._token) }}
+
+    <button type="submit" class="form-submit">{{ button_label|default('Créer') }}</button>
+</div>
+{{ form_end(form, {'render_rest': false}) }}
