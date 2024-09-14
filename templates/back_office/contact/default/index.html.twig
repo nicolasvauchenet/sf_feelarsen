@@ -1,0 +1,45 @@
+{% extends 'back_office/layout/_index.html.twig' %}
+
+{% block title %}Messages reçus{% endblock %}
+
+{% block main %}
+    <section class="app-section cover" data-navigation-target="section">
+        <img src="{{ asset('img/admincover.webp') }}" alt="Administration"/>
+        <h1>Les Messages reçus</h1>
+    </section>
+
+    <section class="app-section">
+        {% if messages | length > 0 %}
+            <div class="app-grid three">
+                {% for message in messages %}
+                    <div class="app-card">
+                        <div class="card-image">
+                            <img src="{{ asset('img/message.webp') }}" alt="Message reçu"/>
+                        </div>
+
+                        <div class="card-body">
+                            <h3 class="card-title">
+                                <a href="mailto:{{ message.senderEmail }}">{{ message.senderName }}</a>
+                            </h3>
+                            <h4>{{ message.senderType }}</h4>
+                            <h4>Le {{ message.sentAt | date('d/m/Y à H:i') }}</h4>
+                            <hr/>
+                            <h5>{{ message.subject }}</h5>
+                            <p class="card-content">{{ message.message }}</p>
+                        </div>
+
+                        <div class="card-footer">
+                            <a href="{{ path('app_back_office_contact_delete', {'id': message.id}) }}"
+                               class="text-danger"
+                               onclick="return window.confirm('Êtes-vous sûr ?')">
+                                {{ ux_icon('fa6-solid:trash-can', {'class': 'app-icon'}) }}
+                            </a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <h3>Aucun message reçu</h3>
+        {% endif %}
+    </section>
+{% endblock %}

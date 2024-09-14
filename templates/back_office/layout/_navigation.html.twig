@@ -42,7 +42,8 @@
         <span class="visible-md">Pro</span>
     </a>
 
-    <a href="#">
+    <a href="{{ path('app_back_office_contact_home') }}"
+       {% if 'app_back_office_contact_' in app.request.get('_route') %}class="active"{% endif %}>
         <span class="visible-xs">
             {{ ux_icon('iconamoon:music-album-fill', {'class': 'app-icon medium'}) }}
             Contact

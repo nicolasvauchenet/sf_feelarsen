@@ -10,8 +10,12 @@
         width: 50dvw;
       }
 
-      .form-fieldset {
-        margin-bottom: 0 !important;
+      .app-grid {
+        &.two {
+          .form-fieldset {
+            margin-bottom: 3rem !important;
+          }
+        }
       }
     }
   }

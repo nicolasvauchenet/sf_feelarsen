@@ -23,6 +23,10 @@
         h5 {
           color: $white;
         }
+
+        .card-content {
+          color: $white;
+        }
       }
     }
   }
@@ -83,7 +87,9 @@
   }
 
   .card-body {
-    padding: 1rem 0.5rem;
+    padding: 1rem;
+    width: calc(100% - 2rem);
+    height: calc(100% - 1rem);
 
     .card-title {
       margin-bottom: 0.5rem;
@@ -94,6 +100,21 @@
       h4,
       h5 {
         color: $black;
+        @include transition;
+      }
+    }
+
+    .card-content {
+      padding: 0.5rem;
+      margin-top: 1rem;
+      width: calc(100% - 1rem);
+      line-height: 1.25rem;
+      background-color: rgba($white, 0.15);
+      @include radius(small);
+
+      @include respondTo(xs) {
+        color: $black;
+        background-color: transparent;
         @include transition;
       }
     }
