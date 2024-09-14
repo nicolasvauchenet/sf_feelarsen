@@ -4,6 +4,7 @@ namespace App\Controller\FrontOffice;
 
 use App\Entity\Contact;
 use App\Form\ContactType;
+use App\Repository\AlbumRepository;
 use App\Repository\ArtistRepository;
 use App\Repository\BiographyRepository;
 use App\Repository\CalendarRepository;
@@ -23,6 +24,7 @@ class DefaultController extends AbstractController
                           CalendarRepository     $calendarRepository,
                           ArtistRepository       $artistRepository,
                           BiographyRepository    $biographyRepository,
+                          AlbumRepository        $albumRepository,
                           DownloadRepository     $downloadRepository): Response
     {
         $contact = new Contact();
@@ -43,6 +45,7 @@ class DefaultController extends AbstractController
             'calendar' => $calendarRepository->findOneBy(['active' => true]),
             'artists' => $artistRepository->findAll(),
             'biography' => $biographyRepository->findBy([], ['position' => 'ASC']),
+            'albums' => $albumRepository->findBy([], ['releasedAt' => 'DESC']),
             'documents' => $downloadRepository->findBy(['active' => true]),
             'form' => $form->createView(),
         ], new Response(null, $form->isSubmitted() && !$form->isValid() ? 422 : 201));

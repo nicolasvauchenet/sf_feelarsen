@@ -13,7 +13,6 @@ class CalendarFixtures extends Fixture implements OrderedFixtureInterface
     {
         $calendar = (new Calendar())
             ->setName('Atomic Cowboy Tour 2024')
-            ->setSlug('atomic-cowboy-tour-2024')
             ->setPoster('poster.jpg')
             ->setStartAt(new \DateTimeImmutable('2024-01-01'))
             ->setEndAt(new \DateTimeImmutable('2024-12-31'))

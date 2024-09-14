@@ -1,7 +1,9 @@
 <section class="app-section" id="discographie" data-navigation-target="section">
     <h2>Ses Albums</h2>
 
-    {% for in in 0..50 %}
-        <p>Coucou</p>
-    {% endfor %}
+    <div class="app-grid two">
+        {% for album in albums %}
+            {% include '_audioplayer.html.twig' with{'album': album} %}
+        {% endfor %}
+    </div>
 </section>
