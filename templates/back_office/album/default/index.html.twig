@@ -19,7 +19,7 @@
             <div class="section-title">
                 <h2>{{ album.name }} ({{ album.releasedAt | date('Y') }})</h2>
                 <div class="actions">
-                    <a href="#" class="text-success">
+                    <a href="{{ path('app_back_office_track_add', {'id': album.id}) }}" class="text-success">
                         {{ ux_icon('solar:calendar-add-bold', {'class': 'app-icon'}) }}
                     </a>
 

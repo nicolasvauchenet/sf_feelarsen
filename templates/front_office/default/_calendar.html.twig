@@ -1,7 +1,7 @@
 <section class="app-section" id="concerts" data-navigation-target="section">
     <h2>{{ calendar.name }}</h2>
 
-    <div class="app-grid four">
+    <div class="app-grid four mb-3">
         {% for date in calendar.dates %}
             <div class="app-card {% if date.startAt < date('now') %}disabled{% endif %}">
                 <div class="card-image">
@@ -12,7 +12,7 @@
                             <img src="{{ asset('uploads/calendar/' ~ calendar.slug ~ '/' ~ date.poster) }}"
                                  alt="{{ date.location }}"/>
                         {% else %}
-                            <img src="{{ asset('uploads/calendar/' ~ calendar.slug ~ '/poster.jpg') }}"
+                            <img src="{{ asset('uploads/calendar/' ~ calendar.slug ~ '/' ~ calendar.poster) }}"
                                  alt="{{ date.location }}"/>
                         {% endif %}
                         {% if date.link %}
@@ -34,4 +34,8 @@
             </div>
         {% endfor %}
     </div>
+
+    <p>
+        <a href="#" class="app-button b-center">Toutes les Dates</a>
+    </p>
 </section>

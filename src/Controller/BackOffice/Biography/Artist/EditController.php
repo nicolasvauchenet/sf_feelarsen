@@ -22,6 +22,8 @@ class EditController extends AbstractController
                           SluggerInterface       $slugger,
                           Artist                 $artist): Response
     {
+        $oldName = $artist->getName();
+        $oldPhoto = $artist->getPhoto();
         $form = $this->createForm(ArtistType::class, $artist);
         $form->handleRequest($request);
 
@@ -35,6 +37,12 @@ class EditController extends AbstractController
                 $photoFileName = $fileUploaderService->upload($photoFile, 'artist', strtolower($slugger->slug($artist->getName())));
                 $artist->setPhoto($photoFileName);
             }
+
+            if($artist->getName() !== $oldName) {
+                $newPhotoFilename = $fileUploaderService->renameFile('artist', $oldPhoto, strtolower($slugger->slug($artist->getName())));
+                $artist->setPhoto($newPhotoFilename);
+            }
+
             $entityManager->persist($artist);
             $entityManager->flush();
 

@@ -24,6 +24,8 @@ class EditController extends AbstractController
                           SettingsService        $settingsService,
                           Download               $document): Response
     {
+        $oldDocumentName = $document->getDocumentName();
+        $oldFileName = $document->getFileName();
         $form = $this->createForm(DownloadType::class, $document);
         $form->handleRequest($request);
 
@@ -38,6 +40,12 @@ class EditController extends AbstractController
                 $documentFileName = $fileUploaderService->upload($documentFile, 'document', strtolower($slugger->slug($settingsService->getSettings()->getSiteName())) . '-' . strtolower($slugger->slug($document->getDocumentName())));
                 $document->setFileName($documentFileName);
             }
+
+            if($document->getDocumentName() !== $oldDocumentName) {
+                $newDocumentFilename = $fileUploaderService->renameFile('document', $oldFileName, strtolower($slugger->slug($settingsService->getSettings()->getSiteName())) . '-' . strtolower($slugger->slug($document->getDocumentName())));
+                $document->setFileName($newDocumentFilename);
+            }
+
             $entityManager->persist($document);
             $entityManager->flush();
 
