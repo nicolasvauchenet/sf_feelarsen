@@ -28,8 +28,16 @@
         }
       }
 
+      .photo {
+        @include displayFlex(center, center);
+      }
+
       .downloads {
-        @include displayFlex(center, center, 1rem, column)
+        @include displayFlex(center, center, 1rem, column);
+
+        .app-button {
+          padding: 0.5rem 1.5rem;
+        }
       }
 
       .content {
