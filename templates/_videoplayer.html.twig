@@ -1,0 +1,13 @@
+<div class="video-container">
+    <video id="my-video-{{ video.id }}"
+           class="custom-video-player"
+           controls
+           preload="auto"
+           {#poster="{{ asset('uploads/settings/sitecover.jpg') }}"#}
+           data-controller="video"
+           data-video-id="{{ video.id }}">
+        <source src="{{ path('video_stream', {id: video.id}) }}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div class="video-title">{{ video.name }} - {{ video.releasedAt | date('Y') }}</div>
+</div>

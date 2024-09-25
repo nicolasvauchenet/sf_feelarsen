@@ -10,6 +10,7 @@ use App\Repository\BiographyRepository;
 use App\Repository\CalendarRepository;
 use App\Repository\ContactRepository;
 use App\Repository\DownloadRepository;
+use App\Repository\VideoRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -25,6 +26,7 @@ class DefaultController extends AbstractController
                           ArtistRepository       $artistRepository,
                           BiographyRepository    $biographyRepository,
                           AlbumRepository        $albumRepository,
+                          VideoRepository        $videoRepository,
                           DownloadRepository     $downloadRepository): Response
     {
         $contact = new Contact();
@@ -46,6 +48,8 @@ class DefaultController extends AbstractController
             'artists' => $artistRepository->findAll(),
             'biography' => $biographyRepository->findBy([], ['position' => 'ASC']),
             'albums' => $albumRepository->findBy([], ['releasedAt' => 'DESC']),
+            'clips' => $videoRepository->findBy(['type' => 'clip'], ['releasedAt' => 'DESC', 'name' => 'ASC']),
+            'lives' => $videoRepository->findBy(['type' => 'live'], ['releasedAt' => 'DESC', 'name' => 'ASC']),
             'documents' => $downloadRepository->findBy(['active' => true]),
             'form' => $form->createView(),
         ], new Response(null, $form->isSubmitted() && !$form->isValid() ? 422 : 201));

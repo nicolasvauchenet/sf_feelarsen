@@ -1,23 +1,27 @@
 <section class="app-section" id="videos" data-navigation-target="section">
     <h2>Ses Clips</h2>
 
-    {% for in in 0..10 %}
-        <p>Coucou</p>
-    {% endfor %}
+    <div class="app-grid two">
+        {% for video in clips %}
+            {% include '_videoplayer.html.twig' with{'video': video} %}
+        {% endfor %}
+    </div>
 </section>
 
 <section class="app-section" id="videos" data-navigation-target="section">
-    <h2>Ses vidéos</h2>
+    <h2>Sur Scène</h2>
 
-    {% for in in 0..10 %}
-        <p>Coucou</p>
-    {% endfor %}
+    <div class="app-grid two">
+        {% for video in lives %}
+            {% include '_videoplayer.html.twig' with{'video': video} %}
+        {% endfor %}
+    </div>
 </section>
 
-<section class="app-section" id="videos" data-navigation-target="section">
+{#<section class="app-section" id="videos" data-navigation-target="section">
     <h2>Ses photos</h2>
 
     {% for in in 0..10 %}
         <p>Coucou</p>
     {% endfor %}
-</section>
+</section>#}

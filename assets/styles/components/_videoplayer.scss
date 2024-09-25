@@ -1,0 +1,24 @@
+.video-container {
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  background-color: rgba($white, 0.1);
+  border-radius: 0.25rem;
+
+  .custom-video-player {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    display: block;
+  }
+
+  .video-title {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    color: $black;
+    background-color: $yellow;
+    border-radius: 0 0 0.25rem 0.25rem;
+  }
+}
