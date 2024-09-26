@@ -155,6 +155,14 @@ class DateFixtures extends Fixture implements OrderedFixtureInterface
             ->setActive(true);
         $manager->persist($date);
 
+        $date = (new Date())
+            ->setCalendar($this->getReference('calendar-2024'))
+            ->setLocation("Zanaly + Féelarsen + Bob's Not Dead")
+            ->setCity('La Quincaillerie Numérique - Guéret (23)')
+            ->setStartAt(new \DateTimeImmutable('2024-12-07'))
+            ->setActive(true);
+        $manager->persist($date);
+
         $manager->flush();
     }
 
