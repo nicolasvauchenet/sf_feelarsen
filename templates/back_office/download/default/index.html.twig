@@ -15,7 +15,7 @@
     </section>
 
     <section class="app-section download">
-        <div class="app-grid three mb-3">
+        <div class="app-grid four mb-3">
             {% for document in documents %}
                 <div class="app-card {% if not document.active %}inactive{% endif %}">
                     <div class="card-image">
@@ -51,7 +51,7 @@
                class="app-button bg-info"
                target="_blank">
                 {{ ux_icon('hugeicons:pdf-01', {'class': 'app-icon medium'}) }}
-                Fiche Technique
+                Dossier Technique
             </a>
             <a href="{{ path('app_back_office_pdf_test', {'type': 'rider'}) }}"
                class="app-button bg-warning"

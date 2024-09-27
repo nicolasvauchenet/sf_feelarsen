@@ -1,10 +1,15 @@
 <html>
     <head>
         <meta charset="UTF-8"/>
-        <title>{{ app_settingsService.settings.siteName }} - Fiche Technique</title>
+        <title>{{ app_settingsService.settings.siteName }} - Dossier Technique</title>
 
         <style>
             {% include 'back_office/pdf/default/styles.css' %}
+            @page content-page {
+                @bottom-left {
+                    content: "{{ app_settingsService.settings.siteName }} - Dossier Technique";
+                }
+            }
         </style>
     </head>
     <body>
@@ -25,41 +30,28 @@
 
             <div class="filetitle">
                 <h1>{{ app_settingsService.settings.siteName }}</h1>
-                <h2>Fiche Technique</h2>
+                <h2>Dossier Technique</h2>
             </div>
 
             <div class="grid three">
-                <div class="grid-item">
-                    <a href="#">
-                        <img src="file:///app/uploads/settings/qr_website.png" alt="feelarsen.fr"/>
-                        Musique
-                    </a>
-                </div>
+                <p>&nbsp;</p>
 
                 <div class="grid-item">
-                    <a href="https://feelarsen.fr">
-                        <img src="file:///app/uploads/settings/qr_website.png" alt="feelarsen.fr"/>
-                        Site web
-                    </a>
+                    <h3>Contact Technique</h3>
+                    <p>
+                        <strong>Nicolas Vauché</strong>
+                        <br/>
+                        06.83.57.30.67
+                    </p>
                 </div>
 
-                <div class="grid-item">
-                    <a href="#">
-                        <img src="file:///app/uploads/settings/qr_website.png" alt="feelarsen.fr"/>
-                        Clip vidéo
-                    </a>
-                </div>
+                <p>&nbsp;</p>
             </div>
         </section>
 
         {% include 'back_office/pdf/default/technical/_content.html.twig' %}
 
-        <!-- Contacts -->
-        {% include 'back_office/pdf/default/contacts/_cover.html.twig' %}
-        {% include 'back_office/pdf/default/contacts/_content.html.twig' %}
-
         <!-- Saut de page -->
-        <div class="page-break"></div>
         <div class="page-break"></div>
 
         <!-- Back -->

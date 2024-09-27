@@ -12,8 +12,8 @@ class DownloadFixtures extends Fixture implements OrderedFixtureInterface
     public function load(ObjectManager $manager): void
     {
         $document = (new Download())
-            ->setDocumentName('Fiche Technique')
-            ->setFileName('feelarsen-fiche-technique.pdf')
+            ->setDocumentName('Dossier Technique')
+            ->setFileName('feelarsen-dossier-technique.pdf')
             ->setColor('info')
             ->setActive(true);
         $manager->persist($document);
