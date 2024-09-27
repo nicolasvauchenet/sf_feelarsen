@@ -11,17 +11,25 @@ use App\Repository\CalendarRepository;
 use App\Repository\ContactRepository;
 use App\Repository\DownloadRepository;
 use App\Repository\VideoRepository;
+use App\Service\MailerService;
+use App\Service\SettingsService;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
 use Symfony\Component\Routing\Attribute\Route;
 
 class DefaultController extends AbstractController
 {
+    /**
+     * @throws TransportExceptionInterface
+     */
     #[Route('/', name: 'app_front_office_home')]
     public function index(Request                $request,
                           EntityManagerInterface $entityManager,
+                          MailerService          $mailerService,
+                          SettingsService        $settingsService,
                           CalendarRepository     $calendarRepository,
                           ArtistRepository       $artistRepository,
                           BiographyRepository    $biographyRepository,
@@ -34,6 +42,21 @@ class DefaultController extends AbstractController
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()) {
+            $mailerService->sendEmail([
+                'from' => [
+                    'type' => $form->get('senderType')->getData(),
+                    'name' => $form->get('senderName')->getData(),
+                    'email' => $form->get('senderEmail')->getData(),
+                    'phone' => $form->get('senderPhone')->getData(),
+                ],
+                'to' => [
+                    'name' => $settingsService->getSettings()->getSiteName(),
+                    'email' => $settingsService->getSettings()->getContactEmail(),
+                ],
+                'subject' => $form->get('subject')->getData(),
+                'message' => $form->get('message')->getData(),
+            ], 'front_office/default/_email');
+
             $contact->setSentAt(new \DateTimeImmutable());
             $entityManager->persist($contact);
             $entityManager->flush();
