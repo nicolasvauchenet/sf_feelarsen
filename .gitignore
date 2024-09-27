@@ -13,6 +13,27 @@ feelarsen.key
 /public/bundles/
 /var/
 /vendor/
+/public/uploads/album/*
+!/public/uploads/album/.gitkeep
+/public/uploads/artist/*
+!/public/uploads/artist/bass.webp
+!/public/uploads/artist/drums.webp
+!/public/uploads/artist/guitar.webp
+!/public/uploads/artist/synths.webp
+!/public/uploads/artist/vocals.webp
+/public/uploads/biography/*
+!/public/uploads/biography/biography.webp
+/public/uploads/calendar/*
+!/public/uploads/calendar/.gitkeep
+/public/uploads/document/*
+!/public/uploads/document/document.webp
+!/public/uploads/document/pdf/
+/public/uploads/settings/*
+!/public/uploads/settings/.gitkeep
+/public/uploads/video/clip/*
+!/public/uploads/video/clip/.gitkeep
+/public/uploads/video/live/*
+!/public/uploads/video/live/.gitkeep
 ###< symfony/framework-bundle ###
 
 ###> phpunit/phpunit ###
