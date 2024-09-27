@@ -15,22 +15,53 @@
                         {{ document.documentName }} (PDF)
                     </a>
                 {% endfor %}
+
+                <div class="app-grid four icons">
+                    <a href="https://open.spotify.com/intl-fr/artist/7dTRyO5JW320DZg7Y3hDrZ?si=CHVAM0PBSBq5Icsd2RhJWQ"
+                       class="spotify"
+                       target="_blank"
+                       title="Écoutez {{ app_settingsService.settings.siteName }} sur Spotify">
+                        {{ ux_icon('bi:spotify', {'class': 'app-icon medium'}) }}
+                    </a>
+                    <a href="https://deezer.page.link/adx4emNb4MgkwfNf6"
+                       class="deezer"
+                       target="_blank"
+                       title="Écoutez {{ app_settingsService.settings.siteName }} sur Deezer">
+                        {{ ux_icon('arcticons:deezer', {'class': 'app-icon medium'}) }}
+                    </a>
+                    <a href="https://www.facebook.com/LesFeelarsen"
+                       class="facebook"
+                       target="_blank"
+                       title="Suivez {{ app_settingsService.settings.siteName }} sur Facebook">
+                        {{ ux_icon('bi:facebook', {'class': 'app-icon medium'}) }}
+                    </a>
+                    <a href="https://feelarsenproduction.bandcamp.com/album/willy"
+                       class="bandcamp"
+                       target="_blank"
+                       title="Suivez {{ app_settingsService.settings.siteName }} sur Bandcamp">
+                        {{ ux_icon('cib:bandcamp', {'class': 'app-icon medium'}) }}
+                    </a>
+                </div>
             </div>
 
-            <div class="content">
+            <div class="content flex">
                 <p>
-                    Téléchargez les <strong>dossiers</strong> du groupe avec toutes les infos nécessaires : la
-                    <strong>fiche technique</strong>, le <strong>rider</strong> et le <strong>dossier médias</strong>,
-                    pour une collaboration ou pour préparer programmation d'événements. Vous pouvez aussi nous envoyer
-                    un message en utilisant le <strong>formulaire</strong> ci-dessous, ou contacter directement le
-                    groupe pour toute question ou demande d'informations.
+                    Téléchargez les <strong>dossiers</strong> du groupe avec toutes les infos
+                    de {{ app_settingsService.settings.siteName }}, pour une collaboration ou pour préparer votre
+                    programmation. Vous pouvez aussi nous envoyer un message en utilisant le
+                    <strong>formulaire</strong> ci-dessous, ou contacter directement le groupe pour toute question ou
+                    demande d'informations.
+                    <br/>
+                    <strong>Écoutez-nous</strong> sur vos plateformes de <strong>streaming</strong> préférées, ou
+                    <strong>suivez-nous</strong> sur les réseaux sociaux pour être informé des dernières
+                    <strong>actualités</strong> du groupe&nbsp;!
                 </p>
             </div>
         </div>
     </div>
 
     <div class="app-grid three">
-        <div class="content">
+        <div class="content flex">
             <h3 class="mb-1">Contact Artistique</h3>
             <h4>{{ app_settingsService.settings.contactArtistName }}</h4>
             <h5>
@@ -45,7 +76,7 @@
             </p>
         </div>
 
-        <div class="content">
+        <div class="content flex">
             <h3 class="mb-1">Contact Technique</h3>
             <h4>{{ app_settingsService.settings.contactTechName }}</h4>
             <h5>
@@ -60,7 +91,7 @@
             </p>
         </div>
 
-        <div class="content">
+        <div class="content flex">
             <h3 class="mb-1">Contact Booking</h3>
             <h4>{{ app_settingsService.settings.siteName }}</h4>
             <h5>

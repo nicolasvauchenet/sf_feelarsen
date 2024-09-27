@@ -41,11 +41,14 @@
       }
 
       .content {
-        @include displayFlex(null, center);
         padding: 1rem;
         color: $black;
         background-color: $yellow;
         @include radius(medium);
+
+        &.flex {
+          @include displayFlex(null, center);
+        }
 
         @include respondTo(md) {
           padding: 1rem 2rem;
@@ -104,4 +107,25 @@
       background-color: $black !important;
     }
   }
+}
+
+.icons {
+  margin-top: 1rem;
+
+  .spotify {
+    color: $spotify !important;
+  }
+
+  .deezer {
+    color: $deezer !important;
+  }
+
+  .facebook {
+    color: $facebook !important;
+  }
+
+  .bandcamp {
+    color: $bandcamp !important;
+  }
+
 }
