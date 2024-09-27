@@ -47,27 +47,27 @@
         <h2>Générer les PDF</h2>
 
         <div class="app-grid four">
-            <a href="{{ path('app_back_office_pdf_test', {'type': 'technical'}) }}"
+            <a href="{{ path('app_back_office_pdf_generate', {'type': 'technical'}) }}"
                class="app-button bg-info"
                target="_blank">
                 {{ ux_icon('hugeicons:pdf-01', {'class': 'app-icon medium'}) }}
                 Dossier Technique
             </a>
-            <a href="{{ path('app_back_office_pdf_test', {'type': 'rider'}) }}"
+            <a href="{{ path('app_back_office_pdf_generate', {'type': 'rider'}) }}"
                class="app-button bg-warning"
                target="_blank">
                 {{ ux_icon('hugeicons:pdf-01', {'class': 'app-icon medium'}) }}
                 Rider
             </a>
-            <a href="{{ path('app_back_office_pdf_test', {'type': 'medias'}) }}"
+            <a href="{{ path('app_back_office_pdf_generate', {'type': 'medias'}) }}"
                class="app-button bg-success"
                target="_blank">
                 {{ ux_icon('hugeicons:pdf-01', {'class': 'app-icon medium'}) }}
                 Dossier Médias
             </a>
-            <a href="{{ path('app_back_office_pdf_test') }}" class="app-button bg-danger" target="_blank">
+            <a href="{{ path('app_back_office_pdf_generate') }}" class="app-button bg-danger" target="_blank">
                 {{ ux_icon('hugeicons:pdf-01', {'class': 'app-icon medium'}) }}
-                Dossier Complet
+                Dossier Général
             </a>
         </div>
     </section>

@@ -6,7 +6,7 @@
     margin-bottom: 10mm;
 
     @bottom-left {
-        content: "{{ app_settingsService.settings.siteName }} - Dossier de candidature";
+        content: "{{ app_settingsService.settings.siteName }} - Dossier Général";
         padding-left: 10mm;
         font-size: 12px;
         font-weight: bold;
@@ -110,6 +110,38 @@ a {
 .section-svg {
     width: 210mm;
     height: 312mm;
+}
+
+.grid.two {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 5mm;
+}
+
+.grid.four {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 5mm;
+}
+
+.grid.four .grid-item h3,
+.grid.four .grid-item p {
+    text-align: center;
+}
+
+.grid.four .grid-item h3 {
+    margin-bottom: 2mm;
+}
+
+.grid.four .grid-item p {
+    margin: 0;
+}
+
+.grid.third {
+    display: grid;
+    grid-template-columns: 3fr 7fr;
+    grid-gap: 5mm;
+    align-items: center;
 }
 
 .cover-page .grid.three {

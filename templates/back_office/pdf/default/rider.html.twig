@@ -5,6 +5,11 @@
 
         <style>
             {% include 'back_office/pdf/default/styles.css' %}
+            @page content-page {
+                @bottom-left {
+                    content: "{{ app_settingsService.settings.siteName }} - Rider";
+                }
+            }
         </style>
     </head>
     <body>

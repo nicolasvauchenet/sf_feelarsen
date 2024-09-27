@@ -10,7 +10,7 @@ use Symfony\Component\Routing\Attribute\Route;
 #[Route('/administration/pdf', name: 'app_back_office_pdf_')]
 class DefaultController extends AbstractController
 {
-    #[Route('/{type}', name: 'test')]
+    #[Route('/{type}', name: 'generate')]
     public function index(string $type = 'all'): Response
     {
         // Le HTML que tu veux convertir en PDF

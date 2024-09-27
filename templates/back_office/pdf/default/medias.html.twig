@@ -5,6 +5,11 @@
 
         <style>
             {% include 'back_office/pdf/default/styles.css' %}
+            @page content-page {
+                @bottom-left {
+                    content: "{{ app_settingsService.settings.siteName }} - Dossier Médias";
+                }
+            }
         </style>
     </head>
     <body>
@@ -29,37 +34,24 @@
             </div>
 
             <div class="grid three">
-                <div class="grid-item">
-                    <a href="#">
-                        <img src="file:///app/uploads/settings/qr_website.png" alt="feelarsen.fr"/>
-                        Musique
-                    </a>
-                </div>
+                <p>&nbsp;</p>
 
                 <div class="grid-item">
-                    <a href="https://feelarsen.fr">
-                        <img src="file:///app/uploads/settings/qr_website.png" alt="feelarsen.fr"/>
-                        Site web
-                    </a>
+                    <h3>Contact Booking</h3>
+                    <p>
+                        <strong>Bastard Sound System</strong>
+                        <br/>
+                        06.83.57.30.67
+                    </p>
                 </div>
 
-                <div class="grid-item">
-                    <a href="#">
-                        <img src="file:///app/uploads/settings/qr_website.png" alt="feelarsen.fr"/>
-                        Clip vidéo
-                    </a>
-                </div>
+                <p>&nbsp;</p>
             </div>
         </section>
 
         {% include 'back_office/pdf/default/medias/_content.html.twig' %}
 
-        <!-- Contacts -->
-        {% include 'back_office/pdf/default/contacts/_cover.html.twig' %}
-        {% include 'back_office/pdf/default/contacts/_content.html.twig' %}
-
         <!-- Saut de page -->
-        <div class="page-break"></div>
         <div class="page-break"></div>
 
         <!-- Back -->

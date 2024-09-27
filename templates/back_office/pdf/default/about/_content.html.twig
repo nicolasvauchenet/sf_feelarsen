@@ -1,7 +1,176 @@
 <!-- Contenu Présentation -->
 <section class="content-page">
     <h1>Présentation</h1>
-    {% for i in 1..50 %}
-        <p>Ceci est un paragraphe de présentation.</p>
-    {% endfor %}
+
+    <div class="frame">
+        <h2>Logo du groupe</h2>
+
+        <div class="content">
+            <img src="file:///app/uploads/settings/{{ app_settingsService.settings.siteLogo }}"
+                 alt="{{ app_settingsService.settings.siteName }}"/>
+        </div>
+    </div>
+
+    <div class="frame">
+        <h2>Nom du groupe</h2>
+
+        <div class="content">
+            <p>Féelarsen</p>
+        </div>
+    </div>
+
+    <div class="frame">
+        <h2>Genre musical</h2>
+
+        <div class="content">
+            <p>Rock alternatif français</p>
+        </div>
+    </div>
+
+    <div class="grid two">
+        <div class="frame">
+            <h2>Naissance</h2>
+
+            <div class="content">
+                <p>2004</p>
+            </div>
+        </div>
+        <div class="frame">
+            <h2>Label</h2>
+
+            <div class="content">
+                <p>Aucun</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="grid two">
+        <div class="frame">
+            <h2>Localisation</h2>
+
+            <div class="content">
+                <p>Limoges (87)</p>
+            </div>
+        </div>
+        <div class="frame">
+            <h2>Rayon</h2>
+
+            <div class="content">
+                <p>France, Europe</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="grid two">
+        <div class="frame">
+            <h2>Langues parlées</h2>
+
+            <div class="content">
+                <p>Français, Anglais</p>
+            </div>
+        </div>
+        <div class="frame">
+            <h2>Langues chantées</h2>
+
+            <div class="content">
+                <p>Français</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="grid two">
+        <div class="frame">
+            <h2>Musiciens</h2>
+
+            <div class="content">
+                <ul>
+                    <li>JF : Chant Lead, Guitare</li>
+                    <li>Ben : Chant Chœur, Basse</li>
+                    <li>Manu : Chant Chœur, Batterie</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="frame">
+            <h2>Staff</h2>
+
+            <div class="content">
+                <ul>
+                    <li>Nico : Technicien son</li>
+                    <li>Laëtitia : Photos</li>
+                    <li>Mel : Vidéo</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="frame">
+        <div class="content">
+            <h3>La preuve vivante que le rock français n'est pas mort&nbsp;!</h3>
+            <p>
+                Originaire de Limoges, Féelarsen est avant tout taillé pour la scène. Depuis maintenant trois ans, le
+                groupe trace sa route en enchaînant les concerts dans les bars, les festivals et les salles de concerts,
+                assurant des premières parties importantes comme les Ramoneurs de Menhirs, les Sales Majestés, Krav
+                Boca.
+            </p>
+            <p>
+                Notre nouvel EP &laquo;&nbsp;Atomic Cowboy&nbsp;&raquo; est sorti en Mai 2024. Il est disponible en CD
+                et sur les plateformes de streaming.
+            </p>
+            <p>
+                Nos textes inspirés et mordants, accompagnés d'un son travaillé et fourni, donnent du corps à une
+                critique assaisonnée de notre société. Des mélodies à la sauce piquante, une rythmique impeccable et des
+                guitares acérées, où l'on frôle un esprit joyeusement bordélique.
+            </p>
+            <p>
+                Bref, en un mot : délicieusement rock'n roll !
+            </p>
+        </div>
+    </div>
+
+    <div class="frame">
+        <h2>Discographie</h2>
+
+        <div class="content">
+            <p>
+                Nos EP Willy et Atomic Cowboy sont disponibles en CD lors de nos concerts, et sur les plateformes de
+                streaming.
+            </p>
+
+            <div class="grid four">
+                <div class="grid-item">
+                    <img src="file:///app/uploads/album/atomic-cowboy/atomic-cowboy.jpg"
+                         width="100%"
+                         height="100%"
+                         alt="Atomic Cowboy"/>
+                    <h3>Atomic Cowboy</h3>
+                    <p>2024</p>
+                </div>
+                <div class="grid-item">
+                    <img src="file:///app/uploads/album/willy/willy.jpg"
+                         width="100%"
+                         height="100%"
+                         alt="Willy"/>
+                    <h3>Willy</h3>
+                    <p>2022</p>
+                </div>
+                <div class="grid-item">
+                    <img src="file:///app/uploads/album/jai-un-dragon-a-la-maison/jai-un-dragon-a-la-maison.jpg"
+                         width="100%"
+                         height="100%"
+                         alt="J'ai un dragon à la maison"/>
+                    <h3>J'ai un dragon à la maison</h3>
+                    <p>2015</p>
+                </div>
+                <div class="grid-item">
+                    <img src="file:///app/uploads/album/en-attendant/en-attendant.jpg"
+                         width="100%"
+                         height="100%"
+                         alt="En attendant"/>
+                    <h3>En attendant</h3>
+                    <p>2004</p>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
