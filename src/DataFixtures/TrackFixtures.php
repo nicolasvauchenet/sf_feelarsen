@@ -13,8 +13,106 @@ class TrackFixtures extends Fixture implements OrderedFixtureInterface
     {
         $track = (new Track())
             ->setPosition(1)
+            ->setTitle('Cet enfer')
+            ->setFileName('cet-enfer.mp3')
+            ->setAlbum($this->getReference('album-en-attendant'));
+        $manager->persist($track);
+
+        $track = (new Track())
+            ->setPosition(2)
+            ->setTitle('Dans quelques heures')
+            ->setFileName('dans-quelques-heures.mp3')
+            ->setAlbum($this->getReference('album-en-attendant'));
+        $manager->persist($track);
+
+        $track = (new Track())
+            ->setPosition(3)
+            ->setTitle('Sans moi')
+            ->setFileName('sans-moi.mp3')
+            ->setAlbum($this->getReference('album-en-attendant'));
+        $manager->persist($track);
+
+        $track = (new Track())
+            ->setPosition(4)
+            ->setTitle('En attendant')
+            ->setFileName('en-attendant.mp3')
+            ->setAlbum($this->getReference('album-en-attendant'));
+        $manager->persist($track);
+
+        $track = (new Track())
+            ->setPosition(5)
+            ->setTitle("Le royaume de la com'")
+            ->setFileName('le-royaume-de-la-com.mp3')
+            ->setAlbum($this->getReference('album-en-attendant'));
+        $manager->persist($track);
+
+        $track = (new Track())
+            ->setPosition(6)
+            ->setTitle("Trop d'années")
+            ->setFileName('trop-dannees.mp3')
+            ->setAlbum($this->getReference('album-en-attendant'));
+        $manager->persist($track);
+
+        $track = (new Track())
+            ->setPosition(7)
+            ->setTitle('Habiter la France')
+            ->setFileName('habiter-la-france.mp3')
+            ->setAlbum($this->getReference('album-en-attendant'));
+        $manager->persist($track);
+
+        $track = (new Track())
+            ->setPosition(8)
+            ->setTitle('De 140 à 220')
+            ->setFileName('de-140-a-220.mp3')
+            ->setAlbum($this->getReference('album-en-attendant'));
+        $manager->persist($track);
+
+        $track = (new Track())
+            ->setPosition(9)
+            ->setTitle('Star 2000')
+            ->setFileName('star-2000.mp3')
+            ->setAlbum($this->getReference('album-en-attendant'));
+        $manager->persist($track);
+
+        $track = (new Track())
+            ->setPosition(10)
+            ->setTitle("Y'a un cauchemar")
+            ->setFileName('ya-un-cauchemar.mp3')
+            ->setAlbum($this->getReference('album-en-attendant'));
+        $manager->persist($track);
+
+        $track = (new Track())
+            ->setPosition(1)
+            ->setTitle("Quoi d'neuf ?")
+            ->setFileName('quoi-dneuf.mp3')
+            ->setAlbum($this->getReference('album-jai-un-dragon-a-la-maison'));
+        $manager->persist($track);
+
+        $track = (new Track())
+            ->setPosition(2)
+            ->setTitle('Nos militants')
+            ->setFileName('nos-militants.mp3')
+            ->setAlbum($this->getReference('album-jai-un-dragon-a-la-maison'));
+        $manager->persist($track);
+
+        $track = (new Track())
+            ->setPosition(3)
             ->setTitle("J'ai un dragon à la maison")
             ->setFileName('jai-un-dragon-a-la-maison.mp3')
+            ->setAlbum($this->getReference('album-jai-un-dragon-a-la-maison'));
+        $manager->persist($track);
+
+        $track = (new Track())
+            ->setPosition(4)
+            ->setTitle('Sous les décombres')
+            ->setFileName('sous-les-decombres.mp3')
+            ->setAlbum($this->getReference('album-jai-un-dragon-a-la-maison'));
+        $manager->persist($track);
+
+        $track = (new Track())
+            ->setPosition(5)
+            ->setTitle('Volontaires')
+            ->setFileName('volontaires.mp3')
             ->setAlbum($this->getReference('album-jai-un-dragon-a-la-maison'));
         $manager->persist($track);
 
@@ -83,8 +181,8 @@ class TrackFixtures extends Fixture implements OrderedFixtureInterface
 
         $track = (new Track())
             ->setPosition(5)
-            ->setTitle('Idée sale')
-            ->setFileName('idee-sale.mp3')
+            ->setTitle('Idées sales')
+            ->setFileName('idees-sales.mp3')
             ->setAlbum($this->getReference('album-atomic-cowboy'));
         $manager->persist($track);
 

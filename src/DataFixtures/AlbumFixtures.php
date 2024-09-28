@@ -12,6 +12,13 @@ class AlbumFixtures extends Fixture implements OrderedFixtureInterface
     public function load(ObjectManager $manager): void
     {
         $album = (new Album())
+            ->setName('En attendant')
+            ->setCover('en-attendant.jpg')
+            ->setReleasedAt(new \DateTimeImmutable('2004-03-28'));
+        $manager->persist($album);
+        $this->addReference('album-en-attendant', $album);
+
+        $album = (new Album())
             ->setName("J'ai un dragon à la maison")
             ->setCover('jai-un-dragon-a-la-maison.jpg')
             ->setReleasedAt(new \DateTimeImmutable('2015-02-28'));

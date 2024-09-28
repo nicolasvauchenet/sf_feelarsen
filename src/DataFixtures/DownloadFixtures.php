@@ -29,7 +29,7 @@ class DownloadFixtures extends Fixture implements OrderedFixtureInterface
             ->setDocumentName('Dossier Médias')
             ->setFileName('feelarsen-dossier-medias.pdf')
             ->setColor('success')
-            ->setActive(true);
+            ->setActive(false);
         $manager->persist($document);
 
         $document = (new Download())

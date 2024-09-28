@@ -116,7 +116,9 @@
       border-bottom-right-radius: 0.25rem;
 
       @include respondTo(md) {
+        overflow-y: auto;
         padding-top: 0;
+        height: calc(35dvh - 5.25rem);
         border-bottom-left-radius: 0;
       }
 
