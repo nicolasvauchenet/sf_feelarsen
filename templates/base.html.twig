@@ -5,6 +5,18 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <title>{% block title %}{% endblock %} - {{ app_settingsService.settings.siteName }}</title>
+        <meta name="description" content="{{ app_settingsService.settings.sitePunchline }}"/>
+        <meta name="author" content="Bastard Sound System"/>
+
+        <meta property="og:title" content="{{ app_settingsService.settings.siteName }}"/>
+        <meta property="og:description" content="{{ app_settingsService.settings.sitePunchline }}"/>
+        <meta property="og:type" content="website"/>
+        <meta property="og:url" content="https://feelarsen.fr"/>
+        <meta property="og:image" content="https://feelarsen.fr/uploads/settings/siteimage.png"/>
+        <meta property="og:image:width" content="1024"/>
+        <meta property="og:image:height" content="683"/>
+        <meta property="og:site_name" content="{{ app_settingsService.settings.siteName }}"/>
+        <meta property="og:locale" content="fr_FR"/>
 
         <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('apple-touch-icon.png') }}">
         <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('favicon-32x32.png') }}">
