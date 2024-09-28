@@ -33,6 +33,7 @@ class Album
      * @var Collection<int, Track>
      */
     #[ORM\OneToMany(targetEntity: Track::class, mappedBy: 'album')]
+    #[ORM\OrderBy(['position' => 'ASC'])]
     private Collection $tracks;
 
     public function __construct()
