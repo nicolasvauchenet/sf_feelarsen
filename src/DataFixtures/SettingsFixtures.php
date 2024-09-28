@@ -19,13 +19,14 @@ class SettingsFixtures extends Fixture implements OrderedFixtureInterface
             ->setContactCover('contactcover.jpg')
             ->setContactEmail('contact@feelarsen.fr')
             ->setContactArtistName('Jean-François Capéran')
-            ->setContactArtistEmail('feelarsen.production@gmail.com')
+            ->setContactArtistEmail('feelarsen.booking@gmail.com')
             ->setContactArtistPhone('+33 6 31 24 90 65')
             ->setContactTechName('Nicolas Vauché')
-            ->setContactTechEmail('contact@bastardsoundsystem.org')
+            ->setContactTechEmail('nvauche@gmail.com')
             ->setContactTechPhone('+33 6 83 57 30 67')
-            ->setContactBookingName('Booking')
-            ->setContactBookingEmail('feelarsen.booking@gmail.com')
+            ->setContactBookingName('Bastard Sound System')
+            ->setContactBookingEmail('contact@bastardsoundsystem.org')
+            ->setContactBookingPhone('+33 6 83 57 30 67')
             ->setMaxArtists(4);
         $manager->persist($settings);
 
