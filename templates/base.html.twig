@@ -5,11 +5,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <title>{% block title %}{% endblock %} - {{ app_settingsService.settings.siteName }}</title>
-        <meta name="description" content="{{ app_settingsService.settings.sitePunchline }}"/>
+        <meta name="description" content="{{ app_settingsService.settings.sitePunchline | raw }}"/>
         <meta name="author" content="Bastard Sound System"/>
 
         <meta property="og:title" content="{{ app_settingsService.settings.siteName }}"/>
-        <meta property="og:description" content="{{ app_settingsService.settings.sitePunchline }}"/>
+        <meta property="og:description" content="{{ app_settingsService.settings.sitePunchline | raw }}"/>
         <meta property="og:type" content="website"/>
         <meta property="og:url" content="https://feelarsen.fr"/>
         <meta property="og:image" content="https://feelarsen.fr/uploads/settings/siteimage.png"/>
