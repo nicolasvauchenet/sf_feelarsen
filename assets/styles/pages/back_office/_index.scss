@@ -69,6 +69,11 @@ html {
         color: $yellow;
         background-color: $black;
 
+        @include respondTo(md) {
+          display: block;
+          text-align: center;
+        }
+
         a {
           color: inherit;
         }

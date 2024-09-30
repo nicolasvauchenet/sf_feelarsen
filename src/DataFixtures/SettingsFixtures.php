@@ -14,7 +14,7 @@ class SettingsFixtures extends Fixture implements OrderedFixtureInterface
         $settings = (new Settings())
             ->setSiteName('Féelarsen')
             ->setSitePunchline("La preuve vivante que le rock français n'est pas mort&nbsp;!")
-            ->setSiteLogo('sitelogo.jpg')
+            ->setSiteLogo('sitelogo.png')
             ->setSiteCover('sitecover.jpg')
             ->setContactCover('contactcover.jpg')
             ->setContactEmail('contact@feelarsen.fr')

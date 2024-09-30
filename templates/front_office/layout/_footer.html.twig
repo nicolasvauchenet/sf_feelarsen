@@ -1,10 +1,12 @@
 <footer class="app-footer">
     <p class="copyrights">
-        © {{ 'now' | date('Y') }} {{ app_settingsService.settings.siteName }} • Tous droits réservés • Crédits photos Cédric Carré
+        © {{ 'now' | date('Y') }} {{ app_settingsService.settings.siteName }} • Tous droits réservés • Réalisation :
+        <a href="https://www.bastardsoundsystem.org" target="_blank">Bastard Sound System</a> • Crédits photos :
+        Cédric Carré
     </p>
 
     <p class="legals">
-        <a href="#">Mentions légales</a>
+        <a href="{{ path('app_front_office_legal_mentions') }}">Mentions légales</a>
 
         {% if is_granted('ROLE_ADMIN') %}
             •

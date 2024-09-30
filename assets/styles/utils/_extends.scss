@@ -76,10 +76,12 @@
 }
 
 .bg-success {
+  color: $white !important;
   background-color: $success !important;
 }
 
 .bg-warning {
+  color: $white !important;
   background-color: $warning !important;
 }
 
