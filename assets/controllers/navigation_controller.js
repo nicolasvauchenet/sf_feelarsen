@@ -6,16 +6,18 @@ export default class extends Controller {
     connect() {
         this.updateActiveLink();
 
-        // Ajout de l'écouteur d'événement scroll pour mettre à jour le lien actif
         window.addEventListener('scroll', this.updateActiveLink.bind(this));
 
-        // Ajout de l'écouteur d'événement click sur chaque lien
         this.linkTargets.forEach(link => {
             link.addEventListener('click', this.scrollToSection.bind(this));
         });
 
-        // Vérifie si un hashtag est présent dans l'URL lors du chargement de la page
+        document.addEventListener("turbo:load", function () {
+            window.scrollTo(0, 0);
+        });
+
         if (window.location.hash) {
+            console.log(window.location.hash);
             this.scrollToSectionByHash(window.location.hash);
         } else {
             this.scrollToTop();
@@ -68,7 +70,6 @@ export default class extends Controller {
                 behavior: "smooth"
             });
 
-            // Ajouter le hashtag à l'URL sans recharger la page
             history.pushState(null, null, `#${targetId}`);
         }
     }
