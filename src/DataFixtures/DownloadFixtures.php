@@ -12,17 +12,24 @@ class DownloadFixtures extends Fixture implements OrderedFixtureInterface
     public function load(ObjectManager $manager): void
     {
         $document = (new Download())
+            ->setDocumentName('Dossier de Présentation')
+            ->setFileName('feelarsen-dossier-de-presentation.pdf')
+            ->setColor('success')
+            ->setActive(true);
+        $manager->persist($document);
+
+        $document = (new Download())
             ->setDocumentName('Dossier Technique')
             ->setFileName('feelarsen-dossier-technique.pdf')
             ->setColor('info')
-            ->setActive(true);
+            ->setActive(false);
         $manager->persist($document);
 
         $document = (new Download())
             ->setDocumentName('Rider')
             ->setFileName('feelarsen-rider.pdf')
             ->setColor('warning')
-            ->setActive(true);
+            ->setActive(false);
         $manager->persist($document);
 
         $document = (new Download())
@@ -36,7 +43,7 @@ class DownloadFixtures extends Fixture implements OrderedFixtureInterface
             ->setDocumentName('Dossier Général')
             ->setFileName('feelarsen-dossier-general.pdf')
             ->setColor('danger')
-            ->setActive(true);
+            ->setActive(false);
         $manager->persist($document);
 
         $manager->flush();

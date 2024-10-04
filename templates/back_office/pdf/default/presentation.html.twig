@@ -1,0 +1,72 @@
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>{{ app_settingsService.settings.siteName }} - Dossier de Présentation</title>
+
+        <style>
+            {% include 'back_office/pdf/default/styles.css' %}
+        </style>
+    </head>
+    <body>
+        <!-- Couverture -->
+        <section class="cover-page home">
+            <svg class="cover-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 210 260">
+                <defs>
+                    <clipPath id="clip-shape">
+                        <path d="M 0 0 H 210 V 160 Q 105 260 0 160 Z"/>
+                    </clipPath>
+                </defs>
+                <image href="file:///app/uploads/document/pdf/cover.jpg"
+                       width="210"
+                       height="260"
+                       clip-path="url(#clip-shape)"
+                       preserveAspectRatio="xMidYMid slice"/>
+            </svg>
+
+            <div class="filetitle">
+                <h1>{{ app_settingsService.settings.siteName }}</h1>
+                <h2>Le Groupe</h2>
+            </div>
+
+            <div class="grid three">
+                <div class="grid-item">
+                    <a href="#">
+                        <img src="file:///app/uploads/document/pdf/qr_website.png" alt="feelarsen.fr"/>
+                        Musique
+                    </a>
+                </div>
+
+                <div class="grid-item">
+                    <a href="https://feelarsen.fr">
+                        <img src="file:///app/uploads/document/pdf/qr_website.png" alt="feelarsen.fr"/>
+                        Site web
+                    </a>
+                </div>
+
+                <div class="grid-item">
+                    <a href="#">
+                        <img src="file:///app/uploads/document/pdf/qr_website.png" alt="feelarsen.fr"/>
+                        Clip vidéo
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Présentation -->
+        {% include 'back_office/pdf/default/about/_content.html.twig' %}
+
+        <!-- Médias -->
+        {# {% include 'back_office/pdf/default/medias/_cover.html.twig' %}
+        {% include 'back_office/pdf/default/medias/_content.html.twig' %} #}
+
+        <!-- Contacts -->
+        {% include 'back_office/pdf/default/contacts/_cover.html.twig' %}
+        {% include 'back_office/pdf/default/contacts/_content.html.twig' %}
+
+        <!-- Saut de page -->
+        <div class="page-break"></div>
+
+        <!-- Back -->
+        {% include 'back_office/pdf/default/_back.html.twig' %}
+    </body>
+</html>

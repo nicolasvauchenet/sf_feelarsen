@@ -47,6 +47,12 @@
         <h2>Générer les PDF</h2>
 
         <div class="app-grid four">
+            <a href="{{ path('app_back_office_pdf_generate', {'type': 'presentation'}) }}"
+               class="app-button bg-success"
+               target="_blank">
+                {{ ux_icon('hugeicons:pdf-01', {'class': 'app-icon medium'}) }}
+                Dossier de Présentation
+            </a>
             <a href="{{ path('app_back_office_pdf_generate', {'type': 'technical'}) }}"
                class="app-button bg-info"
                target="_blank">

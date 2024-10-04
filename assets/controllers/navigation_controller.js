@@ -12,10 +12,6 @@ export default class extends Controller {
             link.addEventListener('click', this.scrollToSection.bind(this));
         });
 
-        document.addEventListener("turbo:load", function () {
-            window.scrollTo(0, 0);
-        });
-
         if (window.location.hash) {
             console.log(window.location.hash);
             this.scrollToSectionByHash(window.location.hash);
