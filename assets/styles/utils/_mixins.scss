@@ -1,0 +1,55 @@
+@mixin displayFlex($justify: null, $align: null, $gap: null, $direction: null, $wrap: null) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+  gap: $gap;
+  flex-wrap: $wrap;
+}
+
+@mixin displayGrid($columns: 1fr, $gap: 0.5rem, $rows: null, $align: null) {
+  display: grid;
+  grid-template-columns: $columns;
+  grid-template-rows: $rows;
+  grid-gap: $gap;
+  align-items: $align;
+}
+
+@mixin respondTo($breakpoint) {
+  @if $breakpoint == xs {
+    @media(max-width: 767px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == sm {
+    @media(min-width: 768px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == md {
+    @media(min-width: 1025px) {
+      @content;
+    }
+  }
+}
+
+@mixin transition($property: all, $time: 0.4s) {
+  transition: $property $time ease-in-out;
+}
+
+@mixin radius($size: small) {
+  @if $size == small {
+    border-radius: 0.25rem;
+  }
+  @if $size == medium {
+    border-radius: 0.5rem;
+  }
+  @if $size == large {
+    border-radius: 1.5rem;
+  }
+  @if $size == round {
+    border-radius: 50%;
+  }
+}

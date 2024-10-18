@@ -1,18 +1,44 @@
 <!DOCTYPE html>
-<html>
+<html lang="{{ app_locale }}">
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon"
-              href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
-        {% block stylesheets %}
-        {% endblock %}
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>{% block title %}{% endblock %} - {{ app_settingsService.settings.siteName }}</title>
+        <meta name="description"
+              content="{% block meta_description %}{{ app_settingsService.settings.siteSlogan }}{% endblock %}"/>
+        <meta name="author" content="Bastard Sound System"/>
+
+        <meta property="og:title" content="{{ app_settingsService.settings.siteName }}"/>
+        <meta property="og:description" content="{{ app_settingsService.settings.siteSlogan }}"/>
+        <meta property="og:type" content="website"/>
+        <meta property="og:url" content="{{ app_settingsService.settings.siteUrl }}"/>
+        <meta property="og:image" content="{{ app_settingsService.settings.siteImage }}"/>
+        <meta property="og:image:width" content="1024"/>
+        <meta property="og:image:height" content="683"/>
+        <meta property="og:site_name" content="{{ app_settingsService.settings.siteName }}"/>
+        <meta property="og:locale" content="{{ app_locale_str }}"/>
+
+        <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('apple-touch-icon.png') }}">
+        <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('favicon-32x32.png') }}">
+        <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('favicon-16x16.png') }}">
+        <link rel="manifest" href="{{ asset('site.webmanifest') }}">
+        <link rel="mask-icon" href="{{ asset('safari-pinned-tab.svg') }}" color="#222222">
+        <meta name="msapplication-TileColor" content="#da532c">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+              rel="stylesheet">
+
+        {% block stylesheets %}{% endblock %}
 
         {% block javascripts %}
             {% block importmap %}{{ importmap('app') }}{% endblock %}
         {% endblock %}
     </head>
-    <body>
+    <body class="{% block body_class %}{% endblock %}" data-controller="navigation">
         {% block body %}{% endblock %}
     </body>
 </html>

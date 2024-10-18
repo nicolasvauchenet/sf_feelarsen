@@ -1,0 +1,56 @@
+.app-navigation {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  @include displayFlex(center, null);
+  background-color: $black;
+
+  @include respondTo(md) {
+    position: static;
+    bottom: initial;
+    left: initial;
+    right: initial;
+    @include displayFlex(center, center);
+    flex: 1;
+    gap: 1rem;
+  }
+
+  a {
+    @include displayFlex(flex-end, center, 0.25rem, column);
+    flex: 1;
+    padding: 1rem;
+    font-family: $font-secondary;
+    font-size: 0.5rem;
+    text-align: center;
+    text-decoration: none;
+    color: $yellow;
+    transition: all 0.4s;
+
+    @include respondTo(md) {
+      padding: 1rem 1.5rem 0.75rem;
+      margin-top: 1.5rem;
+      font-size: 2.25rem;
+      border-radius: 0.25rem;
+    }
+
+    &:hover,
+    &.active {
+      color: $black;
+      background-color: $yellow;
+
+      @include respondTo(md) {
+        box-shadow: inset 2px 2px 0.25rem rgba($black, 0.5);
+      }
+    }
+
+    .app-icon {
+      display: block;
+      margin: 0 auto;
+
+      @include respondTo(md) {
+        display: none;
+      }
+    }
+  }
+}

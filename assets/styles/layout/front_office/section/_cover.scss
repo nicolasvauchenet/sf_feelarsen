@@ -1,0 +1,55 @@
+&.cover {
+  padding: 0;
+
+  @include respondTo(md) {
+    position: relative;
+    margin: 0;
+    width: auto;
+  }
+
+  img {
+    width: 100%;
+    object-fit: cover;
+
+    @include respondTo(md) {
+      height: 70dvh;
+      object-position: center 10%;
+    }
+  }
+
+  .content {
+    padding: 1rem 0.5rem;
+    text-align: center;
+    background-color: $yellow;
+    border-top: 0.5rem solid $yellow;
+
+    @include respondTo(md) {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 1rem;
+      background-color: rgba($black, 0.5);
+    }
+
+    h1 {
+      color: $black;
+
+      @include respondTo(md) {
+        color: $yellow;
+      }
+    }
+
+    p {
+      margin-top: 1rem;
+      font-family: $font-secondary;
+      font-size: 1.5rem;
+      color: $black;
+      text-transform: uppercase;
+
+      @include respondTo(md) {
+        color: $yellow;
+      }
+    }
+  }
+}

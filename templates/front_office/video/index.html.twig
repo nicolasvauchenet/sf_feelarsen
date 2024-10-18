@@ -1,0 +1,25 @@
+{% extends 'front_office/_layout/_index.html.twig' %}
+
+{% block title %}Les Vidéos{% endblock %}
+{% block meta_description %}{% endblock %}
+
+{% block body_class %}front-office{% endblock %}
+
+{% block main %}
+    <section class="app-section cover">
+        <img src="{{ asset('uploads/settings/' ~ app_settingsService.settings.siteCover) }}"
+             alt="{{ app_settingsService.settings.siteName }}"/>
+        <div class="content">
+            <h1>{{ app_settingsService.settings.siteName }} • Les Vidéos</h1>
+            <p>{{ app_settingsService.settings.siteSlogan }}</p>
+        </div>
+    </section>
+
+    <section class="app-section">
+        <h2>Ses Clips</h2>
+    </section>
+
+    <section class="app-section">
+        <h2>Ses Vidéos Live</h2>
+    </section>
+{% endblock %}

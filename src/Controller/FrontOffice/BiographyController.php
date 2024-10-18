@@ -1,0 +1,16 @@
+<?php
+
+namespace App\Controller\FrontOffice;
+
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Attribute\Route;
+
+class BiographyController extends AbstractController
+{
+    #[Route('/le-groupe', name: 'app_front_office_biography')]
+    public function index(): Response
+    {
+        return $this->render('front_office/biography/index.html.twig');
+    }
+}

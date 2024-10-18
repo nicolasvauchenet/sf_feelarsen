@@ -1,0 +1,27 @@
+<nav class="app-navigation">
+    <a href="{{ path('app_front_office_home') }}"
+       class="{% if app.request.get('_route') == 'app_front_office_home' %}active{% endif %}">
+        {{ ux_icon('lets-icons:date-fill', {'class': 'app-icon medium'}) }}
+        Concerts
+    </a>
+    <a href="{{ path('app_front_office_biography') }}"
+       class="{% if app.request.get('_route') == 'app_front_office_biography' %}active{% endif %}">
+        {{ ux_icon('fa6-solid:users', {'class': 'app-icon medium'}) }}
+        Biographie
+    </a>
+    <a href="{{ path('app_front_office_discography') }}"
+       class="{% if app.request.get('_route') == 'app_front_office_discography' %}active{% endif %}">
+        {{ ux_icon('iconamoon:music-album-fill', {'class': 'app-icon medium'}) }}
+        Discographie
+    </a>
+    <a href="{{ path('app_front_office_video') }}"
+       class="{% if app.request.get('_route') == 'app_front_office_video' %}active{% endif %}">
+        {{ ux_icon('solar:album-bold', {'class': 'app-icon medium'}) }}
+        Vidéos
+    </a>
+    <a href="{{ path('app_front_office_contact') }}"
+       class="{% if app.request.get('_route') == 'app_front_office_contact' %}active{% endif %}">
+        {{ ux_icon('clarity:envelope-solid', {'class': 'app-icon medium'}) }}
+        Contact
+    </a>
+</nav>

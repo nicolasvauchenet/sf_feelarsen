@@ -1,0 +1,10 @@
+.app-section {
+  padding: 3rem 1rem;
+
+  @include respondTo(md) {
+    margin: 0 auto;
+    width: 1200px;
+  }
+
+  @import "./cover";
+}
