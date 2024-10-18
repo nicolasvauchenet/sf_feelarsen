@@ -1,3 +1,9 @@
+###> sf_feelarsen/local ###
+.idea/
+.DS_Store
+feelarsen.crt
+feelarsen.key
+###< sf_feelarsen/local ###
 
 ###> symfony/framework-bundle ###
 /.env.local
@@ -8,11 +14,6 @@
 /var/
 /vendor/
 ###< symfony/framework-bundle ###
-
-###> phpunit/phpunit ###
-/phpunit.xml
-.phpunit.result.cache
-###< phpunit/phpunit ###
 
 ###> symfony/phpunit-bridge ###
 .phpunit.result.cache
