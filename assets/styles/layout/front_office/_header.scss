@@ -1,12 +1,12 @@
 .app-header {
   @include displayFlex(center, center);
-  padding: 0.5rem 1rem;
   border-bottom: 0.5rem solid $yellow;
 
   @include respondTo(md) {
     position: sticky;
     top: 0;
     z-index: 9997;
+    padding: 0.5rem 1rem;
     background-color: $black;
   }
 
