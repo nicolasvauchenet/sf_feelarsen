@@ -1,0 +1,19 @@
+.app-grid {
+  @include displayGrid(1fr, 1.5rem);
+
+  &.three {
+    @include respondTo(md) {
+      @include displayGrid(repeat(3, 1fr), 1.5rem);
+    }
+  }
+
+  &.four {
+    @include respondTo(md) {
+      @include displayGrid(repeat(4, 1fr), 1.5rem);
+    }
+  }
+
+  &.spaced {
+    grid-gap: 3rem;
+  }
+}

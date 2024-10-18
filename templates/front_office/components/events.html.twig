@@ -1,0 +1,77 @@
+<section class="app-section" {{ attributes }}>
+    <h2>{{ calendar.name }}</h2>
+
+    {% if calendar.events %}
+        {% if calendar.events | length > 1 %}
+            <div class="app-filters">
+                <div class="app-grid three spaced">
+                    <div class="filter-group">
+                        <label for="month">Filtrer par mois</label>
+                        {% set monthNames = app_eventService.getMonthNames(app_eventService.getMonths(calendar)) %}
+                        <select name="month" id="month" class="filter-control" data-model="month">
+                            <option value="">Tous les mois</option>
+                            {% for monthNumber, monthName in monthNames %}
+                                <option value="{{ monthNumber }}">{{ monthName }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="city">Filtrer par ville</label>
+                        <select name="city" id="city" class="filter-control" data-model="city">
+                            <option value="">Toutes les villes</option>
+                            {% for city in app_eventService.getCities(calendar) %}
+                                <option value="{{ city }}">{{ city }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="department">Filtrer par département</label>
+                        <select name="department" id="department" class="filter-control" data-model="department">
+                            <option value="">Tous les départements</option>
+                            {% for department in app_eventService.departments(calendar) %}
+                                <option value="{{ department }}">{{ department }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+
+        <div class="app-grid three spaced" data-loading="addClass(loading)">
+            {% for event in computed.events %}
+                <div class="app-card {% if event.startAt < date('now') %}passed{% endif %}">
+                    <div class="card-header">
+                        {% if event.poster %}
+                            <img src="{{ asset('uploads/calendar/' ~ calendar.slug ~ '/' ~ event.poster) }}"
+                                 alt="{{ event.name }}"/>
+                        {% else %}
+                            <img src="{{ asset('uploads/calendar/' ~ calendar.slug ~ '/' ~ calendar.poster) }}"
+                                 alt="{{ event.name }}"/>
+                        {% endif %}
+                    </div>
+                    <div class="card-body">
+                        <p class="card-title">
+                            {{ event.startAt | format_datetime(locale=app_locale, pattern="EEEE dd MMMM") | title }}
+                        </p>
+                        <p class="card-title">
+                            <small>{{ event.name }}</small>
+                        </p>
+                        <p class="card-subtitle">
+                            <small>{{ event.location }}</small>
+                        </p>
+                        <p>
+                            <strong>
+                                {{ event.city }}
+                                {% if event.department %}
+                                    ({{ event.department }})
+                                {% endif %}
+                            </strong>
+                        </p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>Aucune date programmée pour l'instant…</p>
+    {% endif %}
+</section>

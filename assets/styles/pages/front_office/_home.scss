@@ -4,8 +4,8 @@
       &.cover {
         img {
           @include respondTo(md) {
-            height: calc(100dvh - 8.5rem);
-            object-position: center 10%;
+            height: calc(80dvh - 8.5rem);
+            object-position: center 5%;
           }
         }
       }

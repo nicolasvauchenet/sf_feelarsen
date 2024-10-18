@@ -3,6 +3,10 @@
 .DS_Store
 feelarsen.crt
 feelarsen.key
+/public/uploads/calendar/*
+!/public/uploads/calendar/.gitkeep
+/public/uploads/discography/*
+!/public/uploads/discography/.gitkeep
 /public/uploads/settings/*
 !/public/uploads/settings/.gitkeep
 ###< sf_feelarsen/local ###

@@ -1,4 +1,4 @@
 @import "utils/variables", "utils/mixins";
 @import "base/reset", "base/fonts", "base/typography";
-@import "layout/front_office";
-@import "components/icon";
+@import "layout/front_office", "layout/grid";
+@import "components/icon", "components/card", "components/filter";

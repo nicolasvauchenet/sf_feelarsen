@@ -4,6 +4,7 @@ twig:
     app_locale: '%app_locale%'
     app_locale_str: '%app_locale_str%'
     app_settingsService: '@App\Service\SettingsService'
+    app_eventService: '@App\Service\EventService'
 
 when@test:
   twig:
