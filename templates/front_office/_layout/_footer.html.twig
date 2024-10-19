@@ -1,0 +1,76 @@
+<footer class="app-footer">
+    <div class="app-grid four">
+        <div class="footer-about">
+            <h2>À Propos de {{ app_settingsService.settings.siteName }}</h2>
+            <p>
+                <strong>Féelarsen</strong>
+                est un <strong>groupe de rock</strong> basé à <strong>Limoges</strong>, influencé par
+                <strong>Noir Désir</strong>, <strong>Starshooter</strong>, et <strong>les Wampas</strong>. Leurs
+                <strong>compositions originales</strong> et en <strong>français</strong> abordent des
+                <strong>thèmes sombres et ironiques</strong> avec des <strong>paroles incisives</strong> et des
+                <strong>riffs mordants</strong>.
+            </p>
+        </div>
+
+        <div class="footer-links">
+            <h2>Liens Utiles</h2>
+            <ul>
+                <li>
+                    <a href="#" target="_blank">
+                        Albums et merchandising
+                    </a>
+                </li>
+                <li>
+                    <a href="#" target="_blank">
+                        Dossier de communication
+                    </a>
+                </li>
+                <li>
+                    <a href="#"
+                       class="{% if app.request.get('_route') == 'app_front_office_legal_mentions' %}active{% endif %}">
+                        Mentions légales
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="footer-social">
+            <h2>Réseaux Sociaux</h2>
+            <div class="app-grid four xs">
+                {% for social in app_socialService.socials %}
+                    <a href="{{ social.url }}"
+                       class="app-icon {{ social.name | lower }}"
+                       title="{{ social.title }}"
+                       target="_blank">
+                        {{ ux_icon(social.icon, {'class': 'app-icon medium'}) }}
+                    </a>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="footer-contact">
+            <h2>Contact Label</h2>
+            <ul>
+                <li>
+                    <strong>Bastard Sound System</strong>
+                </li>
+                <li>
+                    <a href="tel:+33683573067">+33 6 83 57 30 67</a>
+                </li>
+                <li>
+                    <a href="mailto:contact@bastardsoundsystem.org">contact@bastardsoundsystem.org</a>
+                </li>
+                <li>
+                    <a href="https://bastardsoundsystem.org" target="_blank">www.bastardsoundsystem.org</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="footer-credits">
+        <p>
+            &copy; {{ 'now' | date('Y') }} {{ app_settingsService.settings.siteName }}. Tous droits réservés. Crédits
+            Photos : Cédric Carré. Crédits Vidéos : ShadoWorkProd.
+        </p>
+    </div>
+</footer>

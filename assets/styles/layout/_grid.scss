@@ -1,13 +1,31 @@
 .app-grid {
   @include displayGrid(1fr, 1.5rem);
 
+  &.two {
+    &.xs {
+      @include displayGrid(repeat(2, 1fr), 1rem);
+    }
+
+    @include respondTo(md) {
+      @include displayGrid(repeat(2, 1fr), 1.5rem);
+    }
+  }
+
   &.three {
+    &.xs {
+      @include displayGrid(repeat(3, 1fr), 1rem);
+    }
+
     @include respondTo(md) {
       @include displayGrid(repeat(3, 1fr), 1.5rem);
     }
   }
 
   &.four {
+    &.xs {
+      @include displayGrid(repeat(4, 1fr), 1rem);
+    }
+
     @include respondTo(md) {
       @include displayGrid(repeat(4, 1fr), 1.5rem);
     }

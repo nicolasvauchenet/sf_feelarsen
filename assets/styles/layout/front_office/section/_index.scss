@@ -6,5 +6,11 @@
     width: 1200px;
   }
 
+  &.large {
+    @include respondTo(md) {
+      width: 96dvw;
+    }
+  }
+
   @import "./cover";
 }

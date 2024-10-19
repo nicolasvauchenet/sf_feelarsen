@@ -7,4 +7,53 @@
   @include respondTo(md) {
     margin-bottom: 0;
   }
+
+  h2 {
+    font-size: 1.5rem;
+    color: $black;
+  }
+
+  a {
+    color: $black;
+
+    &:hover {
+      color: rgba($black, 0.5);
+    }
+  }
+
+  .footer-about {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    text-align: justify;
+  }
+
+  .footer-links {
+    ul {
+      li {
+        text-align: center;
+      }
+    }
+  }
+
+  .footer-social {
+    a {
+      display: block;
+      width: 100%;
+      text-align: center;
+    }
+  }
+
+  .footer-contact {
+    ul {
+      li {
+        text-align: center;
+      }
+    }
+  }
+
+  .footer-credits {
+    margin-top: 1.5rem;
+    font-size: 0.875rem;
+    text-align: center;
+  }
 }

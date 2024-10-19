@@ -7,12 +7,5 @@
         {% block main %}{% endblock %}
     </main>
 
-    <footer class="app-footer">
-        <section class="footer-section">FOOTER SECTION</section>
-        <section class="footer-section">FOOTER SECTION</section>
-        <section class="footer-section">FOOTER SECTION</section>
-        <section class="footer-section">FOOTER SECTION</section>
-        <p class="copyrights">© {{ 'now' | date('Y') }} {{ app_settingsService.settings.siteName }}</p>
-        <p class="legals">Mentions légales</p>
-    </footer>
+    {% include 'front_office/_layout/_footer.html.twig' %}
 {% endblock %}
