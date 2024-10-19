@@ -13,6 +13,55 @@
     }
   }
 
+  &.third {
+    &:nth-child(even) {
+      @include respondTo(md) {
+        @include displayGrid(4fr 6fr, 1rem);
+      }
+    }
+
+    &:nth-child(odd) {
+      @include respondTo(md) {
+        @include displayGrid(6fr 4fr, 1rem);
+      }
+
+      .content {
+        @include respondTo(md) {
+          order: 2;
+        }
+      }
+
+      .photo {
+        @include respondTo(md) {
+          order: 1;
+        }
+      }
+    }
+
+    .content {
+      @include displayFlex(null, center);
+      padding: 1rem;
+      font-size: 1.25rem;
+      line-height: 1.75rem;
+      text-align: justify;
+      color: $black;
+      background-color: $yellow;
+      border-radius: 0.25rem;
+    }
+
+    .photo {
+      img {
+        width: 100%;
+
+        @include respondTo(md) {
+          height: 40dvh;
+          object-fit: cover;
+          border-radius: 0.25rem;
+        }
+      }
+    }
+  }
+
   &.spaced {
     grid-gap: 3rem;
   }

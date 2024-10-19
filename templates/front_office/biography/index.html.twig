@@ -17,9 +17,46 @@
 
     <section class="app-section">
         <h2>Ses Musiciens</h2>
+
+        <div class="app-grid three spaced" data-controller="shuffle">
+            {% for artist in artists %}
+                <div class="app-card" data-shuffle-target="card">
+                    <div class="card-header">
+                        <img src="{{ asset('uploads/artist/' ~ artist.photo) }}"
+                             alt="{{ artist.name }}"
+                             class="portrait"/>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-title">{{ artist.name }}</p>
+                        <p class="card-title">
+                            <small>
+                                {{ artist.instruments }}
+                            </small>
+                        </p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
     </section>
 
     <section class="app-section">
         <h2>Son Histoire</h2>
+
+        {% for biography in biographies %}
+            <div class="app-grid third {% if not loop.last %}mb-1{% endif %}">
+                <div class="content">
+                    <p>{{ biography.content | raw }}</p>
+                </div>
+                <div class="photo">
+                    {% if biography.photo %}
+                        <img src="{{ asset('uploads/biography/' ~ biography.photo) }}"
+                             alt="{{ app_settingsService.settings.siteName }}"/>
+                    {% else %}
+                        <img src="{{ asset('img/biography.webp') }}"
+                             alt="{{ app_settingsService.settings.siteName }}"/>
+                    {% endif %}
+                </div>
+            </div>
+        {% endfor %}
     </section>
 {% endblock %}

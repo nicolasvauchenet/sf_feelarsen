@@ -98,7 +98,8 @@ class EventFixtures extends Fixture implements OrderedFixtureInterface
 
         $event = (new Event())
             ->setCalendar($this->getReference('calendar-2024'))
-            ->setName('Salle des fêtes')
+            ->setName('Concert rural')
+            ->setLocation('Salle des fêtes')
             ->setCity('Saint-Priest-la-Plaine')
             ->setDepartment('23')
             ->setStartAt(new \DateTimeImmutable('2024-06-08'))

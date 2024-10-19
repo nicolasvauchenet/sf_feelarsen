@@ -36,6 +36,10 @@
       @include respondTo(md) {
         height: 30dvh;
         object-fit: cover;
+
+        &.portrait {
+          height: 50dvh;
+        }
       }
     }
   }
