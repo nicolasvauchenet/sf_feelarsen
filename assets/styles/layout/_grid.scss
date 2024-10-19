@@ -31,6 +31,16 @@
     }
   }
 
+  &.five {
+    &.xs {
+      @include displayGrid(repeat(5, 1fr), 1rem);
+    }
+
+    @include respondTo(md) {
+      @include displayGrid(repeat(5, 1fr), 1.5rem);
+    }
+  }
+
   &.third {
     &:nth-child(even) {
       @include respondTo(md) {

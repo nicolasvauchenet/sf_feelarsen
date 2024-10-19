@@ -42,10 +42,10 @@
 
         <div class="footer-social">
             <h2>Réseaux Sociaux</h2>
-            <div class="app-grid four xs">
+            <div class="app-grid five xs">
                 {% for social in app_socialService.socials %}
                     <a href="{{ social.url }}"
-                       class="app-icon {{ social.name | lower }}"
+                       class="app-icon {{ social.name | slug | lower }}"
                        title="{{ social.title }}"
                        target="_blank">
                         {{ ux_icon(social.icon, {'class': 'app-icon medium'}) }}

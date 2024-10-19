@@ -28,6 +28,14 @@ class SocialFixtures extends Fixture implements OrderedFixtureInterface
         $manager->persist($social);
 
         $social = (new Social())
+            ->setName('Apple Music')
+            ->setIcon('cib:apple-music')
+            ->setTitle('Écoutez Féelarsen sur Apple Music')
+            ->setUrl('https://music.apple.com/fr/artist/f%C3%A9elarsen/1610754643')
+            ->setActive(true);
+        $manager->persist($social);
+
+        $social = (new Social())
             ->setName('Bandcamp')
             ->setIcon('cib:bandcamp')
             ->setTitle('Suivez Féelarsen sur Bandcamp')
