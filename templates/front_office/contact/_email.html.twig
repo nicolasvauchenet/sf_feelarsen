@@ -1,0 +1,43 @@
+{% apply inline_css %}
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+        body {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 16px;
+            color: #222222;
+            background-color: #ffffff;
+        }
+
+        h1 {
+            font-family: "Roboto", sans-serif;
+            font-size: 1.75rem;
+            font-weight: bold;
+            line-height: 2rem;
+            text-transform: uppercase;
+            color: #650f3c;
+        }
+    </style>
+
+    <main>
+        <h1>Salut, {{ mailData['to']['name'] }} !</h1>
+
+        <p>
+            Nous avons reçu un nouveau message de la part de {{ mailData['from']['name'] }}
+            {% if mailData['from']['type'] %}
+                qui est {{ mailData['from']['type'] }}
+            {% endif %}
+            :
+        </p>
+
+        <blockquote>
+            {{ mailData['message'] }}
+        </blockquote>
+
+        {% if mailData['from']['phone'] %}
+            <p>
+                Vous pouvez rappeler {{ mailData['from']['name'] }} au {{ mailData['from']['phone'] | format_phone }}.
+            </p>
+        {% endif %}
+    </main>
+{% endapply %}

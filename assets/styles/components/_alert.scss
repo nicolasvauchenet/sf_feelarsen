@@ -1,0 +1,37 @@
+.app-alert {
+  position: fixed;
+  top: 6.875rem;
+  left: 0;
+  right: 0;
+  z-index: 9997;
+  padding: 1.5rem 1rem 1.25rem;
+  font-size: 1.25rem;
+  font-weight: bold;
+  text-align: center;
+  background-color: $white;
+  border-bottom: 0.5rem solid $yellow;
+
+  @include respondTo(md) {
+    top: 8.5rem;
+  }
+
+  &.info {
+    color: $white;
+    background-color: $info;
+  }
+
+  &.success {
+    color: $white;
+    background-color: $success;
+  }
+
+  &.warning {
+    color: $white;
+    background-color: $warning;
+  }
+
+  &.danger {
+    color: $white;
+    background-color: $danger;
+  }
+}

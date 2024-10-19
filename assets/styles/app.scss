@@ -1,4 +1,5 @@
 @import "utils/variables", "utils/mixins", "utils/extends";
 @import "base/reset", "base/fonts", "base/typography";
-@import "layout/front_office", "layout/grid";
-@import "components/icon", "components/card", "components/filter", "components/player-audio", "components/button";
+@import "layout/front_office", "layout/grid", "layout/form";
+@import "components/icon", "components/card", "components/filter", "components/player-audio", "components/button",
+"components/recaptcha", "components/alert";

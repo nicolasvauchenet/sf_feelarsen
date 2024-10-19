@@ -1,13 +1,13 @@
 .app-header {
+  position: sticky;
+  top: 0;
+  z-index: 9997;
   @include displayFlex(center, center);
+  background-color: $black;
   border-bottom: 0.5rem solid $yellow;
 
   @include respondTo(md) {
-    position: sticky;
-    top: 0;
-    z-index: 9997;
     padding: 0.5rem 1rem;
-    background-color: $black;
   }
 
   .app-logo {
