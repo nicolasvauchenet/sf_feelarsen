@@ -11,6 +11,8 @@ feelarsen.key
 !/public/uploads/calendar/.gitkeep
 /public/uploads/discography/*
 !/public/uploads/discography/.gitkeep
+/public/uploads/document/*
+!/public/uploads/document/.gitkeep
 /public/uploads/settings/*
 !/public/uploads/settings/.gitkeep
 ###< sf_feelarsen/local ###

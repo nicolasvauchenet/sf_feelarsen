@@ -1,0 +1,107 @@
+{% extends 'front_office/_layout/_index.html.twig' %}
+
+{% block title %}Politique de confidentialité{% endblock %}
+{% block meta_description %}{% endblock %}
+
+{% block body_class %}front-office{% endblock %}
+
+{% block main %}
+    <section class="app-section cover">
+        <img src="{{ asset('uploads/settings/' ~ app_settingsService.settings.siteCover) }}"
+             alt="{{ app_settingsService.settings.siteName }}"/>
+        <div class="content">
+            <h1>{{ app_settingsService.settings.siteName }} • Protection de vos données</h1>
+        </div>
+    </section>
+
+    <section class="app-section">
+        <h2>Introduction</h2>
+
+        <div class="shortwidth">
+            <p>
+                La présente Politique de Confidentialité décrit comment Bastard Sound System collecte, utilise et
+                protège vos données personnelles, conformément au Règlement Général sur la Protection des Données
+                (RGPD).
+            </p>
+        </div>
+    </section>
+
+    <section class="app-section">
+        <h2>Données Collectées</h2>
+
+        <div class="shortwidth">
+            <p>Nous collectons les informations suivantes lorsque vous interagissez avec notre site :</p>
+            <ul>
+                <li><strong>- Données d'identification :</strong> nom, email</li>
+                <li><strong>- Données de contact :</strong> numéro de téléphone</li>
+                <li><strong>- Informations sur votre utilisation du site :</strong> cookies, logs</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="app-section">
+        <h2>Utilisation des Données</h2>
+
+        <div class="shortwidth">
+            <p>Les données que nous collectons sont utilisées pour :</p>
+            <ul>
+                <li><strong>- Gérer</strong> notre communication par email et vos messages avec le groupe</li>
+                <li><strong>- Améliorer</strong> notre site et nos services</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="app-section">
+        <h2>Conservation des Données</h2>
+
+        <div class="shortwidth">
+            <p>
+                Vos données personnelles sont conservées uniquement aussi longtemps que nécessaire pour atteindre les
+                objectifs pour lesquels elles ont été collectées.
+            </p>
+        </div>
+    </section>
+
+    <section class="app-section">
+        <h2>Droits des Utilisateurs</h2>
+
+        <div class="shortwidth">
+            <p>Conformément au RGPD, vous disposez des droits suivants :</p>
+            <ul>
+                <li>
+                    <strong>- Droit d'accès :</strong>
+                    Vous pouvez <a href="{{ path('app_front_office_contact') }}">demander une copie des données</a> que
+                    nous détenons sur vous.
+                </li>
+                <li>
+                    <strong>- Droit de rectification :</strong>
+                    Vous avez le droit de
+                    <a href="{{ path('app_front_office_contact') }}">demander la correction de vos données</a>
+                    si elles sont inexactes ou incomplètes.
+                </li>
+                <li>
+                    <strong>- Droit d'effacement :</strong>
+                    Vous pouvez demander la
+                    <a href="{{ path('app_front_office_contact') }}">suppression de vos données</a> sur le site de BSS
+                    et dans ses fichiers.
+                </li>
+                <li>
+                    <strong>- Droit de portabilité :</strong>
+                    Vous avez le droit de recevoir vos données dans un format structuré, couramment utilisé et lisible.
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="app-section">
+        <h2>Contact</h2>
+
+        <div class="shortwidth">
+            <p>
+                Pour toute question concernant la Politique de Confidentialité ou pour exercer vos droits, veuillez nous
+                contacter à l'adresse email suivante :
+                <a href="mailto:contact@bastardsoundsystem.org">contact@bastardsoundsystem.org</a>.
+            </p>
+        </div>
+    </section>
+{% endblock %}

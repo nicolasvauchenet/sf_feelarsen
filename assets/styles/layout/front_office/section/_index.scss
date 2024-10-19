@@ -12,5 +12,23 @@
     }
   }
 
+  .shortwidth {
+    @include respondTo(md) {
+      padding: 1.5rem;
+      margin-left: auto;
+      margin-right: auto;
+      width: 55dvh;
+      line-height: 1.5rem;
+      background-color: rgba($white, 0.15);
+      border-radius: 0.25rem;
+
+      ul {
+        li {
+          line-height: 1.75rem;
+        }
+      }
+    }
+  }
+
   @import "./cover";
 }

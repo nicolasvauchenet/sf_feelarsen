@@ -1,0 +1,79 @@
+{% extends 'front_office/_layout/_index.html.twig' %}
+
+{% block title %}Mentions légales{% endblock %}
+{% block meta_description %}{% endblock %}
+
+{% block body_class %}front-office{% endblock %}
+
+{% block main %}
+    <section class="app-section cover">
+        <img src="{{ asset('uploads/settings/' ~ app_settingsService.settings.siteCover) }}"
+             alt="{{ app_settingsService.settings.siteName }}"/>
+        <div class="content">
+            <h1>{{ app_settingsService.settings.siteName }} • Mentions légales</h1>
+        </div>
+    </section>
+
+    <section class="app-section">
+        <h2>Informations générales</h2>
+
+        <div class="shortwidth">
+            <ul>
+                <li><strong>Éditeur du Site :</strong> Bastard Sound System</li>
+                <li><strong>Organisation :</strong> Association Loi 1901</li>
+                <li><strong>N° RNA :</strong> W232006300</li>
+                <li><strong>N° SIRET :</strong> 927 623 462 00011</li>
+                <li><strong>Date de création :</strong> 10/04/2024</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="app-section">
+        <h2>Informations de contact</h2>
+
+        <div class="shortwidth">
+            <ul>
+                <li><strong>Directeur de la Publication :</strong> Nicolas Vauché</li>
+                <li><strong>Numéro de téléphone :</strong> +33 6 83 57 30 67</li>
+                <li><strong>Email :</strong> contact@bastardsoundsystem.org</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="app-section">
+        <h2>Hébergement</h2>
+
+        <div class="shortwidth">
+            <p>Le site est hébergé par <strong>o2switch</strong>, SAS au capital de 100 000 euros.</p>
+            <ul>
+                <li><strong>SIRET :</strong> 510 909 80700024</li>
+                <li><strong>RCS :</strong> Clermont-Ferrand</li>
+                <li><strong>Adresse :</strong> Chemin des Pardiaux 63000 Clermont-Ferrand</li>
+                <li><strong>Téléphone :</strong> +33 4 44 44 60 40</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="app-section">
+        <h2>Propriété Intellectuelle</h2>
+
+        <div class="shortwidth">
+            <p>
+                Tous les contenus présents sur ce site (textes, images, logos, etc.) sont protégés par des droits de
+                propriété intellectuelle. Toute reproduction, même partielle, est interdite sans autorisation préalable.
+            </p>
+        </div>
+    </section>
+
+    <section class="app-section">
+        <h2>Responsabilité</h2>
+
+        <div class="shortwidth">
+            <p>
+                Bastard Sound System ne peut être tenu responsable des erreurs, omissions, ou résultats obtenus par
+                l'utilisation des informations présentes sur ce site. Les liens externes ne sont pas sous le contrôle de
+                Bastard Sound System, et nous ne pouvons donc pas être tenus responsables de leur contenu.
+            </p>
+        </div>
+    </section>
+{% endblock %}
