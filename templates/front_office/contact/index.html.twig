@@ -17,9 +17,55 @@
 
     <section class="app-section">
         <h2>L'Espace Pro</h2>
+
+        <div class="app-grid third mb-1">
+            <div class="content">
+                <p class="mb-1">
+                    Figure du <strong>rock alternatif français</strong>, Féelarsen fait vibrer les
+                    <strong>scènes de bars</strong>, <strong>salles de concert</strong> et <strong>festivals</strong>
+                    avec son <strong>énergie</strong> unique. Pour toute question ou demande, contactez-nous directement
+                    via le formulaire ci-dessous. Retrouvez-nous également sur vos
+                    <strong>plateformes de streaming</strong> préférées et suivez-nous sur les
+                    <strong>réseaux sociaux</strong> pour ne rien manquer de nos prochaines dates et actualités !
+                </p>
+
+                <p class="fullwidth">
+                    <a href="#" class="app-button bg-success" target="_blank">Dossier de communication</a>
+                </p>
+            </div>
+            <div class="photo">
+                <img src="{{ asset('uploads/settings/' ~ app_settingsService.settings.contactCover) }}"
+                     alt="Contactez {{ app_settingsService.settings.siteName }}"/>
+            </div>
+        </div>
+
+        {% if contacts | length > 0 %}
+            <div class="app-grid three spaced">
+                {% for contact in contacts %}
+                    <div class="app-card">
+                        <div class="card-body">
+                            <p class="card-title">{{ contact.type }}</p>
+                            <p class="card-title">
+                                <small>{{ contact.name }}</small>
+                            </p>
+                            <ul>
+                                <li>
+                                    <a href="mailto:{{ contact.email }}">{{ contact.email }}</a>
+                                </li>
+                                <li>
+                                    <a href="tel:{{ contact.phone | format_phone('compact') }}">
+                                        {{ contact.phone | format_phone }}
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
     </section>
 
     <section class="app-section">
-        <h2>Laissez un message</h2>
+        <h2>Laissez-nous un message</h2>
     </section>
 {% endblock %}

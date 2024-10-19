@@ -71,6 +71,7 @@
     .content,
     .tracks {
       @include displayFlex(null, center);
+      flex-wrap: wrap;
       padding: 1rem;
       font-size: 1.25rem;
       line-height: 1.75rem;
@@ -78,6 +79,10 @@
       color: $black;
       background-color: $yellow;
       border-radius: 0.25rem;
+
+      .fullwidth {
+        width: 100%;
+      }
     }
 
     .tracks {
