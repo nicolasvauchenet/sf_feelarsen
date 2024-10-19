@@ -15,11 +15,19 @@
         </div>
     </section>
 
-    <section class="app-section">
-        <h2>Ses Clips</h2>
-    </section>
+    {% if clips | length > 0 %}
+        <section class="app-section">
+            <h2>Ses Clips</h2>
 
-    <section class="app-section">
-        <h2>Ses Vidéos Live</h2>
-    </section>
+            {% include 'front_office/video/_player.html.twig' with {'videos': clips} %}
+        </section>
+    {% endif %}
+
+    {% if lives | length > 0 %}
+        <section class="app-section">
+            <h2>Ses Vidéos Live</h2>
+
+            {% include 'front_office/video/_player.html.twig' with {'videos': lives} %}
+        </section>
+    {% endif %}
 {% endblock %}

@@ -1,0 +1,13 @@
+<div class="app-grid two">
+    {% for video in videos %}
+        <div itemscope itemtype="https://schema.org/VideoObject">
+            <meta itemprop="name" content="{{ video.title }}"/>
+            <meta itemprop="description" content="{{ video.description }}"/>
+            <meta itemprop="uploadDate" content="{{ video.releasedAt | date('Y-m-d') }}"/>
+            <meta itemprop="thumbnailUrl" content="https://s1.dmcdn.net/v/{{ video.thumbnail }}/x120"/>
+            <meta itemprop="duration" content="{{ video.duration }}"/>
+            <meta itemprop="embedUrl" content="https://geo.dailymotion.com/player/xylto.html?video={{ video.url }}"/>
+            <script src="https://geo.dailymotion.com/player/xylto.js" data-video="{{ video.url }}"></script>
+        </div>
+    {% endfor %}
+</div>
