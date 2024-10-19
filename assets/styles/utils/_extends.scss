@@ -2,3 +2,32 @@
 .mb-1 {
   margin-bottom: 1.5rem;
 }
+
+// TEXT COLORS
+.text-black {
+  color: $black !important;
+}
+
+.text-white {
+  color: $white !important;
+}
+
+.text-yellow {
+  color: $yellow !important;
+}
+
+.text-info {
+  color: $info !important;
+}
+
+.text-success {
+  color: $success !important;
+}
+
+.text-warning {
+  color: $warning !important;
+}
+
+.text-danger {
+  color: $danger !important;
+}

@@ -34,13 +34,13 @@
   &.third {
     &:nth-child(even) {
       @include respondTo(md) {
-        @include displayGrid(4fr 6fr, 1rem);
+        @include displayGrid(4fr 6fr, 1.5rem);
       }
     }
 
     &:nth-child(odd) {
       @include respondTo(md) {
-        @include displayGrid(6fr 4fr, 1rem);
+        @include displayGrid(6fr 4fr, 1.5rem);
       }
 
       .content {
@@ -54,9 +54,22 @@
           order: 1;
         }
       }
+
+      .tracks {
+        @include respondTo(md) {
+          order: 1;
+        }
+      }
+
+      .cover {
+        @include respondTo(md) {
+          order: 2;
+        }
+      }
     }
 
-    .content {
+    .content,
+    .tracks {
       @include displayFlex(null, center);
       padding: 1rem;
       font-size: 1.25rem;
@@ -67,7 +80,16 @@
       border-radius: 0.25rem;
     }
 
-    .photo {
+    .tracks {
+      display: block;
+
+      .infos {
+        text-align: center;
+      }
+    }
+
+    .photo,
+    .cover {
       img {
         width: 100%;
 

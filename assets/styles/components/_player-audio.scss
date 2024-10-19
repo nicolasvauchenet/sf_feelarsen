@@ -1,0 +1,145 @@
+.app-player-audio {
+  .cover {
+    position: relative;
+
+    img {
+      @include respondTo(md) {
+        height: 100%;
+      }
+    }
+
+    .controls {
+      position: absolute;
+      bottom: 0.5rem;
+      left: 0;
+      right: 0;
+      @include displayFlex(center, center, 0.5rem);
+      padding: 1rem;
+
+      button {
+        @include displayFlex(center, center);
+        padding: 0.5rem 1rem;
+        font-size: 1.75rem;
+        color: $white;
+        background-color: rgba(43, 51, 63, .7);
+        border: 1px solid $white;
+        border-radius: 0.25em;
+        cursor: pointer;
+        transition: all 0.2s;
+
+        &.play {
+          padding: 0.25rem 1.5rem;
+          font-size: 2rem;
+
+          svg {
+            transform: translateY(0.25rem);
+          }
+
+          .on {
+            display: none;
+          }
+
+          &.active {
+            color: $danger;
+
+            .off {
+              display: none;
+            }
+
+            .on {
+              display: initial;
+            }
+          }
+        }
+
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+  }
+
+  .tracks {
+    .infos {
+      padding: 1rem 0.5rem;
+
+      @include respondTo(md) {
+        @include displayFlex(space-between, center, 1rem);
+        padding: 1rem;
+      }
+
+      h3 {
+        @include respondTo(xs) {
+          margin-bottom: 0.5rem;
+          line-height: 2rem;
+        }
+      }
+    }
+
+    .list {
+      padding: 1rem 0;
+
+      @include respondTo(md) {
+        padding: 1rem;
+        max-height: 15rem;
+        overflow-y: auto;
+
+        &::-webkit-scrollbar {
+          width: 0.5rem;
+        }
+
+        &::-webkit-scrollbar-track {
+          background: $yellow;
+        }
+
+        &::-webkit-scrollbar-thumb {
+          background: $black;
+        }
+
+        &::-webkit-scrollbar-thumb:hover {
+          background: $black;
+        }
+      }
+
+      ul {
+        li {
+          @include displayFlex(null, center, 0.5rem);
+          font-size: 1.25rem;
+          line-height: 2.5rem;
+          cursor: pointer;
+
+          &:hover {
+            color: rgba($black, 0.5);
+          }
+
+          &.selected-track {
+            font-weight: bold;
+            color: $black;
+
+            .app-icon {
+              &.text-success {
+                display: none;
+              }
+
+              &.text-danger {
+                display: initial;
+              }
+            }
+          }
+
+          .app-icon {
+            &.text-danger {
+              display: none;
+            }
+          }
+
+          .position {
+            &:after {
+              content: ".";
+            }
+          }
+        }
+      }
+    }
+  }
+}

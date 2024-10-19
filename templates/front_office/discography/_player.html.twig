@@ -1,0 +1,58 @@
+{% for album in albums %}
+    <div class="app-grid third app-player-audio {% if not loop.last %}mb-1{% endif %}" data-controller="audio">
+        <div class="cover">
+            <img src="{{ asset('uploads/discography/' ~ album.slug ~ '/' ~ album.cover) }}"
+                 alt="{{ album.name }}"/>
+
+            <div class="controls">
+                <button data-action="audio#previous">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+                        <path fill="currentColor"
+                              d="m20.341 4.247l-8 7a1 1 0 0 0 0 1.506l8 7c.647.565 1.659.106 1.659-.753V5c0-.86-1.012-1.318-1.659-.753m-11 0l-8 7a1 1 0 0 0 0 1.506l8 7C9.988 20.318 11 19.859 11 19V5c0-.86-1.012-1.318-1.659-.753"></path>
+                    </svg>
+                </button>
+                <button class="play" data-action="audio#togglePlay" data-audio-target="playButton">
+                <span class="off">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+                        <path fill="currentColor"
+                              d="M6 4v16a1 1 0 0 0 1.524.852l13-8a1 1 0 0 0 0-1.704l-13-8A1 1 0 0 0 6 4"></path>
+                    </svg>
+                </span>
+                    <span class="on">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+                        <path fill="currentColor"
+                              d="M9 4H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2m8 0h-2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2"></path>
+                    </svg>
+                </span>
+                </button>
+                <button data-action="audio#next">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+                        <path fill="currentColor"
+                              d="M2 5v14c0 .86 1.012 1.318 1.659.753l8-7a1 1 0 0 0 0-1.506l-8-7C3.012 3.682 2 4.141 2 5m11 0v14c0 .86 1.012 1.318 1.659.753l8-7a1 1 0 0 0 0-1.506l-8-7C14.012 3.682 13 4.141 13 5"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div class="tracks">
+            <div class="infos">
+                <h3>{{ album.name }}</h3>
+                <p>
+                    <strong>Sorti en {{ album.releasedAt | date('Y') }}</strong>
+                </p>
+            </div>
+            <div class="list">
+                <ul data-audio-target="trackList">
+                    {% for track in album.tracks %}
+                        <li data-action="audio#playTrack" data-track-id="{{ track.id }}">
+                            {{ ux_icon('solar:play-bold', {'class': 'app-icon text-success'}) }}
+                            {{ ux_icon('solar:pause-bold', {'class': 'app-icon text-danger'}) }}
+                            <span class="position">{{ track.position }}</span>
+                            <span class="title">{{ track.title }}</span>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <audio data-audio-target="audioElement"></audio>
+        </div>
+    </div>
+{% endfor %}

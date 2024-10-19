@@ -15,11 +15,19 @@
         </div>
     </section>
 
-    <section class="app-section">
-        <h2>Ses Albums EP</h2>
-    </section>
+    {% if eps | length > 0 %}
+        <section class="app-section">
+            <h2>Ses EP</h2>
 
-    <section class="app-section">
-        <h2>Ses Albums Live</h2>
-    </section>
+            {% include 'front_office/discography/_player.html.twig' with {'albums': eps} %}
+        </section>
+    {% endif %}
+
+    {% if lives | length > 0 %}
+        <section class="app-section">
+            <h2>Ses Albums Live</h2>
+
+            {% include 'front_office/discography/_player.html.twig' with {'albums': lives} %}
+        </section>
+    {% endif %}
 {% endblock %}
