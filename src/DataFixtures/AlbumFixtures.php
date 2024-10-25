@@ -54,7 +54,7 @@ class AlbumFixtures extends Fixture implements OrderedFixtureInterface
             ->setType('Live')
             ->setCover('live-a-oleron.jpg')
             ->setReleasedAt(new \DateTimeImmutable('2024-07-26'))
-            ->setActive(true);
+            ->setActive(false);
         $manager->persist($album);
         $this->addReference('album-live-a-oleron', $album);
 
