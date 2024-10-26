@@ -8,7 +8,7 @@ use Symfony\UX\LiveComponent\Attribute\AsLiveComponent;
 use Symfony\UX\LiveComponent\Attribute\LiveProp;
 use Symfony\UX\LiveComponent\DefaultActionTrait;
 
-#[AsLiveComponent('FilterEvents', template: 'front_office/components/events.html.twig')]
+#[AsLiveComponent('FilterEvents', template: 'front_office/components/filter_events.html.twig')]
 class FilterEvents
 {
     use DefaultActionTrait;

@@ -9,7 +9,7 @@
                         <label for="month">Filtrer par mois</label>
                         {% set monthNames = app_eventService.getMonthNames(app_eventService.getMonths(calendar)) %}
                         <select name="month" id="month" class="filter-control" data-model="month">
-                            <option value="">Tous les mois</option>
+                            <option value="">Toute l'année</option>
                             {% for monthNumber, monthName in monthNames %}
                                 <option value="{{ monthNumber }}">{{ monthName }}</option>
                             {% endfor %}
