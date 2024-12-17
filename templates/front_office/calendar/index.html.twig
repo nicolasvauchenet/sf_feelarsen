@@ -3,7 +3,7 @@
 {% block title %}Les anciennes Dates{% endblock %}
 {% block meta_description %}Les anciennes dates de Féelarsen{% endblock %}
 
-{% block body_class %}front-office{% endblock %}
+{% block body_class %}front-office calendar{% endblock %}
 
 {% block main %}
     <section class="app-section cover">
@@ -16,7 +16,11 @@
 
     {% if calendars | length > 0 %}
         {% for calendar in calendars %}
-            {{ component('FilterEvents', {calendar: calendar, calendarId: calendar.id, 'old': true}) }}
+            {{ component('FilterEvents', {calendar: calendar, calendarId: calendar.id}) }}
         {% endfor %}
     {% endif %}
+
+    <p class="alldates">
+        <a href="{{ path('app_front_office_home') }}" class="app-button cta">Retour au Calendrier</a>
+    </p>
 {% endblock %}

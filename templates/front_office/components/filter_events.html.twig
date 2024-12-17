@@ -73,16 +73,6 @@
                 </div>
             {% endfor %}
         </div>
-
-        {% if old is not defined and calendars | length > 0 %}
-            <p class="alldates mt-3">
-                <a href="{{ path('app_front_office_calendar') }}" class="app-button cta">Les dates d'avant</a>
-            </p>
-        {% elseif old is defined %}
-            <p class="alldates mt-3">
-                <a href="{{ path('app_front_office_home') }}" class="app-button cta">Retour au Calendrier</a>
-            </p>
-        {% endif %}
     {% else %}
         <p>Aucune date programmée pour l'instant…</p>
     {% endif %}

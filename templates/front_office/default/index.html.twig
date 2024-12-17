@@ -17,4 +17,10 @@
     {% if calendar %}
         {{ component('FilterEvents', {calendar: calendar, calendarId: calendar.id}) }}
     {% endif %}
+
+    {% if calendars | length > 0 %}
+        <p class="alldates">
+            <a href="{{ path('app_front_office_calendar') }}" class="app-button cta">Les dates d'avant</a>
+        </p>
+    {% endif %}
 {% endblock %}
