@@ -7,13 +7,12 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
-class DefaultController extends AbstractController
+class CalendarController extends AbstractController
 {
-    #[Route('/', name: 'app_front_office_home')]
+    #[Route('/les-anciennes-dates', name: 'app_front_office_calendar')]
     public function index(CalendarRepository $calendarRepository): Response
     {
-        return $this->render('front_office/default/index.html.twig', [
-            'calendar' => $calendarRepository->findOneBy(['active' => true]),
+        return $this->render('front_office/calendar/index.html.twig', [
             'calendars' => $calendarRepository->findBy(['active' => false], ['endAt' => 'DESC']),
         ]);
     }

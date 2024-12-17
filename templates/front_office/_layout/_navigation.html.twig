@@ -1,6 +1,6 @@
 <nav class="app-navigation">
     <a href="{{ path('app_front_office_home') }}"
-       class="{% if app.request.get('_route') == 'app_front_office_home' %}active{% endif %}">
+       class="{% if app.request.get('_route') == 'app_front_office_home' or app.request.get('_route') == 'app_front_office_calendar' %}active{% endif %}">
         {{ ux_icon('lets-icons:date-fill', {'class': 'app-icon medium'}) }}
         Concerts
     </a>
