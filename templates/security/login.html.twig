@@ -1,0 +1,52 @@
+{% extends 'front_office/_layout/_index.html.twig' %}
+
+{% block title %}Atomic Cowboy Tour 2024{% endblock %}
+{% block meta_description %}La tournée Atomic Cowboy Tour 2024{% endblock %}
+
+{% block body_class %}front-office login{% endblock %}
+
+{% block main %}
+    <section class="app-section cover">
+        <img src="{{ asset('uploads/settings/sitecover.jpg') }}"
+             alt="{{ app_settingsService.settings.siteName }}"/>
+        <div class="content">
+            <h1>{{ app_settingsService.settings.siteName }} : Connexion</h1>
+        </div>
+    </section>
+
+    <section class="app-section">
+        <form method="post" class="app-form">
+            <fieldset class="form-fieldset mb-3">
+                <legend class="form-legend">Vos Identifiants</legend>
+
+                <div class="form-group">
+                    <label for="username" class="form-label required">Adresse e-mail</label>
+                    <input type="email"
+                           value="{{ last_username }}"
+                           name="_username"
+                           id="username"
+                           class="form-control"
+                           autocomplete="email"
+                           required
+                           autofocus/>
+                </div>
+
+                <div class="form-group">
+                    <label for="password" class="form-label required">Mot de passe</label>
+                    <input type="password"
+                           name="_password"
+                           id="password"
+                           class="form-control"
+                           autocomplete="current-password"
+                           required/>
+                </div>
+            </fieldset>
+
+            <fieldset class="form-fieldset actions">
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}"/>
+
+                <button class="form-submit app-button cta" type="submit">Connexion</button>
+            </fieldset>
+        </form>
+    </section>
+{% endblock %}

@@ -1,0 +1,12 @@
+&.login {
+  .app-main {
+    .app-section {
+      .app-form {
+        @include respondTo(md) {
+          margin: 0 auto;
+          width: 50%;
+        }
+      }
+    }
+  }
+}
