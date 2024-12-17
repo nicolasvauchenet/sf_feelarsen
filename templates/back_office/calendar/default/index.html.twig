@@ -1,0 +1,62 @@
+{% extends 'back_office/_layout/_index.html.twig' %}
+
+{% block title %}Administration des Calendriers{% endblock %}
+
+{% block body_class %}back-office{% endblock %}
+
+{% block main %}
+    <section class="app-section cover">
+        <img src="{{ asset('uploads/settings/sitecover.jpg') }}"
+             alt="{{ app_settingsService.settings.siteName }} - Calendriers"/>
+        <div class="content">
+            <h1>{{ app_settingsService.settings.siteName }} : Calendriers</h1>
+        </div>
+    </section>
+
+    <section class="app-section">
+        <div class="app-grid three spaced" data-loading="addClass(loading)">
+            {% for calendar in calendars %}
+                <div class="app-card {% if calendar.endAt < date('now') %}passed{% endif %}">
+                    <a href="{{ path('app_back_office_calendar_view', {'slug': calendar.slug}) }}">
+                        <div class="card-header">
+                            {% if calendar.poster %}
+                                <img src="{{ asset('uploads/calendar/' ~ calendar.slug ~ '/' ~ calendar.poster) }}"
+                                     alt="{{ calendar.name }}"/>
+                            {% else %}
+                                <img src="{{ asset('uploads/settings/siteimage.png') }}"
+                                     alt="Nouveau Calendrier"/>
+                            {% endif %}
+                        </div>
+                        <div class="card-body">
+                            <p class="card-title">
+                                <small>{{ calendar.name }}</small>
+                            </p>
+                        </div>
+                    </a>
+                    <div class="card-footer">
+                        <a href="{{ path('app_back_office_calendar_edit', {'slug': calendar.slug}) }}"
+                           class="text-info">
+                            {{ ux_icon('fa-solid:edit', {'class': 'app-icon'}) }}
+                        </a>
+                        <a href="{{ path('app_back_office_calendar_view', {'slug': calendar.slug}) }}">
+                            {{ ux_icon('mdi:eye', {'class': 'app-icon'}) }}
+                        </a>
+                    </div>
+                </div>
+            {% endfor %}
+            <div class="app-card">
+                <a href="{{ path('app_back_office_calendar_add') }}">
+                    <div class="card-header">
+                        <img src="{{ asset('uploads/settings/sitecover.jpg') }}"
+                             alt="Nouveau Calendrier"/>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-title">
+                            <small>Nouveau Calendrier</small>
+                        </p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+{% endblock %}

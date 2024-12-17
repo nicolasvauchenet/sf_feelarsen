@@ -6,6 +6,7 @@
 parameters:
   app_locale: fr
   app_locale_str: fr_FR
+  uploads_directory: '%kernel.project_dir%/public/uploads'
 
 services:
   # default configuration for services in *this* file
@@ -22,5 +23,8 @@ services:
       - '../src/Entity/'
       - '../src/Kernel.php'
 
+  App\Service\FileUploaderService:
+    arguments:
+      $uploadsDirectory: '%uploads_directory%'
   # add more service definitions when explicit configuration is needed
   # please note that last definitions always *replace* previous ones

@@ -1,0 +1,78 @@
+{% extends 'back_office/_layout/_index.html.twig' %}
+
+{% block title %}Détails d'un Calendrier{% endblock %}
+
+{% block body_class %}back-office{% endblock %}
+
+{% block main %}
+    <section class="app-section cover">
+        {% if calendar.poster %}
+            <img src="{{ asset('uploads/calendar/' ~ calendar.slug ~ '/' ~ calendar.poster) }}"
+                 alt="{{ calendar.name }}"/>
+        {% else %}
+            <img src="{{ asset('uploads/settings/sitecover.jpg') }}"
+                 alt="{{ calendar.name }}"/>
+        {% endif %}
+        <div class="content">
+            <h1>Calendrier : {{ calendar.name }}</h1>
+        </div>
+    </section>
+
+    <section class="app-section">
+        <div class="app-grid three spaced">
+            {% for event in calendar.events %}
+                <div class="app-card {% if event.startAt < date('now') %}passed{% endif %}">
+                    <a href="{{ path('app_back_office_event_edit', {'slug': event.slug}) }}">
+                        <div class="card-header">
+                            {% if event.poster %}
+                                <img src="{{ asset('uploads/calendar/' ~ calendar.slug ~ '/' ~ event.poster) }}"
+                                     alt="{{ event.name }}"/>
+                            {% else %}
+                                <img src="{{ asset('uploads/calendar/' ~ calendar.slug ~ '/' ~ calendar.poster) }}"
+                                     alt="{{ event.name }}"/>
+                            {% endif %}
+                        </div>
+                        <div class="card-body">
+                            <p class="card-title">
+                                {{ event.startAt | format_datetime(locale=app_locale, pattern="EEEE dd MMMM") | title }}
+                            </p>
+                            <p class="card-title">
+                                <small>{{ event.name }}</small>
+                            </p>
+                            <p class="card-subtitle">
+                                <small>{{ event.location }}</small>
+                            </p>
+                            <p>
+                                <strong>
+                                    {{ event.city }}
+                                    {% if event.department %}
+                                        ({{ event.department }})
+                                    {% endif %}
+                                </strong>
+                            </p>
+                        </div>
+                    </a>
+                    <div class="card-footer">
+                        <a href="{{ path('app_back_office_event_edit', {'slug': event.slug}) }}"
+                           class="text-info">
+                            {{ ux_icon('fa-solid:edit', {'class': 'app-icon'}) }}
+                        </a>
+                    </div>
+                </div>
+            {% endfor %}
+            <div class="app-card">
+                <a href="{{ path('app_back_office_event_add', {'slug': calendar.slug}) }}">
+                    <div class="card-header">
+                        <img src="{{ asset('uploads/settings/sitecover.jpg') }}"
+                             alt="Nouvelle Date"/>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-title">
+                            <small>Nouvelle Date</small>
+                        </p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+{% endblock %}

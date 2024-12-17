@@ -40,34 +40,36 @@
         <div class="app-grid three spaced" data-loading="addClass(loading)">
             {% for event in computed.events %}
                 <div class="app-card {% if event.startAt < date('now') %}passed{% endif %}">
-                    <div class="card-header">
-                        {% if event.poster %}
-                            <img src="{{ asset('uploads/calendar/' ~ calendar.slug ~ '/' ~ event.poster) }}"
-                                 alt="{{ event.name }}"/>
-                        {% else %}
-                            <img src="{{ asset('uploads/calendar/' ~ calendar.slug ~ '/' ~ calendar.poster) }}"
-                                 alt="{{ event.name }}"/>
-                        {% endif %}
-                    </div>
-                    <div class="card-body">
-                        <p class="card-title">
-                            {{ event.startAt | format_datetime(locale=app_locale, pattern="EEEE dd MMMM") | title }}
-                        </p>
-                        <p class="card-title">
-                            <small>{{ event.name }}</small>
-                        </p>
-                        <p class="card-subtitle">
-                            <small>{{ event.location }}</small>
-                        </p>
-                        <p>
-                            <strong>
-                                {{ event.city }}
-                                {% if event.department %}
-                                    ({{ event.department }})
-                                {% endif %}
-                            </strong>
-                        </p>
-                    </div>
+                    <a {% if event.url %}href="{{ event.url }}" target="_blank"{% endif %}>
+                        <div class="card-header">
+                            {% if event.poster %}
+                                <img src="{{ asset('uploads/calendar/' ~ calendar.slug ~ '/' ~ event.poster) }}"
+                                     alt="{{ event.name }}"/>
+                            {% else %}
+                                <img src="{{ asset('uploads/calendar/' ~ calendar.slug ~ '/' ~ calendar.poster) }}"
+                                     alt="{{ event.name }}"/>
+                            {% endif %}
+                        </div>
+                        <div class="card-body">
+                            <p class="card-title">
+                                {{ event.startAt | format_datetime(locale=app_locale, pattern="EEEE dd MMMM") | title }}
+                            </p>
+                            <p class="card-title">
+                                <small>{{ event.name }}</small>
+                            </p>
+                            <p class="card-subtitle">
+                                <small>{{ event.location }}</small>
+                            </p>
+                            <p>
+                                <strong>
+                                    {{ event.city }}
+                                    {% if event.department %}
+                                        ({{ event.department }})
+                                    {% endif %}
+                                </strong>
+                            </p>
+                        </div>
+                    </a>
                 </div>
             {% endfor %}
         </div>

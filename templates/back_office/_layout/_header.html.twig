@@ -1,0 +1,8 @@
+<header class="app-header">
+    <a href="{{ path('app_front_office_home') }}" class="app-logo">
+        <img src="{{ asset('uploads/settings/' ~ app_settingsService.settings.siteLogo) }}"
+             alt="{{ app_settingsService.settings.siteName }}"/>
+    </a>
+
+    {% include 'back_office/_layout/_navigation.html.twig' %}
+</header>

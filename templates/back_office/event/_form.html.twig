@@ -1,0 +1,83 @@
+{{ form_start(form, {'attr': {'class': 'app-form'}}) }}
+<div class="app-grid two mb-3">
+    <fieldset class="form-fieldset">
+        <legend class="form-legend">Informations de la date</legend>
+
+        <div class="form-group">
+            {{ form_label(form.calendar) }}
+            {{ form_widget(form.calendar) }}
+            {{ form_errors(form.calendar) }}
+        </div>
+
+        <div class="form-group">
+            {{ form_label(form.name) }}
+            {{ form_widget(form.name) }}
+            {{ form_errors(form.name) }}
+        </div>
+
+        <div class="form-group">
+            {{ form_label(form.location) }}
+            {{ form_widget(form.location) }}
+            {{ form_errors(form.location) }}
+        </div>
+
+        <div class="app-grid two">
+            <div class="form-group">
+                {{ form_label(form.city) }}
+                {{ form_widget(form.city) }}
+                {{ form_errors(form.city) }}
+            </div>
+
+            <div class="form-group">
+                {{ form_label(form.department) }}
+                {{ form_widget(form.department) }}
+                {{ form_errors(form.department) }}
+            </div>
+        </div>
+    </fieldset>
+
+    <fieldset class="form-fieldset">
+        <legend class="form-legend">Détails de la date</legend>
+
+        <div class="form-group toggle mb-0">
+            <label for="{{ form.active.vars.id }}"
+                   class="toggle-label {% if form.active.vars.required %}required{% endif %}">
+                {{ form.active.vars.label }}
+            </label>
+            {{ form_widget(form.active) }}
+            <div class="toggle-switch"></div>
+        </div>
+
+        <div class="form-group">
+            {{ form_label(form.startAt) }}
+            {{ form_widget(form.startAt) }}
+            {{ form_errors(form.startAt) }}
+        </div>
+
+        <div class="form-group">
+            {{ form_label(form.poster) }}
+            {{ form_widget(form.poster) }}
+            {{ form_errors(form.poster) }}
+        </div>
+
+        <div class="form-group">
+            {{ form_label(form.url) }}
+            {{ form_widget(form.url) }}
+            {{ form_errors(form.url) }}
+        </div>
+    </fieldset>
+</div>
+
+{{ form_widget(form._token) }}
+
+<fieldset class="form-fieldset actions">
+    <div class="app-grid two">
+        <a href="{{ path('app_back_office_calendar_view', {'slug': calendar is defined ? calendar.slug : event.calendar.slug}) }}"
+           class="app-button outline">
+            {{ ux_icon('ph:skip-back-fill', {'class': 'app-icon'}) }}
+            Retour
+        </a>
+        <button type="submit" class="form-submit app-button cta">Enregistrer</button>
+    </div>
+</fieldset>
+{{ form_end(form, {'render_rest': false}) }}

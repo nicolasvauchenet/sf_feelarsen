@@ -29,6 +29,12 @@
     }
   }
 
+  & > a {
+    @include displayFlex(null, null, 1rem, column);
+    text-align: center;
+    text-decoration: none;
+  }
+
   .card-header {
     img {
       width: 100%;
@@ -56,6 +62,19 @@
     .card-subtitle {
       font-family: $font-secondary;
       font-size: 1.5rem;
+    }
+  }
+
+  .card-footer {
+    @include displayFlex(center, center);
+
+    a {
+      @include displayFlex(center);
+      flex: 1;
+      padding: 0.5rem;
+      height: calc(100% - 1rem);
+      color: $black;
+      background-color: $yellow;
     }
   }
 }

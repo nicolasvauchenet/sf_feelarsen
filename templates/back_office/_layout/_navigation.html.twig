@@ -1,0 +1,7 @@
+<nav class="app-navigation">
+    <a href={{ path('app_back_office_calendar_home') }}
+       class="{% if 'app_back_office_calendar_' in app.request.get('_route') %}active{% endif %}">
+        {{ ux_icon('lets-icons:date-fill', {'class': 'app-icon medium'}) }}
+        Calendriers
+    </a>
+</nav>
