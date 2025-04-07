@@ -18,6 +18,12 @@ class ArtistFixtures extends Fixture implements OrderedFixtureInterface
         $manager->persist($artist);
 
         $artist = (new Artist())
+            ->setName('Cédric')
+            ->setInstruments('Guitare, Chœurs')
+            ->setPhoto('cedric.jpg');
+        $manager->persist($artist);
+
+        $artist = (new Artist())
             ->setName('Ben')
             ->setInstruments('Basse, Chœurs')
             ->setPhoto('ben.jpg');
