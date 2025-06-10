@@ -16,9 +16,9 @@
     </section>
 
     <section class="app-section">
-        <h2>Ses Musiciens</h2>
+        <h2>Le Line Up</h2>
 
-        <div class="app-grid four spaced" data-controller="shuffle">
+        <div class="app-grid three spaced" data-controller="shuffle">
             {% for artist in artists %}
                 <div class="app-card" data-shuffle-target="card">
                     <div class="card-header">
@@ -40,7 +40,7 @@
     </section>
 
     <section class="app-section large">
-        <h2>Son Histoire</h2>
+        <h2>La Bio</h2>
 
         {% for biography in biographies %}
             <div class="app-grid third {% if not loop.last %}mb-1{% endif %}">
