@@ -43,7 +43,7 @@ class Calendar
      * @var Collection<int, Event>
      */
     #[ORM\OneToMany(targetEntity: Event::class, mappedBy: 'calendar', orphanRemoval: true)]
-    #[ORM\OrderBy(['startAt' => 'ASC'])]
+    #[ORM\OrderBy(['startAt' => 'DESC'])]
     private Collection $events;
 
     public function __construct()
