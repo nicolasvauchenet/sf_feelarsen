@@ -100,7 +100,7 @@ class EventRepository extends ServiceEntityRepository
                 ->setParameter('department', $department);
         }
 
-        $qb->orderBy('e.startAt', 'ASC');
+        $qb->orderBy('e.startAt', 'DESC');
 
         return $qb->getQuery()->getResult();
     }
