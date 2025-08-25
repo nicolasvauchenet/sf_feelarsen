@@ -13,7 +13,7 @@ class CalendarController extends AbstractController
     public function index(CalendarRepository $calendarRepository): Response
     {
         return $this->render('front_office/calendar/index.html.twig', [
-            'calendars' => $calendarRepository->findBy(['active' => false], ['endAt' => 'DESC']),
+            'calendars' => $calendarRepository->findBy(['active' => false], ['endAt' => 'ASC']),
         ]);
     }
 }
