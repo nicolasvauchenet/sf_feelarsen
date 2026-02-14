@@ -122,10 +122,12 @@
   }
 
   &.flex {
-    @include displayFlex(center, center);
+    @include respondTo(md) {
+      @include displayFlex(center, center);
 
-    & > div {
-      flex: 1;
+      & > div {
+        flex: 1;
+      }
     }
   }
 }
