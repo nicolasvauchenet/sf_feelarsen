@@ -6,6 +6,7 @@ twig:
     app_settingsService: '@App\Service\SettingsService'
     app_eventService: '@App\Service\EventService'
     app_socialService: '@App\Service\SocialService'
+    app_calendarService: '@App\Service\CalendarService'
 
 when@test:
   twig:

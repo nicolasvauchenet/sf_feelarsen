@@ -4,4 +4,9 @@
         {{ ux_icon('lets-icons:date-fill', {'class': 'app-icon medium'}) }}
         Calendriers
     </a>
+    <a href={{ path('app_back_office_biography_home') }}
+       class="{% if 'app_back_office_biography_' in app.request.get('_route') %}active{% endif %}">
+        {{ ux_icon('fa6-solid:users', {'class': 'app-icon medium'}) }}
+        Biographie
+    </a>
 </nav>

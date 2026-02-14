@@ -47,11 +47,10 @@ class EventService
         ];
 
         $monthNames = [];
-        foreach($monthNumbers as $monthNumber) {
+        foreach ($monthNumbers as $monthNumber) {
             $monthNames[$monthNumber] = $months[$monthNumber];
         }
 
         return $monthNames;
     }
-
 }
