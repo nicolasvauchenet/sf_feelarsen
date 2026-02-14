@@ -22,4 +22,9 @@
   &:active {
     box-shadow: inset 2px 2px 4px rgba($black, 0.5);
   }
+
+  &.cta {
+    color: $yellow;
+    background-color: $black;
+  }
 }

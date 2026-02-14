@@ -118,6 +118,14 @@
   }
 
   &.spaced {
-    grid-gap: 3rem;
+    gap: 3rem;
+  }
+
+  &.flex {
+    @include displayFlex(center, center);
+
+    & > div {
+      flex: 1;
+    }
   }
 }

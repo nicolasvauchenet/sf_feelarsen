@@ -14,6 +14,44 @@
     </section>
 
     <section class="app-section">
+        <h2>Le Line Up</h2>
 
+        <div class="app-grid flex spaced">
+            {% for artist in artists %}
+                <div class="app-card" data-shuffle-target="card">
+                    <a href="{{ path('app_back_office_biography_artist_edit', {'slug': artist.slug}) }}">
+                        <div class="card-header">
+                            <img src="{{ asset('uploads/artist/' ~ artist.photo) }}"
+                                 alt="{{ artist.name }}"
+                                 class="portrait"/>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-title">{{ artist.name }}</p>
+                            <p class="card-title">
+                                <small>
+                                    {{ artist.instruments }}
+                                </small>
+                            </p>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+
+            <div class="app-card" data-shuffle-target="card">
+                <a href="{{ path('app_back_office_biography_artist_add') }}">
+                    <div class="card-header">
+                        <img src="{{ asset('img/artist_default.png') }}" alt="Nouvel Artiste" class="portrait"/>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-title">Nouveau</p>
+                        <p class="card-title">
+                            <small>
+                                Ajouter un artiste
+                            </small>
+                        </p>
+                    </div>
+                </a>
+            </div>
+        </div>
     </section>
 {% endblock %}

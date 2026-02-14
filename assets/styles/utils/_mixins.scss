@@ -11,7 +11,7 @@
   display: grid;
   grid-template-columns: $columns;
   grid-template-rows: $rows;
-  grid-gap: $gap;
+  gap: $gap;
   align-items: $align;
 }
 

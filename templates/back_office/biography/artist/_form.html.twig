@@ -1,0 +1,60 @@
+{{ form_start(form, {'attr': {'class': 'app-form'}}) }}
+<div class="app-grid two mb-3">
+    <fieldset class="form-fieldset">
+        <legend class="form-legend">Informations de l'artiste</legend>
+
+        <div class="form-group">
+            {{ form_label(form.name) }}
+            {{ form_widget(form.name) }}
+            {{ form_errors(form.name) }}
+        </div>
+
+        <div class="form-group">
+            {{ form_label(form.description) }}
+            {{ form_widget(form.description) }}
+            {{ form_errors(form.description) }}
+        </div>
+    </fieldset>
+
+    <fieldset class="form-fieldset">
+        <legend class="form-legend">Détails de l'artiste</legend>
+
+        <div class="form-group">
+            {{ form_label(form.instruments) }}
+            {{ form_widget(form.instruments) }}
+            {{ form_errors(form.instruments) }}
+        </div>
+
+        <div class="form-group">
+            {{ form_label(form.photo) }}
+            {{ form_widget(form.photo) }}
+            {{ form_errors(form.photo) }}
+        </div>
+    </fieldset>
+</div>
+
+{{ form_widget(form._token) }}
+
+<fieldset class="form-fieldset actions">
+    <div class="app-grid two">
+        {% if artist is defined %}
+            <div class="app-grid two">
+                <a href="{{ path('app_back_office_biography_home') }}" class="app-button outline">
+                    {{ ux_icon('ph:skip-back-fill', {'class': 'app-icon'}) }}
+                    Retour
+                </a>
+                <a href="{{ path('app_back_office_biography_artist_delete', {'slug': artist.slug}) }}" class="app-button bg-danger" onclick="return confirm('Supprimer cet Artiste ?')">
+                    {{ ux_icon('tabler:trash', {'class': 'app-icon'}) }}
+                    Supprimer
+                </a>
+            </div>
+        {% else %}
+            <a href="{{ path('app_back_office_biography_home') }}" class="app-button outline">
+                {{ ux_icon('ph:skip-back-fill', {'class': 'app-icon'}) }}
+                Retour
+            </a>
+        {% endif %}
+        <button type="submit" class="form-submit app-button cta">Enregistrer</button>
+    </div>
+</fieldset>
+{{ form_end(form, {'render_rest': false}) }}
